@@ -1,3 +1,9 @@
+---
+title: CLAUDE
+type: note
+permalink: ai-memory/000-meta/claude
+---
+
 # AI Knowledge Base Schema
 
 ## Identity

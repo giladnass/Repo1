@@ -3,10 +3,10 @@
   "autoCommitMessage": "vault backup: {{date}}",
   "commitMessageScript": "",
   "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
-  "autoSaveInterval": 0,
+  "autoSaveInterval": 3,
   "autoPushInterval": 0,
-  "autoPullInterval": 0,
-  "autoPullOnBoot": false,
+  "autoPullInterval": 10,
+  "autoPullOnBoot": true,
   "autoCommitOnlyStaged": false,
   "disablePush": false,
   "pullBeforePush": true,
@@ -19,9 +19,9 @@
   "syncMethod": "merge",
   "mergeStrategy": "none",
   "customMessageOnAutoBackup": false,
-  "autoBackupAfterFileChange": false,
+  "autoBackupAfterFileChange": true,
   "treeStructure": false,
-  "refreshSourceControl": true,
+  "refreshSourceControl": false,
   "basePath": "/Users/giladnass/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/AI-Memory",
   "differentIntervalCommitAndPush": false,
   "changedFilesInStatusBar": false,
@@ -38,7 +38,7 @@
   "hunks": {
     "showSigns": false,
     "hunkCommands": false,
-    "statusBar": "disabled"
+    "statusBar": "colored"
   },
   "lineAuthor": {
     "show": false,
