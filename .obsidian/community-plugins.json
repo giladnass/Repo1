@@ -1,3 +1,6 @@
 [
-  "obsidian-local-rest-api"
+  "obsidian-local-rest-api",
+  "calendar",
+  "dataview",
+  "obsidian-git"
 ]

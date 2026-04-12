@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-04-12.md",
+                "file": "Sources/wiki-session-knowledge-ingestion-pipeline.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-12"
+              "title": "wiki-session-knowledge-ingestion-pipeline"
             }
           }
         ]
@@ -51,9 +51,9 @@
           "state": {
             "query": "",
             "matchingCase": false,
-            "explainSearch": false,
+            "explainSearch": true,
             "collapseAll": false,
-            "extraContext": false,
+            "extraContext": true,
             "sortOrder": "alphabetical"
           },
           "icon": "lucide-search",
@@ -100,7 +100,7 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "994637a22132d26f",
