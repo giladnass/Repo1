@@ -196,8 +196,8 @@
             "state": {
               "type": "smart-connections-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "smart-connections-view"
+              "icon": "smart-connections",
+              "title": "Connections"
             }
           },
           {
@@ -225,13 +225,19 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-connections:Smart Lookup: Open lookup view": false,
+      "templater-obsidian:Templater": false,
+      "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "07c5bba6c9c89f08",
+  "active": "31b6d1b755f81b22",
   "lastOpenFiles": [
-    "Sources/wiki-session-knowledge-ingestion-pipeline.md",
     "2026-04-12.md",
+    "Sources/wiki-session-knowledge-ingestion-pipeline.md",
     "Templates/weekly-review.md",
     "Templates/wiki-page.md",
     "Templates/source-note.md",
