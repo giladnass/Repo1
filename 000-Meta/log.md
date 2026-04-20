@@ -53,3 +53,31 @@ Researched and documented: format conversion tools by type (PDF/Office/EPUB/audi
 Output: `Sources/wiki-session-knowledge-ingestion-pipeline.md`
 
 Decisions made: D-001 (convert to MD first), D-007 (processing location strategy).
+
+---
+
+## 2026-04-20 -- Phase 1: Context Ingestion (Claude Code, continued)
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Ingested full infrastructure context from Gilad
+- Populated Memory/profile.md (working style, communication rules, stack philosophy)
+- Populated Memory/tool-configs.md (full tool inventory: MCP, claude.ai integrations, Netcup services, cloud LLMs)
+- Created Wiki/openclaw-aurora.md
+- Created Wiki/netcup-server.md
+- Created 000-Meta/known-issues.md (KI-001 through KI-004)
+- Updated CLAUDE.md (added no-em-dash rule)
+- Finalized D-006 (MCP contract: Draft to Active)
+- Updated MEMORY.md, index.md, decisions.md, handoff.md
+
+### Key Findings
+
+- basic-memory satisfies D-006. MCP is fully operational.
+- OpenClaw KI-001 root cause is KI-004 (16k minimum context vs. qwen2.5:1.5b optimal 2048).
+- Codex vault (OpenClaw) and AI-Memory are separate vaults -- no current integration.
+- No GPU on Netcup -- SAM visual extraction is CPU-only.
+- Zapier + Google Drive already connected to claude.ai -- Phase 2 automation simpler than planned.
+- Strategic opportunity: Aurora + basic-memory MCP = always-on ingestion agent.

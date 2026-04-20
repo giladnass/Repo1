@@ -25,6 +25,8 @@ At the start of EVERY session, read these files in order:
 - The wiki is a persistent, compounding artifact — NEVER delete without cause
 - YOU maintain the wiki — summarize, cross-reference, file, and bookkeep
 - File good answers back into the wiki as new pages
+- **No em dashes** in any output — use regular hyphens or restructure the sentence
+- Full schema and decisions: [[000-Meta/decisions]]
 
 ## Operations
 

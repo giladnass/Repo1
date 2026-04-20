@@ -6,71 +6,62 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-20 — Claude Code, session: Phase 0 foundation build*
+*Last updated: 2026-04-20 -- Claude Code, Phase 1 context ingestion*
 
 ---
 
 ## Who This Vault Belongs To
 
-- **Owner:** Gilad
+- **Owner:** Gilad (Senior Product Marketing Manager, Kfar Saba, Israel)
 - **Primary interface:** Obsidian on Mac, synced via iCloud + GitHub (`giladnass/Repo1`)
-- **AI tools with access:** Claude, Claude Code, Gemini (others — see [[Memory/tool-configs]])
+- **AI tools with access:** Claude, Claude Code, Gemini, NotebookLM, Aurora (via OpenClaw)
+- **Full tool inventory:** [[Memory/tool-configs]]
+- **Communication rule:** No em dashes in any AI output
 
 ## Current System State
 
-- Vault is live and cloned to GitHub: `giladnass/Repo1`
-- Development branch: `claude/caveman-lite-vrjM3`
-- MCP access layer: present but details not yet documented (see [[Memory/tool-configs]])
-- **Phase 0 complete** — schema locked, templates populated, 4 wiki pages created, build plan written
+- Vault is live on GitHub: `giladnass/Repo1`, branch `claude/caveman-lite-vrjM3`
+- MCP access layer: basic-memory at `https://memory.giladn.com/mcp/` (token in tool-configs)
+- **Phase 0 complete** -- schema locked, templates populated, 4 wiki pages, build plan written
+- **Phase 1 complete** -- MCP verified, tool inventory documented, infrastructure documented
+- D-006 (MCP data contract) finalized: Active
 
 ## Active Projects
 
-1. **AI Memory System** — this vault. Build plan: [[Working-Context/knowledge-base-build-plan]]
-2. **OpenClaw/Aurora** — agentic infrastructure project. Shares infrastructure with this vault. *Not yet documented — requires input.*
-3. **Shared cross-tool memory pool** — accessible by multiple AI tools. *Not yet documented.*
+1. **AI Memory System** -- this vault. Build plan: [[Working-Context/knowledge-base-build-plan]]
+2. **OpenClaw/Aurora** -- always-on AI agent on Netcup. See [[Wiki/openclaw-aurora]]
+3. **Obsidian Codex vault** -- separate vault used by OpenClaw, synced from Google Drive to `/home/openclaw/obsidian/codex-vault` on Netcup
 
-## Known Infrastructure
+## Infrastructure
 
-- **Mac:** conversion pipelines (PDF via `marker`, Office/EPUB via `pandoc`)
-- **Netcup server:** audio/video processing (`faster-whisper`, SAM). Details TBD.
-- **Git sync:** iCloud → GitHub → this Linux environment
-
-## Schema (Quick Reference)
-
-All files must have: `title`, `type`, `tags`, `created`
-
-Type vocabulary: `wiki | source | decision | session-log | weekly-review | working-context | template | note`
-
-Tag namespacing: structural tags use `type/*`, `source-type/*` prefixes; domain tags are free-form lowercase-kebab.
-
-File naming: `lowercase-kebab-case.md`. Date prefix only for daily notes/session logs.
-
-Full schema: [[000-Meta/decisions]] D-003.
+- **Mac (M4, 48GB):** interactive work, conversion pipelines (marker, pandoc)
+- **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** Ollama, OpenClaw, AnythingLLM, Open WebUI, IPTVX. Details: [[Wiki/netcup-server]]
+- **Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
 
 ## Key Decisions Made
 
-See [[000-Meta/decisions]] for full log. 8 decisions as of 2026-04-20:
+All 8 decisions in [[000-Meta/decisions]] are Active as of 2026-04-20. D-006 was Draft; now Active after MCP verification.
+
+Quick ref:
 - D-001: Convert to MD before ingestion
 - D-002: Sources are immutable
-- D-003: Frontmatter schema locked
-- D-004: Tag namespacing convention
-- D-005: File naming convention
-- D-006: MCP data contract (Draft)
-- D-007: Processing location strategy
-- D-008: LLM model selection (Haiku/Sonnet/Opus by task)
+- D-003: Frontmatter schema (canonical)
+- D-004: Tag namespacing (`type/*`, `source-type/*` prefixes for structural tags)
+- D-005: File naming (lowercase-kebab, no date prefix for wiki pages)
+- D-006: MCP data contract -- satisfied by basic-memory
+- D-007: Processing location (Mac for conversion, Netcup for compute-heavy)
+- D-008: LLM model selection (Haiku for triage, Sonnet for synthesis, Opus for vision)
 
-## Open Questions (Requiring Human Input)
+## Known Issues
 
-1. Which MCP server is running and what tools/endpoints does it expose?
-2. What AI tools are currently connected? (to populate [[Memory/tool-configs]])
-3. What is OpenClaw/Aurora? What infrastructure does it share with this vault?
-4. What are the "known unresolved problems" referenced in the mission brief?
-5. What is the Netcup server setup (OS, specs, access method, what's installed)?
-6. What is Gilad's profile? (to populate [[Memory/profile]])
+See [[000-Meta/known-issues]] for 4 documented OpenClaw issues. Key architectural constraint: OpenClaw's 16k minimum context enforcement conflicts with `qwen2.5:1.5b` optimal context of 2048, causing all Aurora sessions to fall back to Gemini.
 
 ## What the Next Session Should Do
 
-1. Human provides answers to the 6 open questions above
-2. Populate [[Memory/tool-configs]] with connected tools and their capabilities
-3. Begin Phase 1: verify MCP data contract (D-006) against real server
-4. Then Phase 2: install and test conversion pipelines (marker, pandoc, faster-whisper)
+1. Begin Phase 2: install and test conversion pipelines
+   - `marker` on Mac for PDFs
+   - `pandoc` on Mac for DOCX/EPUB
+   - `faster-whisper` on Netcup for audio/video
+   - `linkding` for URL capture
+2. Consider: configure OpenClaw with basic-memory MCP endpoint (strategic opportunity)
+3. Consider: replace `qwen2.5:1.5b` with `llama3.2:latest` as OpenClaw primary to resolve KI-001/KI-004

@@ -97,7 +97,7 @@ Valid examples: `ingestion`, `llm`, `tools`, `video-processing`, `source-type/pd
 
 ## D-006 — MCP Data Contract (Minimum Viable)
 **Date:** 2026-04-20
-**Status:** Draft — pending verification against actual MCP server
+**Status:** Active (verified 2026-04-20)
 
 Any AI tool interacting with this vault must support:
 - **Read** — retrieve a page by permalink or filename
@@ -108,7 +108,9 @@ Any AI tool interacting with this vault must support:
 
 Tools that cannot meet this contract may participate read-only via direct file access (vault is plain Markdown on the filesystem, synced via Git).
 
-**Status note:** Marked Draft because the actual MCP server configuration has not been fully documented. See [[Memory/tool-configs]] and open questions in [[Working-Context/knowledge-base-build-plan]].
+**Verification (2026-04-20):** basic-memory is confirmed as the MCP server. It exposes `write_note`, `read_note`, `edit_note`, `delete_note`, `search_notes`, `search` (semantic), `list_directory`, `move_note`, `recent_activity`, `build_context`, and more. All contract requirements are satisfied. D-006 is now Active.
+
+See [[Memory/tool-configs]] for the full tool inventory.
 
 ---
 

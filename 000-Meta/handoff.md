@@ -8,52 +8,59 @@ permalink: ai-memory/000-meta/handoff
 
 ---
 
-## 2026-04-20 — Phase 0 Complete
+## 2026-04-20 -- Phases 0 and 1 Complete
 
 ### What Was Accomplished
 
-Phase 0 (Foundation) of the knowledge base build plan is complete. The vault went from a skeleton with one source document to a functional base:
+Both Phase 0 (Foundation) and Phase 1 (MCP Access Layer + Infrastructure Documentation) are complete.
 
-- Schema locked: 8 decisions covering frontmatter, tags, file naming, source/wiki contract, MCP contract, processing location, and model selection
-- All 4 templates populated with actual content
-- 4 wiki pages created covering the full ingestion pipeline (overview, architecture, tools, visual preservation)
-- 6-phase build plan written and filed
-- MEMORY.md, index.md, decisions.md, log.md all populated
+**Phase 0 (earlier this session):**
+- Schema locked (8 decisions)
+- All templates populated
+- 4 wiki pages from prior source doc
+- Build plan written
+
+**Phase 1 (this continuation):**
+- Memory/profile.md and Memory/tool-configs.md populated
+- Wiki pages created for OpenClaw/Aurora and Netcup server
+- Known issues documented (KI-001 through KI-004)
+- D-006 (MCP data contract) finalized: Active
+- CLAUDE.md updated with no-em-dash rule
 
 ### State of the Vault
 
-The schema is locked and should not be changed without a documented decision entry in decisions.md explaining the migration path. The templates are usable as-is. The wiki has 4 pages covering the ingestion pipeline architecture in full detail.
+The vault is now a functional knowledge base. Schema is locked, infrastructure is documented, known issues are tracked, and the MCP access layer is verified. 6 wiki pages, 1 source, 1 working context document, all meta files populated.
 
-### What Needs Human Input Before Next Session Can Proceed
+### Security Action Required
 
-These 6 gaps must be filled before Phase 1 (MCP Access Layer) can begin:
+Check whether `giladnass/Repo1` is a public or private GitHub repository. `Memory/tool-configs.md` contains a note about the basic-memory MCP endpoint URL containing an auth token. If the repo is public, that token should not be committed -- move it to a private file or environment variable.
 
-1. **MCP server** — which server is running (basic-memory? custom?), version, what tools/endpoints it exposes
-2. **Connected tools** — what AI tools are actually connected to the vault? (populate Memory/tool-configs.md)
-3. **OpenClaw/Aurora** — what is it? what infrastructure does it share with this vault?
-4. **Known unresolved problems** — the mission brief referenced these; where are they documented?
-5. **Netcup server** — OS, specs, access method, what's currently installed
-6. **User profile** — to populate Memory/profile.md
+### What to Do Next (Phase 2)
 
-### Recommended Next Steps
+Install and test conversion pipelines:
 
-1. Human fills in the 6 gaps above (directly in chat or by populating the relevant files)
-2. Populate `Memory/tool-configs.md` with each connected tool and its read/write capabilities
-3. Begin Phase 1: verify MCP data contract (D-006) against the actual server
-4. Then Phase 2: install and test conversion pipelines on Mac and Netcup
+**On Mac:**
+1. `pip install marker` -- test on a sample PDF
+2. `pandoc --version` -- likely already installed; test DOCX conversion
+3. Set up a watch folder with `fswatch` or via Zapier trigger (Zapier already connected to claude.ai)
 
-### Deferred Tasks (from source doc)
+**On Netcup:**
+1. `pip install faster-whisper` -- test on a short audio file
+2. Queue first audio/video batch overnight
+3. Consider: install `linkding` as URL capture point
 
-- Evaluate `docling` as unified conversion tool
-- Try `video2slides` on a sample lecture video
-- Build slide-transcript sync prototype
-- Set up `linkding` for URL/bookmark capture
-- Design URL pipeline (ArchiveBox/Firecrawl + Claude API triage)
+**OpenClaw opportunity (low-effort, high-value):**
+- Configure OpenClaw with the basic-memory MCP endpoint so Aurora can write to this vault
+- This would close the mobile/async ingestion gap without any additional infrastructure
+
+**OpenClaw KI-001 fix:**
+- Try switching primary model to `llama3.2:latest` (already installed on Netcup, larger context window)
+- This may resolve the Gemini fallback without waiting for OpenClaw to expose a configurable minimum context
 
 ### What to Read First Next Session
 
 Per CLAUDE.md session start protocol:
-1. `000-Meta/MEMORY.md` ← current persistent context
-2. `000-Meta/index.md` ← what's in the vault
-3. This handoff file ← what happened last session
-4. `Working-Context/knowledge-base-build-plan.md` ← the full plan
+1. `000-Meta/MEMORY.md`
+2. `000-Meta/index.md`
+3. This handoff file
+4. `Working-Context/knowledge-base-build-plan.md`

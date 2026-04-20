@@ -18,6 +18,8 @@ permalink: ai-memory/000-meta/index
 | [[Wiki/ingestion-pipeline]] | Content ingestion architecture and automation | active | 2026-04-20 |
 | [[Wiki/format-conversion-tools]] | Tool inventory by format type | active | 2026-04-20 |
 | [[Wiki/visual-data-preservation]] | Strategy for preserving visual content | active | 2026-04-20 |
+| [[Wiki/openclaw-aurora]] | OpenClaw agent gateway and Aurora persona | active | 2026-04-20 |
+| [[Wiki/netcup-server]] | Netcup server infrastructure and services | active | 2026-04-20 |
 
 ## Sources
 
@@ -29,11 +31,23 @@ permalink: ai-memory/000-meta/index
 
 | File | Topic | Status |
 |---|---|---|
-| [[Working-Context/knowledge-base-build-plan]] | 6-phase plan for building this system | active |
+| [[Working-Context/knowledge-base-build-plan]] | 6-phase implementation plan | active |
 
 ## Decisions Log
 
-[[000-Meta/decisions]] — 8 decisions recorded as of 2026-04-20.
+[[000-Meta/decisions]] -- 8 decisions, all Active as of 2026-04-20.
+
+## Known Issues
+
+[[000-Meta/known-issues]] -- 4 documented OpenClaw issues (KI-001 through KI-004).
+
+## Memory Files
+
+| File | Content |
+|---|---|
+| [[Memory/profile]] | Gilad's profile, working style, communication rules |
+| [[Memory/tool-configs]] | Full AI tool inventory and MCP configuration |
+| [[Memory/preferences]] | (empty -- populate as preferences emerge) |
 
 ## Templates
 
