@@ -78,7 +78,8 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 
 | Service | Access | Notes |
 |---|---|---|
-| **linkding** | `http://152.53.244.42:9090` | Bookmark manager; browser extension installed. **Known bug:** "copy" button for API token in Settings > Integrations doesn't always copy -- select-all manually instead. |
+| **linkding** | `http://152.53.244.42:9090` | Bookmark manager; browser extension installed. Configured with Singlefile for full-page HTML archiving at capture time. **Known bug:** "copy" button for API token in Settings > Integrations doesn't always copy -- select-all manually instead. |
+| **Singlefile** | Browser extension | Captures bookmarked pages as single self-contained HTML files. Integrated with linkding via config at https://linkding.link/archiving/ |
 
 | Provider | Model | Used By |
 |---|---|---|

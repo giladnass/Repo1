@@ -163,13 +163,13 @@ Claude Code is already the best solution here. This session is proof of concept:
 
 Handle the existing bookmark backlog (estimated: thousands of URLs).
 
-- [ ] Deploy linkding (if not already done in Phase 2)
-- [ ] Evaluate and deploy ArchiveBox or Firecrawl for archival
-- [ ] Build Claude API batch triage job: ingest-worthy? → full / summary / index
+- [x] Deploy linkding (done in Phase 2)
+- [x] Page archival: Singlefile browser extension captures full HTML at save time -- ArchiveBox and Firecrawl are not needed
+- [ ] Build linkding export -> ingest pipeline: pull archived HTML from linkding API, convert to MD via `ingest.py` (HTML already supported), feed to LLM triage
+- [ ] Build Claude API batch triage job: ingest-worthy? -> full / summary / index
 - [ ] Process high-value URLs first (manually curated seed set)
-- [ ] Automate ongoing capture from new browsing
 
-**Tools under evaluation:** linkding, Omnivore, Raindrop.io (managed), ArchiveBox, Firecrawl
+**Archival decision:** Singlefile + linkding replaces ArchiveBox/Firecrawl. HTML captured by Singlefile is already handled by `Scripts/ingest.py` (pandoc converts HTML to MD). The remaining gap is pulling archived HTML out of linkding via its REST API and routing it into the ingestion queue.
 
 ---
 
