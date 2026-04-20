@@ -74,7 +74,11 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 
 ---
 
-## Cloud LLM Providers (Active)
+## Self-Hosted (Netcup)
+
+| Service | Access | Notes |
+|---|---|---|
+| **linkding** | `http://152.53.244.42:9090` | Bookmark manager; browser extension installed. **Known bug:** "copy" button for API token in Settings > Integrations doesn't always copy -- select-all manually instead. |
 
 | Provider | Model | Used By |
 |---|---|---|
