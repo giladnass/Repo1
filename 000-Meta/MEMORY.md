@@ -56,12 +56,20 @@ Quick ref:
 
 See [[000-Meta/known-issues]] for 4 documented OpenClaw issues. Key architectural constraint: OpenClaw's 16k minimum context enforcement conflicts with `qwen2.5:1.5b` optimal context of 2048, causing all Aurora sessions to fall back to Gemini.
 
+## Phase 2 Status (as of 2026-04-20)
+
+- Marker installed but suspended (Apple Silicon MPS bug, KI-005)
+- pymupdf4llm adopted as primary PDF converter (D-009)
+- Pandoc installed and working
+- `Scripts/ingest.py` written -- handles PDF (pymupdf4llm) + DOCX/EPUB/PPTX (pandoc)
+- `Scripts/watch.sh` written -- fswatch watcher for `~/AI-Ingestion/01-source/`
+- **13 PDFs pending conversion** -- run `python3 Scripts/ingest.py` on Mac to process them
+
 ## What the Next Session Should Do
 
-1. Begin Phase 2: install and test conversion pipelines
-   - `marker` on Mac for PDFs
-   - `pandoc` on Mac for DOCX/EPUB
-   - `faster-whisper` on Netcup for audio/video
-   - `linkding` for URL capture
-2. Consider: configure OpenClaw with basic-memory MCP endpoint (strategic opportunity)
-3. Consider: replace `qwen2.5:1.5b` with `llama3.2:latest` as OpenClaw primary to resolve KI-001/KI-004
+1. **Run the 13-PDF batch:** `pip install pymupdf4llm && python3 ~/path/to/Scripts/ingest.py`
+2. **Start watch.sh** for ongoing automation: `brew install fswatch && ./Scripts/watch.sh`
+3. **Install faster-whisper on Netcup** for audio/video transcription
+4. **Set up linkding** for URL capture
+5. Consider: configure OpenClaw with basic-memory MCP endpoint (strategic opportunity)
+6. Consider: replace `qwen2.5:1.5b` with `llama3.2:latest` as OpenClaw primary (resolves KI-001/KI-004)

@@ -49,6 +49,13 @@ permalink: ai-memory/000-meta/index
 | [[Memory/tool-configs]] | Full AI tool inventory and MCP configuration |
 | [[Memory/preferences]] | (empty -- populate as preferences emerge) |
 
+## Scripts
+
+| File | Purpose | Status |
+|---|---|---|
+| `Scripts/ingest.py` | Batch/single-file PDF+doc converter (pymupdf4llm + pandoc) | Active |
+| `Scripts/watch.sh` | fswatch watcher -- triggers ingest.py on new files in source folder | Active |
+
 ## Templates
 
 | Template | Use For |

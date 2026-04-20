@@ -52,9 +52,25 @@ Documented constraints, not assigned tasks. Treat as context for design decision
 
 **Related:** [[Wiki/openclaw-aurora]]
 
----
+## KI-005 -- Marker PDF Converter: Apple Silicon MPS Bug
 
-## KI-004 -- OpenClaw 16k Minimum Context vs. qwen2.5:1.5b Optimal Context
+**Status:** Resolved by switching to pymupdf4llm (see D-009)
+**System:** Mac (M4) / Marker / surya
+
+**Symptom:** Marker crashed on PDFs during batch conversion with:
+```
+torch.AcceleratorError: index 8192 is out of bounds: 2, range 0 to 4560
+```
+Specifically in `surya/common/surya/encoder/__init__.py`, `unpack_qkv_with_mask`.
+The CPU fallback (`--disable_multiprocessing`) was attempted but was too slow to be practical (~107s/PDF on GPU; CPU-only would be 5-10x slower for complex PDFs).
+
+**Root cause:** Bug in the surya library's MPS (Metal Performance Shaders) backend for Apple Silicon. Triggered by PDFs that generate sequences exceeding an internal max length. Not a Marker configuration issue -- a surya dependency bug.
+
+**Resolution:** Switched primary PDF converter to pymupdf4llm (Decision D-009). Marker remains installed for potential future use once surya fixes the MPS bug, or pending docling evaluation.
+
+**Related:** D-009, [[Wiki/format-conversion-tools]]
+
+---
 
 **Status:** Active, architectural tension
 **System:** OpenClaw / Ollama

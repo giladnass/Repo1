@@ -129,6 +129,23 @@ See [[Memory/tool-configs]] for the full tool inventory.
 
 ---
 
+## D-009 -- Primary PDF Converter: pymupdf4llm (replaces Marker)
+**Date:** 2026-04-20
+**Status:** Active
+**Supersedes:** Marker as primary PDF converter
+
+`pymupdf4llm` replaces `marker` as the primary PDF-to-Markdown converter.
+
+**Why Marker was dropped:** Marker's dependency `surya` has an Apple Silicon MPS bug that crashes on PDFs generating long sequences (`torch.AcceleratorError: index 8192 is out of bounds`). CPU fallback is too slow to be practical. See KI-005 in [[000-Meta/known-issues]].
+
+**Why pymupdf4llm:** No ML models, no MPS dependency, runs fast on any hardware. Good quality for text-based PDFs. Limitation: does not handle visually complex PDFs (charts, figures) as well -- addressed by the visual extraction pipeline for high-value documents when needed.
+
+**Future:** Evaluate `docling` (IBM) as potential unified replacement. Marker remains installed for retry when surya fixes the MPS bug.
+
+**Script:** `Scripts/ingest.py`
+
+---
+
 ## D-008 — LLM Model Selection Strategy
 **Date:** 2026-04-20
 **Status:** Active

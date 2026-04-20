@@ -15,12 +15,15 @@ Tool inventory for converting source material of each format into Markdown befor
 
 ## PDFs
 
-| Use Case | Tool | Notes |
-|---|---|---|
-| General / complex layouts | `marker` | ML-based; handles tables and figures well |
-| Simple PDFs | `pymupdf4llm` | Fast, good quality |
-| Academic papers with equations | `nougat` (Meta) | Preserves LaTeX |
-| **Avoid** | pdftotext, PyPDF2 | Mangle formatting |
+| Use Case | Tool | Status | Notes |
+|---|---|---|---|
+| **Primary (all PDFs)** | `pymupdf4llm` | Active | Fast, no ML models, no Apple Silicon GPU issues |
+| Complex layouts / figures | `marker` | Suspended | Apple Silicon MPS bug (KI-005); reinstated when surya fixes it |
+| Academic papers with equations | `nougat` (Meta) | Not yet evaluated | Preserves LaTeX |
+| Unified visual+text | `docling` (IBM) | To evaluate | May replace both marker and pymupdf4llm |
+| **Avoid** | pdftotext, PyPDF2 | -- | Mangle formatting |
+
+**Note on Marker:** Marker was the original primary choice but crashes on Apple Silicon due to a surya MPS bug (Decision D-009, KI-005). pymupdf4llm does not handle charts and embedded figures as well but is reliable and fast for text-based PDFs, which covers the majority of use cases.
 
 ## Office Files (DOCX, PPTX, XLSX)
 
@@ -68,6 +71,11 @@ Tool inventory for converting source material of each format into Markdown befor
 | Video → transcript MD | ~0.01% | 1 GB video → ~100 KB MD |
 
 Even a terabyte of source material produces a text library well under 10 GB. **Processing time is the bottleneck, not storage.**
+
+## Scripts
+
+- `Scripts/ingest.py` -- batch and single-file converter (PDF via pymupdf4llm, others via pandoc)
+- `Scripts/watch.sh` -- fswatch watcher that triggers ingest.py on new files
 
 ## Processing Location
 

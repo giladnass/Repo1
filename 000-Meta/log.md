@@ -81,3 +81,27 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - No GPU on Netcup -- SAM visual extraction is CPU-only.
 - Zapier + Google Drive already connected to claude.ai -- Phase 2 automation simpler than planned.
 - Strategic opportunity: Aurora + basic-memory MCP = always-on ingestion agent.
+
+---
+
+## 2026-04-20 -- Phase 2: Conversion Pipeline (Claude Code, continued)
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Diagnosed Marker instability: surya Apple Silicon MPS bug (KI-005); CPU fallback too slow
+- Decision D-009: switched primary PDF converter to pymupdf4llm
+- Added KI-005 to known-issues.md
+- Written Scripts/ingest.py (PDF via pymupdf4llm, DOCX/EPUB/PPTX via pandoc, batch + single-file modes)
+- Written Scripts/watch.sh (fswatch watcher for source folder)
+- Updated format-conversion-tools.md with corrected tool status
+- Updated decisions.md, known-issues.md, MEMORY.md, index.md
+
+### Pending
+
+- 13 PDFs in queue on Mac -- need `pip install pymupdf4llm && python3 Scripts/ingest.py`
+- Pandoc conversion untested (installed but no test run documented)
+- faster-whisper on Netcup not yet set up
+- linkding not yet set up

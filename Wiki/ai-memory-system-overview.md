@@ -52,6 +52,7 @@ Obsidian (human)  +  Git (versioned, synced across devices)
 | `Templates/` | Frontmatter + structure templates for each note type |
 | `Wiki/` | Processed, synthesized knowledge pages |
 | `Working-Context/` | Active project documents (living, not archived) |
+| `Scripts/` | Runnable automation scripts (ingest, watch folder, future pipelines) |
 
 ## Related Systems
 
