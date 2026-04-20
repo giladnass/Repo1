@@ -6,9 +6,9 @@ Takes converted Markdown files (output from ingest.py or transcribe.py) and
 generates structured source notes using Claude.
 
 Pipeline per file:
-    1. Haiku  -- triage: extract tags, routing decision, infer title
-    2. Sonnet -- summarize: 2-5 sentence summary, key findings, questions raised
-    3. Sonnet -- cross-reference: find related wiki pages, suggest wikilinks
+    1. triage model  -- extract tags, routing decision, infer title
+    2. summary model -- 2-5 sentence summary, key findings, questions raised
+    3. summary model -- cross-reference: find related wiki pages, suggest wikilinks
 
 Output:
     Sources/<stem>.md  -- source note with D-003 frontmatter
@@ -19,15 +19,32 @@ Routing:
     summary -- useful but redundant with existing wiki -> source note only
     index   -- low value, reference material -> entry in Sources/_index.md only
 
+--- Model config (change these to switch providers or models) ---
+
+    DEFAULT_TRIAGE_MODEL   = "ollama/qwen3:30b-a3b"
+    DEFAULT_SUMMARY_MODEL  = "ollama/qwen3:32b"
+
+LiteLLM model string format:
+    Ollama local     ollama/<name>:<tag>         e.g. ollama/qwen3:32b
+    OpenRouter       openrouter/<org>/<model>    e.g. openrouter/google/gemini-2.0-flash-001
+    Anthropic        claude-<model>              e.g. claude-sonnet-4-6
+
+Provider API keys (only needed for the provider you are using):
+    Ollama           no key required
+    OpenRouter       export OPENROUTER_API_KEY=...
+    Anthropic        export ANTHROPIC_API_KEY=...
+
 Usage:
-    python process.py                          # batch all files in 02-converted/
-    python process.py --file path/to/stem.md   # single converted MD file
-    python process.py --source-type audio      # override source-type (default: pdf)
-    python process.py --vault /path/to/vault   # override vault path
+    python process.py                                       # batch all files in 02-converted/
+    python process.py --file path/to/stem.md               # single file
+    python process.py --source-type audio                  # override source-type (default: pdf)
+    python process.py --vault /path/to/vault               # override vault path
+    python process.py --triage-model ollama/llama4:scout   # override triage model
+    python process.py --summary-model ollama/qwen3:32b     # override summary model
+    python process.py --ollama-host http://localhost:11434  # override Ollama host
 
 Requirements:
-    pip install anthropic
-    export ANTHROPIC_API_KEY=...
+    pip install litellm
 """
 
 import argparse
@@ -38,13 +55,20 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-import anthropic
+import litellm
+
+litellm.telemetry = False  # opt out of LiteLLM usage stats
+
+# ---------------------------------------------------------------------------
+# Model config -- edit these two lines to switch providers or models
+# ---------------------------------------------------------------------------
+DEFAULT_TRIAGE_MODEL  = "ollama/qwen3:30b-a3b"  # fast, classification
+DEFAULT_SUMMARY_MODEL = "ollama/qwen3:32b"       # quality, summarization
+DEFAULT_OLLAMA_HOST   = "http://localhost:11434"
+# ---------------------------------------------------------------------------
 
 CONVERTED_DIR = Path.home() / "AI-Ingestion/02-converted"
 VAULT_DIR = Path("/Users/giladnass/Library/Mobile Documents/iCloud~md~obsidian/Documents/AI-Memory")
-
-HAIKU = "claude-haiku-4-5"
-SONNET = "claude-sonnet-4-6"
 
 MAX_CONTENT_CHARS = 60_000  # ~15K tokens
 
@@ -55,8 +79,24 @@ def log(msg: str):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
+def llm_call(model: str, system: str, user: str, max_tokens: int, ollama_host: str) -> str:
+    """Single LiteLLM call. Handles provider routing via model string prefix."""
+    kwargs: dict = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        "max_tokens": max_tokens,
+    }
+    if model.startswith("ollama/"):
+        kwargs["api_base"] = ollama_host
+    response = litellm.completion(**kwargs)
+    return response.choices[0].message.content or ""
+
+
 def extract_json(text: str) -> str:
-    """Pull the first JSON object or array from a string."""
+    """Pull the first JSON object or array out of a string."""
     start = min(
         (text.find(c) for c in ["{", "["] if text.find(c) != -1),
         default=-1,
@@ -101,8 +141,8 @@ def wiki_list_text(pages: list[dict]) -> str:
     return "\n".join(f"- [[Wiki/{p['slug']}]] -- {p['title']}" for p in pages)
 
 
-def triage(client: anthropic.Anthropic, content: str, stem: str) -> dict:
-    """Step 1 (Haiku): extract tags, routing, title."""
+def triage(content: str, stem: str, model: str, ollama_host: str) -> dict:
+    """Step 1: extract tags, routing decision, infer title."""
     system = (
         "You are a knowledge base curator. Analyze the document and return a JSON object with:\n"
         '- "title" (string): clear, concise title for this document (3-8 words)\n'
@@ -113,21 +153,12 @@ def triage(client: anthropic.Anthropic, content: str, stem: str) -> dict:
         '  "index" = low value, reference or boilerplate material only\n\n'
         "Return ONLY valid JSON. No markdown fences, no explanation."
     )
-
-    response = client.messages.create(
-        model=HAIKU,
-        max_tokens=256,
-        system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": f"Filename: {stem}\n\n{truncate(content)}"}],
-    )
-
-    raw = extract_json(response.content[0].text.strip())
+    raw = extract_json(llm_call(model, system, f"Filename: {stem}\n\n{truncate(content)}", 256, ollama_host))
     try:
         result = json.loads(raw)
     except json.JSONDecodeError:
         log(f"  triage JSON parse failed -- using defaults. Raw: {raw[:200]}")
         result = {}
-
     return {
         "title": result.get("title", stem.replace("-", " ").title()),
         "tags": result.get("tags", []),
@@ -135,8 +166,8 @@ def triage(client: anthropic.Anthropic, content: str, stem: str) -> dict:
     }
 
 
-def summarize(client: anthropic.Anthropic, content: str) -> dict:
-    """Step 2 (Sonnet): summary, key findings, questions raised."""
+def summarize(content: str, model: str, ollama_host: str) -> dict:
+    """Step 2: summary, key findings, questions raised."""
     system = (
         "You are a knowledge base curator. Analyze the document and return a JSON object with:\n"
         '- "summary" (string): 2-5 sentences capturing the document\'s main content and value\n'
@@ -144,21 +175,12 @@ def summarize(client: anthropic.Anthropic, content: str) -> dict:
         '- "questions_raised" (array of strings): 1-4 open questions or gaps the document surfaces\n\n'
         "Return ONLY valid JSON. No markdown fences, no explanation."
     )
-
-    response = client.messages.create(
-        model=SONNET,
-        max_tokens=1024,
-        system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": truncate(content)}],
-    )
-
-    raw = extract_json(response.content[0].text.strip())
+    raw = extract_json(llm_call(model, system, truncate(content), 1024, ollama_host))
     try:
         result = json.loads(raw)
     except json.JSONDecodeError:
         log(f"  summarize JSON parse failed. Raw: {raw[:200]}")
         result = {}
-
     return {
         "summary": result.get("summary", ""),
         "key_findings": result.get("key_findings", []),
@@ -166,11 +188,10 @@ def summarize(client: anthropic.Anthropic, content: str) -> dict:
     }
 
 
-def cross_reference(client: anthropic.Anthropic, content: str, wiki_pages: list[dict]) -> list[dict]:
-    """Step 3 (Sonnet): find related existing wiki pages."""
+def cross_reference(content: str, wiki_pages: list[dict], model: str, ollama_host: str) -> list[dict]:
+    """Step 3: find related existing wiki pages."""
     if not wiki_pages:
         return []
-
     system = (
         "You are a knowledge base curator. Given a document and a list of existing wiki pages, "
         "identify which pages are meaningfully related to the document.\n\n"
@@ -180,15 +201,7 @@ def cross_reference(client: anthropic.Anthropic, content: str, wiki_pages: list[
         '- "reason" (string): one sentence explaining the relationship\n\n'
         "Return [] if nothing is relevant. Return ONLY valid JSON. No markdown fences, no explanation."
     )
-
-    response = client.messages.create(
-        model=SONNET,
-        max_tokens=512,
-        system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": truncate(content)}],
-    )
-
-    raw = extract_json(response.content[0].text.strip())
+    raw = extract_json(llm_call(model, system, truncate(content), 512, ollama_host))
     try:
         result = json.loads(raw)
         return [r for r in result if isinstance(r, dict) and "slug" in r and "reason" in r]
@@ -211,10 +224,8 @@ def build_source_note(
 ) -> str:
     title = triage_result["title"]
     tags = triage_result["tags"]
-
     all_tags = tags + [f"source-type/{source_type}", "status/processed"]
     tags_yaml = "[" + ", ".join(all_tags) + "]"
-
     processed_to_items = ", ".join(f'"[[Wiki/{r["slug"]}]]"' for r in refs)
     processed_to = f"[{processed_to_items}]"
 
@@ -295,7 +306,9 @@ def process_file(
     md_file: Path,
     vault: Path,
     source_type: str,
-    client: anthropic.Anthropic,
+    triage_model: str,
+    summary_model: str,
+    ollama_host: str,
     wiki_pages: list[dict],
     skip_existing: bool = True,
 ) -> str:
@@ -317,23 +330,23 @@ def process_file(
         return "error"
 
     try:
-        log("  1/3 triage (Haiku)...")
-        triage_result = triage(client, content, stem)
+        log(f"  1/3 triage ({triage_model})...")
+        triage_result = triage(content, stem, triage_model, ollama_host)
         routing = triage_result["routing"]
         log(f"  routing={routing}  tags={triage_result['tags']}")
 
         if routing == "index":
             write_index_entry(sources_dir, stem, triage_result["title"], triage_result["tags"])
-            log(f"  -> indexed in Sources/_index.md")
+            log("  -> indexed in Sources/_index.md")
             return "indexed"
 
-        log("  2/3 summarize (Sonnet)...")
-        summary_result = summarize(client, content)
+        log(f"  2/3 summarize ({summary_model})...")
+        summary_result = summarize(content, summary_model, ollama_host)
 
         refs = []
         if routing == "full":
-            log("  3/3 cross-reference (Sonnet)...")
-            refs = cross_reference(client, content, wiki_pages)
+            log(f"  3/3 cross-reference ({summary_model})...")
+            refs = cross_reference(content, wiki_pages, summary_model, ollama_host)
             log(f"  related pages: {[r['slug'] for r in refs]}")
 
         note_text = build_source_note(stem, source_type, triage_result, summary_result, refs, routing)
@@ -353,9 +366,6 @@ def process_file(
             else:
                 log(f"  -> wiki stub skipped (already exists): {stub_path.name}")
 
-    except anthropic.APIError as exc:
-        log(f"ERROR API {stem}: {exc}")
-        return "error"
     except Exception as exc:
         log(f"ERROR {stem}: {exc}")
         return "error"
@@ -363,7 +373,14 @@ def process_file(
     return "processed"
 
 
-def process_batch(converted_dir: Path, vault: Path, source_type: str, client: anthropic.Anthropic):
+def process_batch(
+    converted_dir: Path,
+    vault: Path,
+    source_type: str,
+    triage_model: str,
+    summary_model: str,
+    ollama_host: str,
+):
     wiki_pages = load_wiki_pages(vault)
     log(f"Wiki pages loaded: {len(wiki_pages)}")
 
@@ -381,7 +398,11 @@ def process_batch(converted_dir: Path, vault: Path, source_type: str, client: an
     counts = {"processed": 0, "indexed": 0, "skipped": 0, "error": 0}
 
     for md_file in md_files:
-        result = process_file(md_file, vault, source_type, client, wiki_pages)
+        result = process_file(
+            md_file, vault, source_type,
+            triage_model, summary_model, ollama_host,
+            wiki_pages,
+        )
         counts[result] += 1
 
     log(
@@ -402,16 +423,16 @@ def main():
     )
     parser.add_argument("--vault", type=Path, default=VAULT_DIR,
                         help="Path to AI-Memory vault root")
+    parser.add_argument("--triage-model", default=DEFAULT_TRIAGE_MODEL,
+                        help=f"Model for triage step (default: {DEFAULT_TRIAGE_MODEL})")
+    parser.add_argument("--summary-model", default=DEFAULT_SUMMARY_MODEL,
+                        help=f"Model for summarize + cross-ref steps (default: {DEFAULT_SUMMARY_MODEL})")
+    parser.add_argument("--ollama-host", default=DEFAULT_OLLAMA_HOST,
+                        help=f"Ollama API base URL (default: {DEFAULT_OLLAMA_HOST})")
     parser.add_argument("--no-skip", action="store_true",
                         help="Reprocess files that already have source notes")
     args = parser.parse_args()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        log("ERROR: ANTHROPIC_API_KEY environment variable not set")
-        sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key)
     skip = not args.no_skip
 
     if args.file:
@@ -419,13 +440,20 @@ def main():
             log(f"File not found: {args.file}")
             sys.exit(1)
         wiki_pages = load_wiki_pages(args.vault)
-        result = process_file(args.file, args.vault, args.source_type, client, wiki_pages, skip)
+        result = process_file(
+            args.file, args.vault, args.source_type,
+            args.triage_model, args.summary_model, args.ollama_host,
+            wiki_pages, skip,
+        )
         sys.exit(0 if result != "error" else 1)
     else:
         if not args.source.exists():
             log(f"Converted directory not found: {args.source}")
             sys.exit(1)
-        process_batch(args.source, args.vault, args.source_type, client)
+        process_batch(
+            args.source, args.vault, args.source_type,
+            args.triage_model, args.summary_model, args.ollama_host,
+        )
 
 
 if __name__ == "__main__":
