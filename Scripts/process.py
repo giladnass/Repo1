@@ -95,6 +95,11 @@ def llm_call(model: str, system: str, user: str, max_tokens: int, ollama_host: s
     return response.choices[0].message.content or ""
 
 
+def strip_thinking(text: str) -> str:
+    """Remove <think>...</think> blocks emitted by reasoning models (Qwen3, DeepSeek-R1, etc.)."""
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+
+
 def extract_json(text: str) -> str:
     """Pull the first JSON object or array out of a string."""
     start = min(
@@ -153,7 +158,7 @@ def triage(content: str, stem: str, model: str, ollama_host: str) -> dict:
         '  "index" = low value, reference or boilerplate material only\n\n'
         "Return ONLY valid JSON. No markdown fences, no explanation."
     )
-    raw = extract_json(llm_call(model, system, f"Filename: {stem}\n\n{truncate(content)}", 256, ollama_host))
+    raw = extract_json(strip_thinking(llm_call(model, system, f"Filename: {stem}\n\n{truncate(content)}", 2048, ollama_host)))
     try:
         result = json.loads(raw)
     except json.JSONDecodeError:
@@ -175,7 +180,7 @@ def summarize(content: str, model: str, ollama_host: str) -> dict:
         '- "questions_raised" (array of strings): 1-4 open questions or gaps the document surfaces\n\n'
         "Return ONLY valid JSON. No markdown fences, no explanation."
     )
-    raw = extract_json(llm_call(model, system, truncate(content), 1024, ollama_host))
+    raw = extract_json(strip_thinking(llm_call(model, system, truncate(content), 2048, ollama_host)))
     try:
         result = json.loads(raw)
     except json.JSONDecodeError:
@@ -201,7 +206,7 @@ def cross_reference(content: str, wiki_pages: list[dict], model: str, ollama_hos
         '- "reason" (string): one sentence explaining the relationship\n\n'
         "Return [] if nothing is relevant. Return ONLY valid JSON. No markdown fences, no explanation."
     )
-    raw = extract_json(llm_call(model, system, truncate(content), 512, ollama_host))
+    raw = extract_json(strip_thinking(llm_call(model, system, truncate(content), 1024, ollama_host)))
     try:
         result = json.loads(raw)
         return [r for r in result if isinstance(r, dict) and "slug" in r and "reason" in r]
