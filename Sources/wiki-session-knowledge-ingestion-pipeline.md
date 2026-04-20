@@ -1,3 +1,15 @@
+---
+title: "Knowledge Ingestion Pipeline — Research & Decisions"
+type: source
+source-type: conversation
+tags: [ingestion, pipeline, tools, visual-data, video, ai-memory]
+created: 2026-04-12
+ingested: 2026-04-12
+status: processed
+origin: "Claude.ai brainstorming session, 2026-04-12"
+processed-to: "[[Wiki/ingestion-pipeline]], [[Wiki/format-conversion-tools]], [[Wiki/visual-data-preservation]]"
+---
+
 # Knowledge Ingestion Pipeline — Research & Decisions
 **Session date:** 2026-04-12  
 **Source:** Claude.ai brainstorming session  
