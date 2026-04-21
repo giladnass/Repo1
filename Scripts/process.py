@@ -98,7 +98,10 @@ def llm_call(model: str, system: str, user: str, max_tokens: int, ollama_host: s
     if model.startswith("ollama/") or model.startswith("openai/"):
         kwargs["api_base"] = ollama_host
     if model.startswith("openai/"):
-        kwargs["api_key"] = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
+        api_key = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            raise RuntimeError("OLLAMA_API_KEY not set. Run: export OLLAMA_API_KEY=<your-key>")
+        kwargs["api_key"] = api_key
     response = litellm.completion(**kwargs)
     return response.choices[0].message.content or ""
 
