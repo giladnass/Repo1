@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Claude.md",
+                "file": "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Claude"
+              "title": "למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?"
             }
           }
         ],
@@ -236,8 +236,10 @@
   },
   "active": "31b6d1b755f81b22",
   "lastOpenFiles": [
-    "000-Meta/CLAUDE.md",
     "Claude.md",
+    "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
+    "Clippings",
+    "000-Meta/CLAUDE.md",
     "Working-Context/knowledge-base-build-plan.md",
     "2026-04-12.md",
     "Sources/ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by (1)-rvlndsjRmM-wC24C1SqEv-Tg1I__e85y.md",
@@ -266,7 +268,6 @@
     "Wiki/Projects",
     "Wiki",
     "Templates",
-    "Inbox",
     "CLAUDE.md",
     "Test.md"
   ]
