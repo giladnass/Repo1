@@ -4,6 +4,52 @@ type: note
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-21 -- Phases 3-5 Complete, Ollama Cloud
+
+### What Was Accomplished
+
+**Phase 3 (LLM Processing Layer):**
+- Wrote `Scripts/process.py` with three-step pipeline: triage (tags, routing, title), summarization (summary, findings, questions), cross-referencing against existing wiki pages
+- Refactored to use LiteLLM so model and provider are runtime flags
+- Fixed Qwen3 reasoning model bug where thinking tokens consumed max_tokens and returned empty output
+- 13 PDF batch processed successfully overnight
+
+**Phase 4 (Session Automation):**
+- Wrote `Scripts/session_end.py` to accept free-form notes and structure into handoff + log + MEMORY update, then commit and push
+
+**Phase 5 (Linkding Integration):**
+- Wrote `Scripts/linkding_export.py` to fetch bookmarks from linkding API, download Singlefile HTML, convert via pandoc, drop into 02-converted for process.py
+
+**Infrastructure Evolution:**
+- Mac M4 48GB added as primary inference machine
+- Switched to Ollama Cloud (qwen3.5:cloud for triage, glm-5:cloud for summarization) to avoid Mac overheating
+- Processing time improved: 2.5 min/doc vs 11 min locally
+- Netcup role narrowed to transcription only
+
+### What to Do Next
+
+**Phase 6 (OpenClaw Integration):**
+1. Configure OpenClaw with basic-memory MCP endpoint so Aurora can write to vault from Telegram
+2. Test `llama3.2:latest` as OpenClaw primary model to resolve KI-001/KI-004 (Gemium fallback issue)
+
+**LINT Automation:**
+- Set up automated linting/validation for vault files
+
+**Linkding Batch:**
+- Run full bookmark export and processing through the pipeline
+
+**Transcription on Netcup:**
+- Install and test faster-whisper for audio/video transcription
+
+### What to Read First Next Session
+Per CLAUDE.md session start protocol:
+1. `000-Meta/MEMORY.md`
+2. `000-Meta/index.md`
+3. `000-Meta/handoff.md`
+4. `Working-Context/knowledge-base-build-plan.md`
+
+---
+
 # Handoff Notes
 
 ---

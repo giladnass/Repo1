@@ -105,3 +105,33 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - Pandoc conversion untested (installed but no test run documented)
 - faster-whisper on Netcup not yet set up
 - linkding not yet set up
+
+---
+
+## 2026-04-21 -- Phases 3-5 Complete, Ollama Cloud
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- Phase 3 complete: wrote process.py with three-step LLM pipeline (triage, summarization, cross-referencing)
+- Refactored process.py to use LiteLLM for runtime model/provider switching
+- Fixed Qwen3 reasoning model bug (thinking tokens consuming max_tokens)
+- Batch of 13 PDFs processed successfully overnight
+- Phase 4 complete: wrote session_end.py for automated session logging
+- Phase 5 complete: wrote linkding_export.py for bookmark ingestion
+- Mac M4 48GB established as primary inference machine
+- Switched to Ollama Cloud (qwen3.5:cloud for triage, glm-5:cloud for summarization)
+- Reduced processing time: 2.5 min/doc vs 11 min locally
+
+### Key Findings
+- Qwen3 reasoning models emit thinking tokens that count against max_tokens, requiring strip + higher limit
+- LiteLLM provides clean abstraction for swapping models without code changes
+- Cloud inference prevents Mac M4 overheating on batch jobs
+- Netcup role narrowed to transcription only; inference moved to Mac + cloud
+
+### Pending
+- Phase 6: OpenClaw basic-memory MCP integration
+- Fix KI-001/KI-004 by testing llama3.2:latest as OpenClaw primary
+- LINT automation setup
+- Full linkding bookmark batch export and processing

@@ -11,14 +11,24 @@
             "id": "ab886088ccd05f18",
             "type": "leaf",
             "state": {
+              "type": "smart-env-status-view",
+              "state": {},
+              "icon": "gauge",
+              "title": "Smart Environment Status"
+            }
+          },
+          {
+            "id": "23da415ca5ed1f09",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Sources/wiki-session-knowledge-ingestion-pipeline.md",
+                "file": "000-Meta/CLAUDE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "wiki-session-knowledge-ingestion-pipeline"
+              "title": "CLAUDE"
             }
           }
         ]
@@ -184,6 +194,10 @@
   "active": "ab886088ccd05f18",
   "lastOpenFiles": [
     "2026-04-12.md",
+    "Memory/tool-configs.md",
+    "Memory/profile.md",
+    "Memory/preferences.md",
+    "Sources/wiki-session-knowledge-ingestion-pipeline.md",
     "Test.md"
   ]
 }

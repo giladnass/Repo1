@@ -6,7 +6,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-20 -- Claude Code, Phase 1 context ingestion*
+*Last updated: 2026-04-21 -- Claude Code, Phases 3-5 complete*
 
 ---
 
@@ -24,6 +24,10 @@ permalink: ai-memory/000-meta/memory
 - MCP access layer: basic-memory at `https://memory.giladn.com/mcp/` (token in tool-configs)
 - **Phase 0 complete** -- schema locked, templates populated, 4 wiki pages, build plan written
 - **Phase 1 complete** -- MCP verified, tool inventory documented, infrastructure documented
+- **Phase 2 complete** -- conversion scripts written, pymupdf4llm adopted (D-009), 13 PDFs processed
+- **Phase 3 complete** -- process.py written, LiteLLM integration, three-step LLM pipeline operational
+- **Phase 4 complete** -- session_end.py written for automated session logging
+- **Phase 5 complete** -- linkding_export.py written for bookmark ingestion
 - D-006 (MCP data contract) finalized: Active
 
 ## Active Projects
@@ -34,13 +38,14 @@ permalink: ai-memory/000-meta/memory
 
 ## Infrastructure
 
-- **Mac (M4, 48GB):** interactive work, conversion pipelines (marker, pandoc)
-- **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** Ollama, OpenClaw, AnythingLLM, Open WebUI, IPTVX. Details: [[Wiki/netcup-server]]
-- **Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
+- **Mac M4 (48GB):** primary inference machine, conversion pipelines (marker, pandoc), Ollama Cloud client
+- **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** transcription (faster-whisper), OpenClaw, AnythingLLM, Open WebUI, IPTVX. Details: [[Wiki/netcup-server]]
+- **Ollama Cloud models:** `qwen3.5:cloud` (triage), `glm-5:cloud` (summarization)
+- **Local Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
 
 ## Key Decisions Made
 
-All 8 decisions in [[000-Meta/decisions]] are Active as of 2026-04-20. D-006 was Draft; now Active after MCP verification.
+All decisions in [[000-Meta/decisions]] are Active as of 2026-04-21.
 
 Quick ref:
 - D-001: Convert to MD before ingestion
@@ -49,27 +54,26 @@ Quick ref:
 - D-004: Tag namespacing (`type/*`, `source-type/*` prefixes for structural tags)
 - D-005: File naming (lowercase-kebab, no date prefix for wiki pages)
 - D-006: MCP data contract -- satisfied by basic-memory
-- D-007: Processing location (Mac for conversion, Netcup for compute-heavy)
-- D-008: LLM model selection (Haiku for triage, Sonnet for synthesis, Opus for vision)
+- D-007: Processing location (Mac for conversion, cloud for inference, Netcup for transcription)
+- D-008: LLM model selection (qwen3.5:cloud for triage, glm-5:cloud for synthesis)
+- D-009: pymupdf4llm as primary PDF converter
 
 ## Known Issues
 
-See [[000-Meta/known-issues]] for 4 documented OpenClaw issues. Key architectural constraint: OpenClaw's 16k minimum context enforcement conflicts with `qwen2.5:1.5b` optimal context of 2048, causing all Aurora sessions to fall back to Gemini.
+See [[000-Meta/known-issues]] for documented OpenClaw issues. Key architectural constraint: OpenClaw's 16k minimum context enforcement conflicts with `qwen2.5:1.5b` optimal context of 2048, causing all Aurora sessions to fall back to Gemini.
 
-## Phase 2 Status (as of 2026-04-20)
+## Processing Pipeline Status (as of 2026-04-21)
 
-- Marker installed but suspended (Apple Silicon MPS bug, KI-005)
-- pymupdf4llm adopted as primary PDF converter (D-009)
-- Pandoc installed and working
-- `Scripts/ingest.py` written -- handles PDF (pymupdf4llm) + DOCX/EPUB/PPTX (pandoc)
-- `Scripts/watch.sh` written -- fswatch watcher for `~/AI-Ingestion/01-source/`
-- **13 PDFs pending conversion** -- run `python3 Scripts/ingest.py` on Mac to process them
+- `Scripts/ingest.py` -- handles PDF (pymupdf4llm) + DOCX/EPUB/PPTX (pandoc)
+- `Scripts/process.py` -- LLM processing with LiteLLM (triage, summarization, cross-referencing)
+- `Scripts/session_end.py` -- automated session logging and MEMORY updates
+- `Scripts/linkding_export.py` -- bookmark fetch and conversion pipeline
+- `Scripts/watch.sh` -- fswatch watcher for `~/AI-Ingestion/01-source/`
 
 ## What the Next Session Should Do
 
-1. **Run the 13-PDF batch:** `pip install pymupdf4llm && python3 ~/path/to/Scripts/ingest.py`
-2. **Start watch.sh** for ongoing automation: `brew install fswatch && ./Scripts/watch.sh`
-3. **Install faster-whisper on Netcup** for audio/video transcription
-4. **Set up linkding** for URL capture
-5. Consider: configure OpenClaw with basic-memory MCP endpoint (strategic opportunity)
-6. Consider: replace `qwen2.5:1.5b` with `llama3.2:latest` as OpenClaw primary (resolves KI-001/KI-004)
+1. **Phase 6: OpenClaw basic-memory MCP integration** -- configure Aurora to write to vault from Telegram
+2. **Fix KI-001/KI-004:** test `llama3.2:latest` as OpenClaw primary model
+3. **LINT automation:** set up automated linting/validation for vault files
+4. **Full linkding batch:** run linkding_export.py to process all bookmarks
+5. **Transcription setup on Netcup:** install faster-whisper, test on short audio file
