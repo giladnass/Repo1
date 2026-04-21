@@ -11,17 +11,20 @@ Updates written:
     000-Meta/MEMORY.md   -- body replaced with current state
 
 Usage:
-    # Pipe notes via stdin:
-    echo "Completed X. Next: Y." | python3 session_end.py
+    # Recommended: copy notes to clipboard, then:
+    python3 session_end.py --pbpaste
 
     # From a file:
     python3 session_end.py --notes /tmp/session-notes.md
 
+    # Interactive stdin (type/paste, then Ctrl+D):
+    python3 session_end.py
+
     # Dry run -- print output but do not write or commit:
-    python3 session_end.py --notes /tmp/notes.md --dry-run
+    python3 session_end.py --pbpaste --dry-run
 
     # Skip git commit (write files but do not commit):
-    python3 session_end.py --notes /tmp/notes.md --no-commit
+    python3 session_end.py --pbpaste --no-commit
 
 Requirements:
     pip install litellm
@@ -227,7 +230,8 @@ def git_commit_push(vault: Path, branch: str, title: str):
 
 def main():
     parser = argparse.ArgumentParser(description="Structure session notes and update AI-Memory vault")
-    parser.add_argument("--notes", type=Path, help="Session notes file (default: read from stdin)")
+    parser.add_argument("--notes", type=Path, help="Session notes file")
+    parser.add_argument("--pbpaste", action="store_true", help="Read notes from macOS clipboard (pbpaste)")
     parser.add_argument("--vault", type=Path, default=VAULT_DIR, help="Vault root path")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"LLM model (default: {DEFAULT_MODEL})")
     parser.add_argument("--ollama-host", default=DEFAULT_OLLAMA_HOST, help="Ollama API base URL")
@@ -237,7 +241,14 @@ def main():
     parser.add_argument("--no-commit", action="store_true", help="Write files but skip git commit/push")
     args = parser.parse_args()
 
-    if args.notes:
+    if args.pbpaste:
+        result = subprocess.run(["pbpaste"], capture_output=True, text=True)
+        if result.returncode != 0:
+            log("ERROR: pbpaste failed -- are you on macOS?")
+            sys.exit(1)
+        notes = result.stdout
+        log(f"Read {len(notes)} chars from clipboard")
+    elif args.notes:
         if not args.notes.exists():
             log(f"Notes file not found: {args.notes}")
             sys.exit(1)
