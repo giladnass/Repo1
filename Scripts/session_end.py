@@ -29,6 +29,7 @@ Requirements:
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -42,8 +43,8 @@ litellm.telemetry = False
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-DEFAULT_MODEL       = "ollama/qwen3:32b"
-DEFAULT_OLLAMA_HOST = "http://localhost:11434"
+DEFAULT_MODEL       = "openai/glm-5:cloud"       # quality -- Ollama Cloud
+DEFAULT_OLLAMA_HOST = "https://ollama.com/v1"    # Ollama Cloud endpoint (local: http://localhost:11434)
 DEFAULT_BRANCH      = "claude/caveman-lite-vrjM3"
 VAULT_DIR           = Path("/Users/giladnass/Library/Mobile Documents/iCloud~md~obsidian/Documents/AI-Memory")
 
@@ -146,8 +147,10 @@ Tool: {tool}
         ],
         "max_tokens": 4096,
     }
-    if model.startswith("ollama/"):
+    if model.startswith("ollama/") or model.startswith("openai/"):
         kwargs["api_base"] = ollama_host
+    if model.startswith("openai/"):
+        kwargs["api_key"] = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
 
     log(f"  calling {model}...")
     response = litellm.completion(**kwargs)

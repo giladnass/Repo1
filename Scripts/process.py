@@ -62,9 +62,9 @@ litellm.telemetry = False  # opt out of LiteLLM usage stats
 # ---------------------------------------------------------------------------
 # Model config -- edit these two lines to switch providers or models
 # ---------------------------------------------------------------------------
-DEFAULT_TRIAGE_MODEL  = "ollama/qwen3:30b-a3b"  # fast, classification
-DEFAULT_SUMMARY_MODEL = "ollama/qwen3:32b"       # quality, summarization
-DEFAULT_OLLAMA_HOST   = "http://localhost:11434"
+DEFAULT_TRIAGE_MODEL  = "openai/qwen3.5:cloud"  # fast, classification -- Ollama Cloud
+DEFAULT_SUMMARY_MODEL = "openai/glm-5:cloud"     # quality, summarization -- Ollama Cloud
+DEFAULT_OLLAMA_HOST   = "https://ollama.com/v1"  # Ollama Cloud endpoint (local: http://localhost:11434)
 # ---------------------------------------------------------------------------
 
 CONVERTED_DIR = Path.home() / "AI-Ingestion/02-converted"
@@ -80,7 +80,13 @@ def log(msg: str):
 
 
 def llm_call(model: str, system: str, user: str, max_tokens: int, ollama_host: str) -> str:
-    """Single LiteLLM call. Handles provider routing via model string prefix."""
+    """Single LiteLLM call. Handles provider routing via model string prefix.
+
+    Prefixes:
+        ollama/   -- local Ollama (api_base = ollama_host, no key)
+        openai/   -- OpenAI-compatible endpoint (api_base = ollama_host, key from OLLAMA_API_KEY)
+        bare name -- Anthropic, routed by LiteLLM automatically
+    """
     kwargs: dict = {
         "model": model,
         "messages": [
@@ -89,8 +95,10 @@ def llm_call(model: str, system: str, user: str, max_tokens: int, ollama_host: s
         ],
         "max_tokens": max_tokens,
     }
-    if model.startswith("ollama/"):
+    if model.startswith("ollama/") or model.startswith("openai/"):
         kwargs["api_base"] = ollama_host
+    if model.startswith("openai/"):
+        kwargs["api_key"] = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
     response = litellm.completion(**kwargs)
     return response.choices[0].message.content or ""
 
