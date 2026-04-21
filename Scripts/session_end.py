@@ -253,7 +253,12 @@ def main():
             log("ERROR: pbpaste failed -- are you on macOS?")
             sys.exit(1)
         notes = result.stdout
-        log(f"Read {len(notes)} chars from clipboard")
+        preview = notes.strip()[:120].replace("\n", " ")
+        print(f"\nClipboard ({len(notes)} chars): {preview}{'...' if len(notes) > 120 else ''}")
+        answer = input("Proceed? [Y/n] ").strip().lower()
+        if answer == "n":
+            log("Aborted.")
+            sys.exit(0)
     elif args.notes:
         if not args.notes.exists():
             log(f"Notes file not found: {args.notes}")
