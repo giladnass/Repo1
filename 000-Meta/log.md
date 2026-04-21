@@ -157,3 +157,33 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - LINT automation setup
 - Full linkding batch processing
 - Transcription setup on Netcup
+
+---
+
+## 2026-04-21 -- Phases 3-5 Complete, Pipeline Operational
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- Phase 3 complete: wrote process.py with three-step LLM pipeline (triage, summarization, cross-referencing)
+- Refactored to use LiteLLM for runtime model/provider configuration
+- Fixed Qwen3 reasoning bug: thinking tokens consumed max_tokens, resolved by stripping think blocks and raising max_tokens to 2048
+- Batch of 13 PDFs processed successfully overnight
+- Phase 4 complete: wrote session_end.py for automated session logging
+- Phase 5 complete: wrote linkding_export.py for bookmark ingestion
+- Added Mac M4 48GB as primary inference machine
+- Switched to Ollama Cloud models (qwen3.5:cloud for triage, glm-5:cloud for summarization to avoid Mac overheating)
+
+### Key Findings
+- LiteLLM integration allows flexible model/provider flags at runtime
+- Qwen3 reasoning models require stripped think blocks and max_tokens=2048 minimum
+- Ollama Cloud processing: 2.5 min/doc vs 11 min locally on Mac
+- Netcup role refined to transcription only
+
+### Pending
+- Phase 6: OpenClaw basic-memory MCP integration for Aurora vault writes via Telegram
+- Test llama3.2:latest as OpenClaw primary model to resolve KI-001/KI-004
+- Set up automated LINT validation for vault files
+- Run full linkding bookmark batch through pipeline
+- Install and test faster-whisper on Netcup for transcription
