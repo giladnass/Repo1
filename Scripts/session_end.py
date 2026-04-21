@@ -221,7 +221,9 @@ def git_commit_push(vault: Path, branch: str, title: str):
         return
     log(f"  git commit: {result.stdout.strip().splitlines()[0]}")
 
-    push = run(["git", "push", "-u", "origin", branch], check=False)
+    current = run(["git", "branch", "--show-current"], check=False).stdout.strip()
+    push_branch = current or branch
+    push = run(["git", "push", "-u", "origin", push_branch], check=False)
     if push.returncode != 0:
         log(f"  git push failed: {push.stderr.strip()}")
     else:
