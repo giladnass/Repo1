@@ -33,28 +33,6 @@ Per CLAUDE.md session start protocol:
 
 ---
 
-## 2026-04-21 -- Session End Script Test Run
-
-### What Was Accomplished
-- Ran session_end.py with --pbpaste flag to test clipboard-based session logging
-- Verified Phase 4 automation script integration with the vault commit workflow
-
-### What to Do Next
-- Phase 6: Configure OpenClaw with basic-memory MCP endpoint for Aurora vault writes via Telegram
-- Test llama3.2:latest as OpenClaw primary model to resolve KI-001/KI-004
-- Set up automated LINT validation for vault files
-- Run full linkding bookmark batch through the pipeline
-- Install and test faster-whisper on Netcup for transcription
-
-### What to Read First Next Session
-Per CLAUDE.md session start protocol:
-1. `000-Meta/MEMORY.md`
-2. `000-Meta/index.md`
-3. `000-Meta/handoff.md`
-4. `Working-Context/knowledge-base-build-plan.md`
-
----
-
 ## 2026-04-21 -- Phases 3-5 Complete, Ollama Cloud
 
 ### What Was Accomplished
@@ -81,7 +59,7 @@ Per CLAUDE.md session start protocol:
 
 **Phase 6 (OpenClaw Integration):**
 1. Configure OpenClaw with basic-memory MCP endpoint so Aurora can write to vault from Telegram
-2. Test `llama3.2:latest` as OpenClaw primary model to resolve KI-001/KI-004 (Gemium fallback issue)
+2. Test `llama3.2:latest` as OpenClaw primary model to resolve KI-001/KI-004 (Gemini fallback issue)
 
 **LINT Automation:**
 - Set up automated linting/validation for vault files
@@ -98,10 +76,6 @@ Per CLAUDE.md session start protocol:
 2. `000-Meta/index.md`
 3. `000-Meta/handoff.md`
 4. `Working-Context/knowledge-base-build-plan.md`
-
----
-
-# Handoff Notes
 
 ---
 
@@ -161,14 +135,6 @@ Test on a short audio file, then queue the audio/video batch overnight.
 **OpenClaw (optional but high-value):**
 - Configure basic-memory MCP endpoint in OpenClaw so Aurora can write to this vault from Telegram
 - Try `llama3.2:latest` as OpenClaw primary model (resolves KI-001/KI-004)
-
-**OpenClaw opportunity (low-effort, high-value):**
-- Configure OpenClaw with the basic-memory MCP endpoint so Aurora can write to this vault
-- This would close the mobile/async ingestion gap without any additional infrastructure
-
-**OpenClaw KI-001 fix:**
-- Try switching primary model to `llama3.2:latest` (already installed on Netcup, larger context window)
-- This may resolve the Gemini fallback without waiting for OpenClaw to expose a configurable minimum context
 
 ### What to Read First Next Session
 
