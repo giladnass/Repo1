@@ -153,7 +153,11 @@ Tool: {tool}
     if model.startswith("ollama/") or model.startswith("openai/"):
         kwargs["api_base"] = ollama_host
     if model.startswith("openai/"):
-        kwargs["api_key"] = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
+        api_key = os.environ.get("OLLAMA_API_KEY") or os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            log("ERROR: OLLAMA_API_KEY not set. Run: export OLLAMA_API_KEY=<your-key>")
+            sys.exit(1)
+        kwargs["api_key"] = api_key
 
     log(f"  calling {model}...")
     response = litellm.completion(**kwargs)
