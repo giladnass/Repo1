@@ -13,7 +13,7 @@
       }
     },
     "excluded_headings": "",
-    "file_exclusions": "Untitled",
+    "file_exclusions": "Untitled,Sources/The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice Gendron,@the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1),San Francisco,-- 9781797227337 -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive.md,Sources/Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing Group,Minneapolis,2015 -- Lerner Publishing Group,Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996 -- Anna’s Archive.md,Sources/Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996 -- Anna’s Archive.md,Sources/The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice Gendron, @the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1), San Francisco, -- 9781797227337 -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive.md",
     "folder_exclusions": ""
   },
   "language": "en",
@@ -80,6 +80,6 @@
     "template_after": "</context>"
   },
   "embedding_models": {
-    "default_model_key": "transformers#1775939397753"
+    "default_model_key": "transformers#1776748489069"
   }
 }
