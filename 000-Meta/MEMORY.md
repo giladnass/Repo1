@@ -77,7 +77,3 @@ See [[000-Meta/known-issues]] for documented OpenClaw issues. Key architectural 
 3. **LINT automation:** set up automated linting/validation for vault files
 4. **Full linkding batch:** run linkding_export.py to process all bookmarks
 5. **Transcription setup on Netcup:** install faster-whisper, test on short audio file
-
----
-
-# Handoff Notes
