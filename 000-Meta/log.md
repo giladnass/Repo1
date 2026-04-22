@@ -8,6 +8,55 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-22 -- Phase 4: Full Pipeline + Aurora MCP Integration
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Deleted BOOTSTRAP.md from Aurora workspace (was re-running on every session)
+- Updated SOUL.md: outcome-only response style, no process narration
+- Set compaction.reserveTokensFloor to 20000
+- Connected Aurora to basic-memory MCP via mcp-remote stdio workaround
+- Aurora rebuilt workspace MEMORY.md from vault
+- ingest.py confirmed working on Mac (files previously converted)
+- faster-whisper confirmed deployed and tested on Netcup
+- linkding full export completed
+- Fixed SSH key auth on Mac (netcup_key added to keychain)
+
+### Key Finding
+
+OpenClaw 2026.4.21 has a bug where streamable-http MCP servers fail silently or with 400 errors due to missing Accept header (issues #65590, #66940). Workaround: use mcp-remote as a stdio proxy. Fix in PR #66966, not yet released.
+
+---
+
+## 2026-04-22 -- Phase 3: Aurora Migration + KI-001/KI-004 Fix
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Fixed `.claude/` submodule error in obsidian-git (added to .gitignore)
+- Migrated Aurora to Discord: allowFrom, dmPolicy, groupPolicy configured
+- Updated USER.md: Hebrew name spelling (גילעד), language rules
+- Created `llama3.2-32k` Ollama custom model (Modelfile, 32k ctx) -- too small for agentic use
+- Diagnosed KI-001/KI-004 root cause: 16k context floor + small local models
+- Researched and implemented model chain: Kimi K2.5 (primary) > minimax-m2.5:cloud > Gemini Flash
+- Verified Ollama Cloud login on Netcup (giladn, Pro)
+- Resolved Discord CRITICAL security warning (groupPolicy=allowlist)
+- All 3 Aurora sessions confirmed on Kimi K2.5 (200k ctx)
+
+### Pending
+
+- 13 PDFs on Mac (ingest.py ready)
+- faster-whisper on Netcup
+- basic-memory MCP integration with Aurora
+- linkding full export
+
+---
+
 ## 2026-04-20 — Phase 0: Foundation Build
 
 **Tool:** Claude Code

@@ -12,14 +12,14 @@ Documented constraints, not assigned tasks. Treat as context for design decision
 
 ## KI-001 -- Gemini Fallback Bug (OpenClaw)
 
-**Status:** Active, unresolved
+**Status:** Resolved (2026-04-22)
 **System:** OpenClaw / Aurora
 
-**Symptom:** All Aurora sessions fall back to Gemini (`openrouter/google/gemini-2.0-flash-001`) despite `ollama/qwen2.5:1.5b` configured as primary.
+**Symptom:** All Aurora sessions fell back to Gemini despite a local model configured as primary.
 
-**Root cause:** See KI-004. OpenClaw enforces a 16k minimum context. `qwen2.5:1.5b` is configured at ctx 2048. When OpenClaw evaluates the model, it sees the 2048 context as below the 16k minimum and silently falls back. The brain file size (suspected to push into context limits) is a contributing factor, not the root cause.
+**Root cause:** OpenClaw enforces a 16k minimum context floor. All tested local models were below this threshold. See KI-004.
 
-**Next diagnostic step:** `wc -w /home/openclaw/.openclaw/agents/main/agent/*.md` -- confirm brain file word count, but note this is secondary to KI-004.
+**Resolution:** Switched primary model to `moonshotai/kimi-k2.5` via OpenRouter (200k ctx). All sessions now run on the primary model. Local models retained in Ollama but not used as primary.
 
 **Related:** KI-004, [[Wiki/openclaw-aurora]]
 
@@ -72,18 +72,34 @@ The CPU fallback (`--disable_multiprocessing`) was attempted but was too slow to
 
 ---
 
-**Status:** Active, architectural tension
+## KI-004 -- OpenClaw 16k Minimum Context Floor
+
+**Status:** Resolved (2026-04-22)
 **System:** OpenClaw / Ollama
 
-**Symptom:** OpenClaw silently falls back to the next model in the chain if the primary model's context is configured below 16k tokens. `qwen2.5:1.5b` needs ctx 2048 to stay performant. These requirements are incompatible.
+**Symptom:** OpenClaw silently falls back when the primary model's context is below 16k tokens.
 
-**Root cause:** OpenClaw's 16k minimum context enforcement is a hardcoded constraint. It cannot be disabled via config. `qwen2.5:1.5b` at ctx 16384 would consume its entire context window before producing output, causing degraded or empty responses.
+**Root cause:** Hardcoded 16k minimum context floor in OpenClaw. Cannot be disabled via config.
 
-**Impact:** This is the root driver of KI-001. The fallback to Gemini is not a bug in the model selection config -- it is the expected behavior given the constraint.
+**Resolution:** Switched to `moonshotai/kimi-k2.5` (200k ctx) as primary. The 16k floor is no longer a constraint. Local models under 14B remain unsuitable as primary for agentic tasks regardless of this fix.
 
-**Resolution options:**
-1. Replace primary model with one that performs well at 16k context (`llama3.2:latest` is already installed and may be viable)
-2. Wait for OpenClaw to expose a configurable minimum context setting
-3. Accept Gemini as de facto primary and reconfigure the chain intentionally
+**Related:** KI-001, [[Wiki/openclaw-aurora]]
 
-**Related:** KI-001, [[Wiki/openclaw-aurora]], [[Wiki/netcup-server]]
+---
+
+## KI-006 -- OpenClaw MCP Streamable-HTTP Missing Accept Header
+
+**Status:** Active, workaround in place
+**System:** OpenClaw 2026.4.21 / bundle-mcp
+
+**Symptom:** MCP servers using streamable-http transport fail to connect. With `"type":"http"` the client uses SSE and gets 400/401. With `"type":"streamable-http"` or `"transport":"streamable-http"` the server is silently skipped.
+
+**Root cause:** OpenClaw bug -- streamable-http connections do not send the required `Accept: application/json, text/event-stream` header. MCP spec-compliant servers reject the request. Tracked in OpenClaw issues #65590 and #66940. Fix in PR #66966 (open, not yet released as of 2026.4.21).
+
+**Workaround:** Use `mcp-remote` as a stdio bridge:
+```json
+{"command":"/home/openclaw/.npm-global/bin/mcp-remote","args":["<server-url>"]}
+```
+`mcp-remote` installed globally at `/home/openclaw/.npm-global/bin/mcp-remote`. Currently in use for basic-memory MCP connection.
+
+**Related:** [[Wiki/openclaw-aurora]]

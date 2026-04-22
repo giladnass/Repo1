@@ -79,6 +79,74 @@ Per CLAUDE.md session start protocol:
 
 ---
 
+## 2026-04-22 -- Phase 4 Complete: Full Pipeline Operational + Aurora MCP Connected
+
+### What Was Accomplished
+
+**Aurora improvements:**
+- BOOTSTRAP.md deleted -- re-introduction sequence no longer runs on every new session
+- SOUL.md updated: outcome-only responses, no step-by-step narration
+- `compaction.reserveTokensFloor` set to 20000 -- prevents context overflow resets
+- basic-memory MCP connected via `mcp-remote` stdio bridge
+  - Root cause: OpenClaw 2026.4.21 bug (issues #65590/#66940) -- streamable-http missing Accept header
+  - Workaround: mcp-remote installed globally at `/home/openclaw/.npm-global/bin/mcp-remote`
+  - Fix pending: PR #66966 (not yet released)
+- Aurora rebuilt her workspace MEMORY.md from vault content via basic-memory tools
+
+**Pipeline completed:**
+- ingest.py ran on Mac -- files already converted from prior session, 0 new errors
+- faster-whisper confirmed deployed and tested on Netcup
+- linkding full export completed
+
+**Infrastructure:**
+- SSH key auth fixed on Mac -- `netcup_key` added to macOS keychain, `UseKeychain yes` in config
+
+### What to Do Next
+
+1. Start `watch.sh` on Mac for ongoing automation
+2. Run `Scripts/process.py` on converted linkding output to ingest into vault
+3. Update `Memory/tool-configs.md` -- model chain changed, Groq removed
+4. Update `000-Meta/known-issues.md` -- mark KI-001/KI-004 resolved, add OpenClaw MCP bug
+
+---
+
+## 2026-04-22 -- Aurora on Discord + KI-001/KI-004 Resolved
+
+### What Was Accomplished
+
+**Obsidian/Mac fixes:**
+- `.claude/` added to `.gitignore` -- resolved obsidian-git submodule error on every auto-commit
+- Git binary path confirmed in Obsidian git plugin settings (resolves "git does not exist" on Mac)
+
+**Aurora -- Discord migration:**
+- Aurora added to Discord; `channels.discord.allowFrom` set to Gilad's user ID (string array format)
+- `dmPolicy: pairing` set for Discord DMs
+- `groupPolicy: allowlist` set -- resolves CRITICAL security warning (any guild could trigger)
+- Bot renamed to "Aurora" in Discord Developer Portal; re-invite required after rename
+- Brain files confirmed global -- same workspace (SOUL.md, USER.md, etc.) shared across Telegram and Discord
+- USER.md updated: correct Hebrew spelling `גילעד`, bilingual response rules (no language mixing)
+
+**KI-001/KI-004 fixed:**
+- Root cause confirmed: OpenClaw 16k minimum context floor excluded all local models under 14B
+- `llama3.2-32k` custom Ollama model created (32k ctx via Modelfile) -- still too small for agentic tasks
+- Fix: switched primary model to `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
+- Fallback chain: Kimi K2.5 > `ollama/minimax-m2.5:cloud` > `openrouter/google/gemini-2.0-flash-001`
+- All 3 active sessions confirmed on Kimi K2.5; dreaming sessions on Gemini (expected)
+- Ollama Cloud login verified on Netcup (user: giladn, Pro subscription)
+
+### State of Aurora
+
+Stable and operational. Both Discord and Telegram channels active. Primary model working. Sessions were reset during model transition -- workspace MEMORY.md sparse (one entry), will rebuild through conversation.
+
+### What to Do Next
+
+1. Connect Aurora to basic-memory MCP endpoint (lets Aurora write to this vault from any channel)
+2. Run 13-PDF batch on Mac: `pip install pymupdf4llm && python3 Scripts/ingest.py`
+3. Install faster-whisper on Netcup
+4. Run full linkding export (no `--limit`)
+
+---
+
 ## 2026-04-20 -- Phases 0 and 1 Complete
 
 ### What Was Accomplished

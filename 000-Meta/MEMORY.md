@@ -6,7 +6,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-21 -- Phases 3-5 Complete, Pipeline Operational*
+*Last updated: 2026-04-22 -- Claude Code, Phase 4 complete*
 
 ---
 
@@ -24,11 +24,25 @@ permalink: ai-memory/000-meta/memory
 - MCP access layer: basic-memory at `https://memory.giladn.com/mcp/` (token in tool-configs)
 - **Phase 0 complete** -- schema locked, templates populated, 4 wiki pages, build plan written
 - **Phase 1 complete** -- MCP verified, tool inventory documented, infrastructure documented
-- **Phase 2 complete** -- conversion scripts written, pymupdf4llm adopted (D-009), 13 PDFs processed
-- **Phase 3 complete** -- process.py written, LiteLLM integration, three-step LLM pipeline operational
-- **Phase 4 complete** -- session_end.py written for automated session logging
-- **Phase 5 complete** -- linkding_export.py written for bookmark ingestion
+- **Phase 2 complete** -- conversion pipeline written and operational (ingest.py, process.py, watch.sh, session_end.py, linkding_export.py); PDFs processed, linkding export run, faster-whisper deployed on Netcup
+- **Phase 3 complete** -- Aurora operational on Discord + Telegram, KI-001/KI-004 resolved
+- **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - D-006 (MCP data contract) finalized: Active
+
+### Aurora / OpenClaw (as of 2026-04-22)
+
+- Primary model: `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
+- Fallback 1: `ollama/minimax-m2.5:cloud` (Ollama Cloud, user: giladn)
+- Fallback 2: `openrouter/google/gemini-2.0-flash-001`
+- Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
+- Workspace brain files: global, shared across all channels
+- USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
+- basic-memory MCP connected via `mcp-remote` stdio bridge (OpenClaw bug workaround for #65590/#66940)
+- BOOTSTRAP.md deleted -- no more re-introduction on new sessions
+- SOUL.md updated: no process narration, outcome-only responses
+- compaction.reserveTokensFloor set to 20000
+- Aurora rebuilt her workspace MEMORY.md from vault content
+- SSH key auth fixed on Mac (`netcup_key` added to keychain)
 
 ## Active Projects
 
@@ -38,14 +52,14 @@ permalink: ai-memory/000-meta/memory
 
 ## Infrastructure
 
-- **Mac M4 (48GB):** primary inference machine, conversion pipelines (marker, pandoc), Ollama Cloud client
-- **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** transcription (faster-whisper), OpenClaw, AnythingLLM, Open WebUI, IPTVX. Details: [[Wiki/netcup-server]]
-- **Ollama Cloud models:** `qwen3.5:cloud` (triage), `glm-5:cloud` (summarization)
-- **Local Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
+- **Mac (M4, 48GB):** interactive work, conversion pipelines (pymupdf4llm, pandoc), Ollama Cloud client
+- **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** Ollama, OpenClaw, AnythingLLM, Open WebUI, IPTVX, faster-whisper. Details: [[Wiki/netcup-server]]
+- **Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`, `llama3.2-32k` (custom 32k ctx)
+- **Ollama Cloud:** logged in as `giladn` (Pro subscription); `qwen3.5:cloud` (triage), `glm-5:cloud` (summarization)
 
 ## Key Decisions Made
 
-All decisions in [[000-Meta/decisions]] are Active as of 2026-04-21.
+All decisions in [[000-Meta/decisions]] are Active as of 2026-04-22.
 
 Quick ref:
 - D-001: Convert to MD before ingestion
@@ -60,20 +74,24 @@ Quick ref:
 
 ## Known Issues
 
-See [[000-Meta/known-issues]] for documented OpenClaw issues. Key architectural constraint: OpenClaw's 16k minimum context enforcement conflicts with `qwen2.5:1.5b` optimal context of 2048, causing all Aurora sessions to fall back to Gemini.
+See [[000-Meta/known-issues]] for documented issues.
 
-## Processing Pipeline Status (as of 2026-04-21)
+- **KI-001/KI-004 RESOLVED** (2026-04-22): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.5` (200k ctx).
+- KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
+- KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
+- **KI-006 ACTIVE**: OpenClaw MCP streamable-http bug (issues #65590/#66940) -- workaround in place via mcp-remote
 
-- `Scripts/ingest.py` -- handles PDF (pymupdf4llm) + DOCX/EPUB/PPTX (pandoc)
-- `Scripts/process.py` -- LLM processing with LiteLLM (triage, summarization, cross-referencing)
-- `Scripts/session_end.py` -- automated session logging and MEMORY updates
-- `Scripts/linkding_export.py` -- bookmark fetch and conversion pipeline
-- `Scripts/watch.sh` -- fswatch watcher for `~/AI-Ingestion/01-source/`
+## Pipeline Status (as of 2026-04-22)
+
+- `Scripts/ingest.py` -- PDF + doc converter, operational
+- `Scripts/process.py` -- LLM triage + summarization via LiteLLM (Ollama Cloud)
+- `Scripts/watch.sh` -- fswatch watcher, running as LaunchAgent on Mac
+- `Scripts/session_end.py` -- automated session logging
+- `Scripts/linkding_export.py` -- bookmark export pipeline, full run completed
+- `Scripts/transcribe.py` -- audio/video transcription (faster-whisper on Netcup), deployed + tested
 
 ## What the Next Session Should Do
 
-1. **Phase 6: OpenClaw basic-memory MCP integration** -- configure Aurora to write to vault from Telegram
-2. **Fix KI-001/KI-004:** test `llama3.2:latest` as OpenClaw primary model
-3. **LINT automation:** set up automated linting/validation for vault files
-4. **Full linkding batch:** run linkding_export.py to process all bookmarks
-5. **Transcription setup on Netcup:** install faster-whisper, test on short audio file
+1. **LINT automation** -- set up weekly cron or Obsidian plugin for vault validation
+2. **Aurora memory enrichment** -- ask Aurora to do a deeper read of the vault and expand her MEMORY.md
+3. **Multi-agent Discord** -- future: additional agents per domain with channel-specific access
