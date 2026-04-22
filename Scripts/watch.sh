@@ -8,11 +8,12 @@
 #
 # Usage (manual):
 #   ./watch.sh
-#   ./watch.sh --source ~/Dropbox/ToIngest --output ~/AI-Ingestion/02-converted
+#   ./watch.sh --source ~/Dropbox/ToIngest --output ~/AI-Ingestion/02-converted --done ~/AI-Ingestion/03-done
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_DIR="${HOME}/AI-Ingestion/01-source"
 OUTPUT_DIR="${HOME}/AI-Ingestion/02-converted"
+DONE_DIR="${HOME}/AI-Ingestion/03-done"
 INGEST_SCRIPT="${SCRIPT_DIR}/ingest.py"
 
 # Parse optional overrides
@@ -20,6 +21,7 @@ while [[ $# -gt 0 ]]; do
     case "$1" in
         --source) SOURCE_DIR="$2"; shift 2 ;;
         --output) OUTPUT_DIR="$2"; shift 2 ;;
+        --done)   DONE_DIR="$2"; shift 2 ;;
         *) echo "Unknown argument: $1"; exit 1 ;;
     esac
 done
@@ -55,9 +57,11 @@ if ! command -v python3 &>/dev/null; then
 fi
 
 mkdir -p "${OUTPUT_DIR}"
+mkdir -p "${DONE_DIR}"
 
 log "Watching: ${SOURCE_DIR}"
 log "Output:   ${OUTPUT_DIR}"
+log "Done:     ${DONE_DIR}"
 
 notify "AI Memory Watcher" "Watcher started. Monitoring ${SOURCE_DIR}"
 
@@ -67,7 +71,7 @@ fswatch -0 --event Created --event Renamed --event MovedTo "${SOURCE_DIR}" \
     case "${ext}" in
         pdf|docx|epub|pptx|odt|rtf|html)
             log "New file: ${file}"
-            if python3 "${INGEST_SCRIPT}" --file "${file}" --output "${OUTPUT_DIR}" 2>&1; then
+            if python3 "${INGEST_SCRIPT}" --file "${file}" --output "${OUTPUT_DIR}" --move-done "${DONE_DIR}" 2>&1; then
                 notify "AI Memory Watcher" "Converted: $(basename "${file}")"
             else
                 notify "AI Memory Watcher" "Conversion failed: $(basename "${file}"). Check ~/AI-Ingestion/watch-error.log" "Basso"

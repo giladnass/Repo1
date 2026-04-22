@@ -61,9 +61,10 @@ def convert_pandoc(src: Path, out_dir: Path) -> Path:
     return out
 
 
-def process_file(src: Path, output_root: Path, skip_existing: bool = True) -> str:
+def process_file(src: Path, output_root: Path, skip_existing: bool = True, done_dir: Path | None = None) -> str:
     """
     Returns "converted", "skipped", or "error".
+    If done_dir is set, successfully converted source files are moved there.
     """
     if src.suffix.lower() not in ALL_FORMATS:
         return "skipped"
@@ -85,13 +86,18 @@ def process_file(src: Path, output_root: Path, skip_existing: bool = True) -> st
             log(f"doc   {src.name}  [{src.suffix}]")
             convert_pandoc(src, out_dir)
         log(f"  -> {out_md}")
+        if done_dir is not None:
+            done_dir.mkdir(parents=True, exist_ok=True)
+            dest = done_dir / src.name
+            src.rename(dest)
+            log(f"  -> moved original to {dest}")
         return "converted"
     except Exception as exc:
         log(f"ERROR {src.name}: {exc}")
         return "error"
 
 
-def process_batch(source_dir: Path, output_root: Path):
+def process_batch(source_dir: Path, output_root: Path, done_dir: Path | None = None):
     files = sorted(
         f for f in source_dir.iterdir()
         if f.is_file() and f.suffix.lower() in ALL_FORMATS
@@ -105,7 +111,7 @@ def process_batch(source_dir: Path, output_root: Path):
     counts = {"converted": 0, "skipped": 0, "error": 0}
 
     for f in files:
-        result = process_file(f, output_root)
+        result = process_file(f, output_root, done_dir=done_dir)
         counts[result] += 1
 
     log(
@@ -120,21 +126,24 @@ def main():
     parser.add_argument("--output", type=Path, default=OUTPUT_DIR, help="Output root directory")
     parser.add_argument("--file", type=Path, help="Process a single file (skips batch mode)")
     parser.add_argument("--no-skip", action="store_true", help="Reconvert even if output already exists")
+    parser.add_argument("--move-done", type=Path, metavar="DIR",
+                        help="Move source file to DIR after successful conversion (e.g. ~/AI-Ingestion/03-done)")
     args = parser.parse_args()
 
     skip = not args.no_skip
+    done_dir = args.move_done.expanduser() if args.move_done else None
 
     if args.file:
         if not args.file.exists():
             log(f"File not found: {args.file}")
             sys.exit(1)
-        result = process_file(args.file, args.output, skip_existing=skip)
+        result = process_file(args.file, args.output, skip_existing=skip, done_dir=done_dir)
         sys.exit(0 if result != "error" else 1)
     else:
         if not args.source.exists():
             log(f"Source directory not found: {args.source}")
             sys.exit(1)
-        process_batch(args.source, args.output)
+        process_batch(args.source, args.output, done_dir=done_dir)
 
 
 if __name__ == "__main__":
