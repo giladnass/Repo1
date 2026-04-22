@@ -1,6 +1,8 @@
 ---
 title: handoff
 type: note
+tags: [meta, session, handoff]
+created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 

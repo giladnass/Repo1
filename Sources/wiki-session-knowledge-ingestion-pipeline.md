@@ -1,6 +1,13 @@
 ---
 title: wiki-session-knowledge-ingestion-pipeline
-type: note
+type: source
+source-type: conversation
+tags: [ingestion, pipeline, conversion, tools]
+created: 2026-04-12
+ingested: 2026-04-12
+status: processed
+origin: Claude.ai brainstorming session 2026-04-12
+processed-to: ["[[Wiki/ingestion-pipeline]]", "[[Wiki/format-conversion-tools]]", "[[Wiki/visual-data-preservation]]"]
 permalink: ai-memory/sources/wiki-session-knowledge-ingestion-pipeline
 ---
 

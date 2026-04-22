@@ -1,6 +1,8 @@
 ---
 title: known-issues
 type: note
+tags: [meta, known-issues, openclaw, aurora]
+created: 2026-04-20
 permalink: ai-memory/000-meta/known-issues
 ---
 

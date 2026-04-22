@@ -1,16 +1,20 @@
 ---
 title: index
 type: note
+tags: [meta, index, vault-map]
+created: 2026-04-20
 permalink: ai-memory/000-meta/index
 ---
 
 # Vault Content Map
 
-*Last updated: 2026-04-20*
+*Last updated: 2026-04-22*
 
 ---
 
 ## Wiki Pages
+
+### System / Infrastructure
 
 | Page | Topic | Status | Updated |
 |---|---|---|---|
@@ -20,6 +24,30 @@ permalink: ai-memory/000-meta/index
 | [[Wiki/visual-data-preservation]] | Strategy for preserving visual content | active | 2026-04-20 |
 | [[Wiki/openclaw-aurora]] | OpenClaw agent gateway and Aurora persona | active | 2026-04-20 |
 | [[Wiki/netcup-server]] | Netcup server infrastructure and services | active | 2026-04-20 |
+| [[Wiki/obsidian-claude-integration-cheat-sheet]] | Obsidian + Claude workflow reference | draft | 2026-04-21 |
+
+### ADHD
+
+| Page | Topic | Status | Updated |
+|---|---|---|---|
+| [[Wiki/adhd-clinical-reference-guide]] | Clinical guidelines, diagnostic scales, epidemiology | draft | 2026-04-21 |
+| [[Wiki/adhd-daily-life-tools-and-tips]] | Daily routine strategies, time management, productivity | draft | 2026-04-21 |
+| [[Wiki/adhd-executive-function-strategies]] | Focus, organization, and executive function strategies | draft | 2026-04-21 |
+| [[Wiki/adult-adhd-workbook-beyond-basics]] | Self-care and workbook-based strategies for adult ADHD | draft | 2026-04-21 |
+| [[Wiki/cognitive-therapy-for-adult-adhd]] | CBT and self-regulation approaches for adult ADHD | draft | 2026-04-21 |
+| [[Wiki/mini-adhd-coach-tools]] | Mini ADHD Coach: diagnosis, neurodiversity, mental health | draft | 2026-04-21 |
+| [[Wiki/non-medication-adhd-treatments-for-children-and-teens]] | Non-medication treatments (clinician workbook) | draft | 2026-04-21 |
+| [[Wiki/non-medication-adhd-treatments-for-children]] | Non-medication treatments for children (parent skills) | draft | 2026-04-21 |
+| [[Wiki/the-ultimate-adhd-career-guide]] | Career planning and workplace adaptation for ADHD | draft | 2026-04-21 |
+
+### Research / Other
+
+| Page | Topic | Status | Updated |
+|---|---|---|---|
+| [[Wiki/integrity-and-competence-in-trust]] | Trust, integrity, and social cognition | draft | 2026-04-21 |
+| [[Wiki/mental-models-physics-and-chemistry]] | Mental models from physics and chemistry | draft | 2026-04-21 |
+| [[Wiki/seeing-is-believing]] | Optical illusions and visual perception | draft | 2026-04-21 |
+| [[Wiki/tenzai-cybersecurity-startup-strategic-job-application-research]] | Tenzai cybersecurity job application research | draft | 2026-04-21 |
 
 ## Sources
 
@@ -39,7 +67,7 @@ permalink: ai-memory/000-meta/index
 
 ## Known Issues
 
-[[000-Meta/known-issues]] -- 4 documented OpenClaw issues (KI-001 through KI-004).
+[[000-Meta/known-issues]] -- 6 documented issues (KI-001 through KI-006). KI-001/KI-004 resolved 2026-04-22.
 
 ## Memory Files
 
@@ -54,7 +82,12 @@ permalink: ai-memory/000-meta/index
 | File | Purpose | Status |
 |---|---|---|
 | `Scripts/ingest.py` | Batch/single-file PDF+doc converter (pymupdf4llm + pandoc) | Active |
-| `Scripts/watch.sh` | fswatch watcher -- triggers ingest.py on new files in source folder | Active |
+| `Scripts/watch.sh` | fswatch watcher -- triggers ingest.py on new files in source folder; runs as macOS LaunchAgent | Active |
+| `Scripts/process.py` | LLM triage + summarization via LiteLLM (Ollama Cloud) | Active |
+| `Scripts/session_end.py` | Automated session logging and MEMORY updates | Active |
+| `Scripts/linkding_export.py` | Bookmark export pipeline from linkding API | Active |
+| `Scripts/transcribe.py` | Audio/video transcription via faster-whisper on Netcup | Active |
+| `Scripts/lint.py` | Vault validation -- frontmatter, links, orphans, naming | Active |
 
 ## Templates
 

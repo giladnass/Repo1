@@ -1,6 +1,8 @@
 ---
 title: decisions
 type: note
+tags: [meta, decisions, schema]
+created: 2026-04-20
 permalink: ai-memory/000-meta/decisions
 ---
 

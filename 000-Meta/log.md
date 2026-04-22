@@ -1,6 +1,8 @@
 ---
 title: log
 type: note
+tags: [meta, session-log]
+created: 2026-04-12
 permalink: ai-memory/000-meta/log
 ---
 

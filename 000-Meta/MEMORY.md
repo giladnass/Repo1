@@ -1,6 +1,8 @@
 ---
 title: MEMORY
 type: note
+tags: [meta, system, ai-memory]
+created: 2026-04-20
 permalink: ai-memory/000-meta/memory
 ---
 
