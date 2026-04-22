@@ -6,7 +6,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-22 -- Claude Code, Aurora migration + KI-001/KI-004 fix*
+*Last updated: 2026-04-22 -- Claude Code, Phase 4 complete*
 
 ---
 
@@ -24,8 +24,9 @@ permalink: ai-memory/000-meta/memory
 - MCP access layer: basic-memory at `https://memory.giladn.com/mcp/` (token in tool-configs)
 - **Phase 0 complete** -- schema locked, templates populated, 4 wiki pages, build plan written
 - **Phase 1 complete** -- MCP verified, tool inventory documented, infrastructure documented
-- **Phase 2 complete** -- conversion pipeline written (ingest.py, watch.sh), 13 PDFs pending Mac run
+- **Phase 2 complete** -- conversion pipeline run, PDFs converted, faster-whisper deployed + tested on Netcup, linkding full export done
 - **Phase 3 complete** -- Aurora operational on Discord + Telegram, KI-001/KI-004 resolved
+- **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed
 - D-006 (MCP data contract) finalized: Active
 
 ### Aurora / OpenClaw (as of 2026-04-22)
@@ -36,7 +37,12 @@ permalink: ai-memory/000-meta/memory
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
 - Workspace brain files: global, shared across all channels
 - USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
-- Sessions reset 2026-04-22; workspace MEMORY.md sparse (one entry), will rebuild naturally
+- basic-memory MCP connected via `mcp-remote` stdio bridge (OpenClaw bug workaround for #65590/#66940)
+- BOOTSTRAP.md deleted -- no more re-introduction on new sessions
+- SOUL.md updated: no process narration, outcome-only responses
+- compaction.reserveTokensFloor set to 20000
+- Aurora rebuilt her workspace MEMORY.md from vault content
+- SSH key auth fixed on Mac (`netcup_key` added to keychain)
 
 ## Active Projects
 
@@ -77,15 +83,14 @@ See [[000-Meta/known-issues]] for documented issues.
 
 - pymupdf4llm: adopted (D-009), Marker suspended (KI-005)
 - Pandoc: installed and working
-- `Scripts/ingest.py`: written and ready
-- `Scripts/watch.sh`: written and ready
-- **13 PDFs pending conversion** -- run `python3 Scripts/ingest.py` on Mac
+- `Scripts/ingest.py`: complete, ran successfully on Mac
+- `Scripts/watch.sh`: written and ready -- not yet started
+- `Scripts/transcribe.py`: deployed and tested on Netcup (faster-whisper + ffmpeg)
+- `Scripts/linkding_export.py`: full export run completed
 
 ## What the Next Session Should Do
 
-1. **Run the 13-PDF batch on Mac:** `pip install pymupdf4llm && python3 Scripts/ingest.py`
-2. **Start watch.sh** on Mac: `brew install fswatch && ./Scripts/watch.sh`
-3. **Install faster-whisper on Netcup** for audio/video transcription
-4. **Set up linkding** for URL capture
-5. **Connect Aurora to basic-memory MCP** -- high-value: lets Aurora write to this vault from any channel
-6. **Run full linkding export** (no `--limit` flag)
+1. **Start watch.sh** on Mac for ongoing automation: `brew install fswatch && ./Scripts/watch.sh`
+2. **Ingest converted content** into the vault: run `Scripts/process.py` on converted linkding output
+3. **Update tool-configs.md** -- model chain has changed (Kimi K2.5 primary), Groq removed
+4. **Update known-issues.md** -- mark KI-001/KI-004 resolved, add OpenClaw MCP streamable-http bug (issues #65590/#66940, fix pending in PR #66966)

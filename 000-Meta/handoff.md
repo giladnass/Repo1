@@ -8,6 +8,37 @@ permalink: ai-memory/000-meta/handoff
 
 ---
 
+## 2026-04-22 -- Phase 4 Complete: Full Pipeline Operational + Aurora MCP Connected
+
+### What Was Accomplished
+
+**Aurora improvements:**
+- BOOTSTRAP.md deleted -- re-introduction sequence no longer runs on every new session
+- SOUL.md updated: outcome-only responses, no step-by-step narration
+- `compaction.reserveTokensFloor` set to 20000 -- prevents context overflow resets
+- basic-memory MCP connected via `mcp-remote` stdio bridge
+  - Root cause: OpenClaw 2026.4.21 bug (issues #65590/#66940) -- streamable-http missing Accept header
+  - Workaround: mcp-remote installed globally at `/home/openclaw/.npm-global/bin/mcp-remote`
+  - Fix pending: PR #66966 (not yet released)
+- Aurora rebuilt her workspace MEMORY.md from vault content via basic-memory tools
+
+**Pipeline completed:**
+- ingest.py ran on Mac -- files already converted from prior session, 0 new errors
+- faster-whisper confirmed deployed and tested on Netcup
+- linkding full export completed
+
+**Infrastructure:**
+- SSH key auth fixed on Mac -- `netcup_key` added to macOS keychain, `UseKeychain yes` in config
+
+### What to Do Next
+
+1. Start `watch.sh` on Mac for ongoing automation
+2. Run `Scripts/process.py` on converted linkding output to ingest into vault
+3. Update `Memory/tool-configs.md` -- model chain changed, Groq removed
+4. Update `000-Meta/known-issues.md` -- mark KI-001/KI-004 resolved, add OpenClaw MCP bug
+
+---
+
 ## 2026-04-22 -- Aurora on Discord + KI-001/KI-004 Resolved
 
 ### What Was Accomplished

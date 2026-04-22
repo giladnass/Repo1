@@ -8,6 +8,29 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-22 -- Phase 4: Full Pipeline + Aurora MCP Integration
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Deleted BOOTSTRAP.md from Aurora workspace (was re-running on every session)
+- Updated SOUL.md: outcome-only response style, no process narration
+- Set compaction.reserveTokensFloor to 20000
+- Connected Aurora to basic-memory MCP via mcp-remote stdio workaround
+- Aurora rebuilt workspace MEMORY.md from vault
+- ingest.py confirmed working on Mac (files previously converted)
+- faster-whisper confirmed deployed and tested on Netcup
+- linkding full export completed
+- Fixed SSH key auth on Mac (netcup_key added to keychain)
+
+### Key Finding
+
+OpenClaw 2026.4.21 has a bug where streamable-http MCP servers fail silently or with 400 errors due to missing Accept header (issues #65590, #66940). Workaround: use mcp-remote as a stdio proxy. Fix in PR #66966, not yet released.
+
+---
+
 ## 2026-04-22 -- Phase 3: Aurora Migration + KI-001/KI-004 Fix
 
 **Tool:** Claude Code
