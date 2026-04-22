@@ -63,8 +63,8 @@ notify "AI Memory Watcher" "Watcher started. Monitoring ${SOURCE_DIR}"
 
 fswatch -0 --event Created --event Renamed --event MovedTo "${SOURCE_DIR}" \
 | while IFS= read -r -d '' file; do
-    ext="${file##*.}"
-    case "${ext,,}" in
+    ext="$(echo "${file##*.}" | tr '[:upper:]' '[:lower:]')"
+    case "${ext}" in
         pdf|docx|epub|pptx|odt|rtf|html)
             log "New file: ${file}"
             if python3 "${INGEST_SCRIPT}" --file "${file}" --output "${OUTPUT_DIR}" 2>&1; then
