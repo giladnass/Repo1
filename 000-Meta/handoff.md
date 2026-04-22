@@ -6,6 +6,49 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-22 -- Phase 5: Pipeline Hardened, LaunchAgent Live
+
+### What Was Accomplished
+
+**Vault validation (lint.py):**
+- Created `Scripts/lint.py` -- checks D-003 frontmatter, controlled vocab, dates, naming, broken wikilinks, orphan pages, stale timestamps, em-dashes
+- Fixed 20 frontmatter errors: missing `tags` and `created` across all 000-Meta/ and Memory/ files
+- Fixed `Sources/wiki-session-knowledge-ingestion-pipeline.md`: corrected type to `source`, added all D-003 required source fields
+- Updated `index.md`: added 14 orphan wiki pages from PDF batch (ADHD, research, tools), updated scripts table
+- Result: 0 errors, 16 warnings (em-dashes in immutable sources, 4 broken links to planned-but-never-created pages)
+
+**File lifecycle finalized:**
+- Added `--move-done DIR` to `ingest.py`: source files move to `03-done/` after successful conversion
+- Updated `watch.sh`: passes `--move-done ~/AI-Ingestion/03-done` by default, added `DONE_DIR` variable
+- Staging structure: `01-source/` (inbox) -> `02-converted/` (intermediate) -> `03-done/` (archived originals)
+
+**LaunchAgent:**
+- Vault path confirmed: `/Users/giladnass/Library/Mobile Documents/iCloud~md~obsidian/Documents/AI-Memory/`
+- LaunchAgent `com.giladnass.ai-memory-watcher` created and confirmed running (PID 44692)
+- Fixed iCloud executable bit stripping: `chmod +x Scripts/watch.sh` required after iCloud sync
+- Existing EPUBs processed manually via ingest.py --move-done
+
+**Clarifications documented:**
+- `status: draft` is informational only -- draft pages are immediately searchable in Obsidian and via basic-memory MCP
+- `02-converted/` files are intermediate staging, not what Obsidian shows for review (wiki draft pages are)
+- Review flow: open `Wiki/` draft page in Obsidian, change status to `active` if valid
+
+### Deferred Topics (to discuss in future sessions)
+
+1. Converted-file lifecycle: some MD files in `02-converted/` need save/delete decision flow (transcripts, reports)
+2. Visual element preservation: charts/images lost during conversion; need strategy + storage approach
+3. Review UX: custom interface with status buttons, pipeline display; Amber app noted; Obsidian plugin as alternative
+4. UX dashboard: button-based pipeline management
+5. process.py `--move-done`: cleanup for `02-converted/` after processing
+
+### What to Do Next
+
+1. Run process.py on EPUBs in `02-converted/` -- set `OLLAMA_API_KEY`, then: `python3 ".../Scripts/process.py" --source-type epub`
+2. Shared memory check -- verify basic-memory MCP sync across Claude, Aurora, Gemini
+3. Aurora memory enrichment -- ask Aurora to do deeper vault read
+
+---
+
 ## 2026-04-21 -- Phases 3-5 Complete, Pipeline Operational
 
 ### What Was Accomplished

@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-22 -- Claude Code, Phase 4 complete*
+*Last updated: 2026-04-22 -- Claude Code, Phase 5 complete*
 
 ---
 
@@ -29,6 +29,7 @@ permalink: ai-memory/000-meta/memory
 - **Phase 2 complete** -- conversion pipeline written and operational (ingest.py, process.py, watch.sh, session_end.py, linkding_export.py); PDFs processed, linkding export run, faster-whisper deployed on Netcup
 - **Phase 3 complete** -- Aurora operational on Discord + Telegram, KI-001/KI-004 resolved
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
+- **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
 
 ### Aurora / OpenClaw (as of 2026-04-22)
@@ -55,6 +56,8 @@ permalink: ai-memory/000-meta/memory
 ## Infrastructure
 
 - **Mac (M4, 48GB):** interactive work, conversion pipelines (pymupdf4llm, pandoc), Ollama Cloud client
+- **Vault path on Mac:** `/Users/giladnass/Library/Mobile Documents/iCloud~md~obsidian/Documents/AI-Memory/`
+- **iCloud note:** iCloud strips executable bits from scripts after sync -- run `chmod +x Scripts/watch.sh` if LaunchAgent fails with exit code 126
 - **Netcup (Ubuntu 24.04, 32GB RAM, 12 vCPU, no GPU):** Ollama, OpenClaw, AnythingLLM, Open WebUI, IPTVX, faster-whisper. Details: [[Wiki/netcup-server]]
 - **Ollama models on Netcup:** `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`, `llama3.2-32k` (custom 32k ctx)
 - **Ollama Cloud:** logged in as `giladn` (Pro subscription); `qwen3.5:cloud` (triage), `glm-5:cloud` (summarization)
@@ -85,15 +88,42 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## Pipeline Status (as of 2026-04-22)
 
-- `Scripts/ingest.py` -- PDF + doc converter, operational
-- `Scripts/process.py` -- LLM triage + summarization via LiteLLM (Ollama Cloud)
-- `Scripts/watch.sh` -- fswatch watcher, running as LaunchAgent on Mac
-- `Scripts/session_end.py` -- automated session logging
-- `Scripts/linkding_export.py` -- bookmark export pipeline, full run completed
-- `Scripts/transcribe.py` -- audio/video transcription (faster-whisper on Netcup), deployed + tested
+| Script | Status | Notes |
+|---|---|---|
+| `Scripts/ingest.py` | Operational | `--move-done ~/AI-Ingestion/03-done` moves originals after conversion |
+| `Scripts/process.py` | Operational | `--source-type epub/pdf/etc`, needs `OLLAMA_API_KEY` env var |
+| `Scripts/watch.sh` | Running as LaunchAgent | LaunchAgent: `com.giladnass.ai-memory-watcher`, PID confirmed |
+| `Scripts/lint.py` | Operational | 0 errors, 16 warnings (em-dashes + broken links in immutable source) |
+| `Scripts/session_end.py` | Operational | Automated session logging |
+| `Scripts/linkding_export.py` | Operational | Full run completed |
+| `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
+
+### Staging Folder Structure (Mac)
+
+```
+~/AI-Ingestion/
+  01-source/    <- drop files here (inbox)
+  02-converted/ <- raw .md conversions (intermediate, not auto-cleaned yet)
+  03-done/      <- originals after successful conversion
+```
+
+### Pipeline Behavior
+
+- `draft` status in Obsidian is informational only -- draft pages ARE searchable via Obsidian and basic-memory MCP immediately
+- Review = open draft wiki page in Obsidian, change `status: draft` to `status: active` if good
+- `02-converted/` files are not auto-cleaned after process.py runs (pending improvement)
+
+## Deferred Design Topics (discuss in future sessions)
+
+1. **Converted-file lifecycle** -- some MD files in `02-converted/` need to be preserved as-is (transcripts, reports); need save/delete decision flow
+2. **Visual element preservation** -- charts and images in source docs are lost during conversion; need a strategy to preserve and link visuals to their summaries
+3. **Review UX** -- custom interface with status buttons (draft -> active), pipeline status display; Amber app noted as possible editor component; Obsidian plugin as alternative
+4. **UX dashboard** -- button-based interface for the full pipeline (convert, summarize, review, commit) with process queue display
+5. **process.py --move-done** -- add cleanup for `02-converted/` after successful processing (mirrors ingest.py behavior)
 
 ## What the Next Session Should Do
 
-1. **LINT automation** -- set up weekly cron or Obsidian plugin for vault validation
-2. **Aurora memory enrichment** -- ask Aurora to do a deeper read of the vault and expand her MEMORY.md
-3. **Multi-agent Discord** -- future: additional agents per domain with channel-specific access
+1. **Run process.py** on the EPUBs in `02-converted/` -- needs `OLLAMA_API_KEY` set, then: `python3 ".../Scripts/process.py" --source-type epub`
+2. **Shared memory check** -- verify basic-memory MCP is accessible and in sync across all AI tools (Claude, Aurora, Gemini)
+3. **Aurora memory enrichment** -- ask Aurora to do a deeper read of the vault and expand her MEMORY.md
+4. **Multi-agent Discord** -- future: additional agents per domain with channel-specific access

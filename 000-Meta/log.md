@@ -10,6 +10,39 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-22 -- Phase 5: Pipeline Hardened + LaunchAgent Live
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Created `Scripts/lint.py`: full vault validation (frontmatter, vocab, naming, links, orphans, stale, em-dashes)
+- Fixed 20 D-003 frontmatter errors across 000-Meta/ and Memory/ files
+- Fixed Sources/wiki-session-knowledge-ingestion-pipeline.md: type corrected to source
+- Updated index.md: added 14 orphan wiki pages from PDF batch processing
+- Added `--move-done` to ingest.py: source files now move to `03-done/` after conversion
+- Updated watch.sh: passes `--move-done` by default, added DONE_DIR
+- Confirmed vault path on Mac: `/Users/giladnass/Library/Mobile Documents/iCloud~md~obsidian/Documents/AI-Memory/`
+- LaunchAgent confirmed running (PID 44692)
+- Diagnosed and fixed iCloud executable bit stripping (chmod +x required after iCloud sync)
+
+### Key Findings
+
+- iCloud Drive strips executable bits from scripts after syncing -- LaunchAgent will fail with exit code 126; fix with `chmod +x Scripts/watch.sh`
+- `status: draft` in Obsidian is informational only -- draft pages are immediately searchable via Obsidian and basic-memory MCP
+- `02-converted/` files are intermediate staging only; they are not auto-cleaned after process.py runs
+
+### Deferred
+
+- Converted-file save/delete decision flow
+- Visual element preservation strategy
+- Review UX (status buttons, pipeline display, Amber assessment)
+- UX dashboard for full pipeline
+- process.py --move-done for 02-converted cleanup
+
+---
+
 ## 2026-04-22 -- Phase 4: Full Pipeline + Aurora MCP Integration
 
 **Tool:** Claude Code
