@@ -84,7 +84,8 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 | Provider | Model | Used By |
 |---|---|---|
 | Anthropic | Claude (all versions) | claude.ai, Claude Code |
-| Groq | `llama-3.1-8b-instant` | OpenClaw fallback 1 (free tier) |
+| OpenRouter | `moonshotai/kimi-k2.5` | OpenClaw primary (200k ctx) |
+| Ollama Cloud | `minimax-m2.5:cloud` | OpenClaw fallback 1 (Pro subscription, user: giladn) |
 | OpenRouter | `google/gemini-2.0-flash-001` | OpenClaw fallback 2 |
 
 ---
