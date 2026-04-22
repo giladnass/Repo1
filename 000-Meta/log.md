@@ -8,6 +8,32 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-22 -- Phase 3: Aurora Migration + KI-001/KI-004 Fix
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+
+- Fixed `.claude/` submodule error in obsidian-git (added to .gitignore)
+- Migrated Aurora to Discord: allowFrom, dmPolicy, groupPolicy configured
+- Updated USER.md: Hebrew name spelling (גילעד), language rules
+- Created `llama3.2-32k` Ollama custom model (Modelfile, 32k ctx) -- too small for agentic use
+- Diagnosed KI-001/KI-004 root cause: 16k context floor + small local models
+- Researched and implemented model chain: Kimi K2.5 (primary) > minimax-m2.5:cloud > Gemini Flash
+- Verified Ollama Cloud login on Netcup (giladn, Pro)
+- Resolved Discord CRITICAL security warning (groupPolicy=allowlist)
+- All 3 Aurora sessions confirmed on Kimi K2.5 (200k ctx)
+
+### Pending
+
+- 13 PDFs on Mac (ingest.py ready)
+- faster-whisper on Netcup
+- basic-memory MCP integration with Aurora
+- linkding full export
+
+---
+
 ## 2026-04-20 — Phase 0: Foundation Build
 
 **Tool:** Claude Code
