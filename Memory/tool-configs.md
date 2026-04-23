@@ -10,21 +10,44 @@ permalink: ai-memory/memory/tool-configs
 
 ## Shared Memory Pool: Connection Status
 
-*Last updated: 2026-04-22*
+*Last updated: 2026-04-23*
 
 The vault (this repo) is the shared memory. basic-memory MCP is the access layer. Tools that connect to the MCP endpoint read and write to the same vault.
 
 | Tool | Status | Method | Notes |
 |---|---|---|---|
-| **Claude.ai** | Connected | Native basic-memory MCP | Configured in claude.ai MCP settings |
-| **Claude Code** | Connected | Native basic-memory MCP | Same endpoint, available in all Code sessions |
-| **Aurora (OpenClaw)** | Connected | `mcp-remote` stdio bridge | Workaround for KI-006 (OpenClaw streamable-http bug) |
-| **NotebookLM** | Not connected | No API, no MCP support | Only option: manual export of vault sections as PDF/text, re-upload as sources. One-way, not live. |
-| **Gemini (web)** | Non-starter | No MCP client in web UI | Gemini API has tool-use but no MCP client; web interface has no extension model |
-| **Perplexity** | Unresearched | API exists; MCP client support unknown | Worth investigating |
-| **ChatGPT** | Unresearched | Desktop app has MCP support | Proprietary memory competes with this approach; research needed |
-| **Manus** | Not started | Agent platform, likely MCP-capable | Unresearched |
-| **Genspark** | Not started | Unresearched | |
+| **Claude Desktop** | Connected | Local stdio MCP | Mac, direct filesystem access |
+| **Claude.ai web** | Connected | Remote MCP via URL | Configured in claude.ai MCP settings |
+| **Claude mobile** | Connected | Remote MCP via URL | Same remote endpoint |
+| **Claude Code** | Connected | Local vault + remote MCP | Works on dev branch `claude/caveman-lite-vrjM3` |
+| **Aurora (OpenClaw)** | Connected | `mcporter` skill workaround | Native MCP broken (KI-006: streamable-http bug). Aurora calls `mcporter call basic-memory.<tool>` instead. AGENTS.md updated with instructions. |
+| **Gemini CLI** | Connected | Remote HTTP (Streamable HTTP) | Configured in `~/.gemini/settings.json` with `httpUrl`. Same model as Gemini Web, with native MCP. |
+| **Perplexity** | Ready to configure | stdio via `mcp-remote` bridge | Pro plan required. Desktop > Settings > Connectors > Advanced. Uses `npx mcp-remote` as bridge. |
+| **Manus** | Ready to configure | Streamable HTTP (direct) | All plans. Settings > Integrations > Custom MCP > Add Server. HTTPS URL + auth headers. |
+| **Genspark** | Ready to configure | Streamable HTTP (direct) | All plans. AI Browser > wrench icon > Add New MCP Server. HTTPS URL + request headers. |
+| **ChatGPT** | Limited | Streamable HTTP (Apps/Developer Mode) | Plus/Pro: read-only. Business/Enterprise: full read+write. Settings > Apps > Create. |
+| **NotebookLM** | Not connected | No MCP client | Use `notebooklm-mcp` bridge from Claude Code (one-way: Claude queries NotebookLM). No bidirectional path. |
+| **Gemini Web** | Not connected | No MCP client in web UI | No extension model. Use Gemini CLI instead (same model, has MCP). |
+
+### MCP Endpoint
+
+```
+https://memory.giladn.com/mcp/ebc69cbd338019004dfd1738a033ced1e22e21ff62a41b41ef0b8caf5d9fb3a5
+```
+
+The URL path is the auth token. Path-based auth, no headers needed. Transport: streamable-http.
+
+### Known Issue: KI-006 (OpenClaw MCP Bug)
+
+OpenClaw's `bundle-mcp` fails to connect to basic-memory. Two approaches tried, both fail:
+- HTTP direct: returns 404 (streamable-http vs SSE protocol mismatch)
+- stdio/mcp-remote: "Connection closed" error
+
+Workaround: Aurora uses the `mcporter` skill to call `mcporter call basic-memory.<tool>` directly. This works but is not native tool integration.
+
+### Known Issue: Netcup Vault Sync
+
+The 5-minute cron (`git pull origin main --quiet`) was failing silently due to local uncommitted changes blocking pulls. Vault was 43 commits behind (April 12 -> April 23). Fixed with `git stash && git pull`. basic-memory reindex required after large pulls (`/root/.local/bin/basic-memory reindex --project AI-Memory`).
 
 ### Key Gap: Branch Merge
 
@@ -110,9 +133,12 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 | Provider | Model | Used By |
 |---|---|---|
 | Anthropic | Claude (all versions) | claude.ai, Claude Code |
+| Google | Gemini 2.5 Pro | Gemini CLI (connected to vault via MCP) |
 | OpenRouter | `moonshotai/kimi-k2.5` | OpenClaw primary (200k ctx) |
 | Ollama Cloud | `minimax-m2.5:cloud` | OpenClaw fallback 1 (Pro subscription, user: giladn) |
 | OpenRouter | `google/gemini-2.0-flash-001` | OpenClaw fallback 2 |
+| Ollama Cloud | `qwen3.5:cloud` | process.py triage model |
+| Ollama Cloud | `glm-5:cloud` | process.py summarization model |
 
 ---
 
@@ -120,6 +146,8 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 
 | Tool | Role |
 |---|---|
-| NotebookLM | Synthesis layer for multi-source research |
-| Gemini, Genspark, Manus | Deep research; findings brought to Claude for execution |
-| Aurora (OpenClaw) | Always-on agent on Netcup via Telegram and Discord |
+| NotebookLM | Synthesis layer for multi-source research (bridge via `notebooklm-mcp` from Claude Code) |
+| Gemini CLI | Connected to vault via MCP. Same model as Gemini Web, with native read/write to knowledge base |
+| Genspark, Manus | Deep research; findings brought to Claude for execution. Both support custom MCP servers (unconfigured) |
+| Perplexity | Deep research. Pro plan supports custom MCP connectors (unconfigured) |
+| Aurora (OpenClaw) | Always-on agent on Netcup via Telegram and Discord. Vault access via mcporter skill workaround |
