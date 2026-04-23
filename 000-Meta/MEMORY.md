@@ -16,7 +16,9 @@ permalink: ai-memory/000-meta/memory
 
 - **Owner:** Gilad (Senior Product Marketing Manager, Kfar Saba, Israel)
 - **Primary interface:** Obsidian on Mac, synced via iCloud + GitHub (`giladnass/Repo1`)
-- **AI tools with access:** Claude, Claude Code, Gemini, NotebookLM, Aurora (via OpenClaw)
+- **AI tools with vault access (confirmed):** Claude.ai, Claude Code, Aurora via OpenClaw
+- **AI tools pending connection:** NotebookLM (no MCP, manual export only), Gemini (non-starter on web), Perplexity/ChatGPT/Manus/Genspark (unresearched)
+- **Full connection status:** [[Memory/tool-configs]]
 - **Full tool inventory:** [[Memory/tool-configs]]
 - **Communication rule:** No em dashes in any AI output
 

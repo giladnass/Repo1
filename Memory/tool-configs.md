@@ -8,6 +8,30 @@ permalink: ai-memory/memory/tool-configs
 
 # AI Tool Configurations
 
+## Shared Memory Pool: Connection Status
+
+*Last updated: 2026-04-22*
+
+The vault (this repo) is the shared memory. basic-memory MCP is the access layer. Tools that connect to the MCP endpoint read and write to the same vault.
+
+| Tool | Status | Method | Notes |
+|---|---|---|---|
+| **Claude.ai** | Connected | Native basic-memory MCP | Configured in claude.ai MCP settings |
+| **Claude Code** | Connected | Native basic-memory MCP | Same endpoint, available in all Code sessions |
+| **Aurora (OpenClaw)** | Connected | `mcp-remote` stdio bridge | Workaround for KI-006 (OpenClaw streamable-http bug) |
+| **NotebookLM** | Not connected | No API, no MCP support | Only option: manual export of vault sections as PDF/text, re-upload as sources. One-way, not live. |
+| **Gemini (web)** | Non-starter | No MCP client in web UI | Gemini API has tool-use but no MCP client; web interface has no extension model |
+| **Perplexity** | Unresearched | API exists; MCP client support unknown | Worth investigating |
+| **ChatGPT** | Unresearched | Desktop app has MCP support | Proprietary memory competes with this approach; research needed |
+| **Manus** | Not started | Agent platform, likely MCP-capable | Unresearched |
+| **Genspark** | Not started | Unresearched | |
+
+### Key Gap: Branch Merge
+
+Claude Code works on branch `claude/caveman-lite-vrjM3`. Obsidian and Aurora read from `main`. Changes made in Claude Code sessions are invisible to other tools until that branch is merged into `main`. This is the most significant sync gap in the current setup.
+
+---
+
 ## MCP Access Layer -- Basic-Memory
 
 **Server:** basic-memory (cloud-hosted)
