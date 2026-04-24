@@ -6,6 +6,46 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-24 -- watch.sh Fixed, Vault Synced, Pipeline Verified
+
+### What Was Accomplished
+
+**Fixed `watch.sh` "Operation not permitted" error:**
+- Root cause: macOS TCC blocks script execution inside iCloud path (`~/Library/Mobile Documents/iCloud~md~obsidian/...`)
+- Solution: copied `watch.sh` + `ingest.py` to `~/Scripts/` (non-iCloud path)
+- Updated LaunchAgent plist (`com.giladnass.ai-memory-watcher`) to point at new local path
+- Reloaded agent (PID 50187)
+- Truncated 796KB error log
+- End-to-end verified: dropped test HTML into `01-source/` -> watcher fired -> converted to MD in `02-converted/` -> original moved to `03-done/`
+- Zero errors since reload
+
+**Vault sync committed and pushed:**
+- Committed 2026-04-24 session content: `MEMORY.md`, `handoff.md`, `log.md`, `tool-configs.md`
+- Pushed to `origin/main`
+- Netcup pulled cleanly, basic-memory reindexed: 87 entities embedded, 0 errors
+- Note: "branch gap" was already merged (main was ahead of dev branch); this was uncommitted session work on main
+
+### What Needs Human Review
+
+- `~/Scripts/` now contains copies of `watch.sh` and `ingest.py` -- if you edit the vault versions, remember to sync back, or update the LaunchAgent to point at vault path once iCloud TCC is resolved
+- Manus and Genspark MCP still unconfigured
+- Netcup cron still uses simple `git pull` (not stash+pull hardened)
+
+### Deferred Topics
+
+- Netcup cron hardening
+- Clean `02-converted/` dead weight (26 dirs, ~30MB)
+- Mac git push hook for instant sync
+
+### What to Do Next
+
+1. **Manus MCP** -- Settings > Integrations > Custom MCP, paste endpoint URL
+2. **Genspark MCP** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
+3. **Aurora model verification** -- check if still on kimi-k2.5 primary on Netcup
+4. **Netcup cron hardening** -- replace `git pull` with stash+pull
+
+---
+
 ## 2026-04-24 -- Perplexity MCP Connected, EPUB Processing Confirmed Done
 
 ### What Was Accomplished

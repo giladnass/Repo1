@@ -10,6 +10,33 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-24 -- watch.sh Fix + Vault Sync + Pipeline Verification
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Moved `watch.sh` and `ingest.py` out of iCloud path to `~/Scripts/` to fix macOS TCC "Operation not permitted" execution blocker
+- Updated and reloaded LaunchAgent `com.giladnass.ai-memory-watcher` (PID 50187)
+- Truncated 796KB error log
+- End-to-end pipeline test passed: `01-source/` -> `02-converted/` -> `03-done/` lifecycle confirmed operational
+- Committed 2026-04-24 session content (MEMORY.md, handoff.md, log.md, tool-configs.md) and pushed to origin/main
+- Netcup pulled cleanly; basic-memory reindexed: 87 entities embedded, 0 errors
+
+### Key Finding
+
+The "branch gap" (claude/caveman-lite-vrjM3 vs main) was already resolved -- main was 2 commits ahead. The sync issue was uncommitted session work on main, not a true divergence.
+
+### Pending
+
+- Manus and Genspark MCP setup
+- Netcup cron hardening (stash+pull)
+- Clean `02-converted/` dead weight
+- Mac git push hook
+
+---
+
 ## 2026-04-24 -- Perplexity MCP Connected, EPUB Status Verified
 
 **Tool:** Claude Code
