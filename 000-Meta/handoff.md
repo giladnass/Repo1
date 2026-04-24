@@ -6,6 +6,98 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-24 -- Perplexity MCP Connected, EPUB Processing Confirmed Done
+
+### What Was Accomplished
+
+**Perplexity connected to basic-memory MCP:**
+- Installed `mcp-remote` globally on Mac (`npm i -g mcp-remote`)
+- Configured Perplexity Desktop app: Settings > Connectors > Advanced, using `mcp-remote` as stdio bridge
+- Connection works but Perplexity can't auto-discover the project -- needs `project: "ai-memory"` passed explicitly in queries
+- Updated `Memory/tool-configs.md`: Perplexity status changed from "Ready to configure" to "Connected"
+
+**EPUB processing status verified:**
+- `02-converted/` still has 26 directories (not auto-cleaned) but all content already processed into Sources/ and Wiki/
+- `03-done/` has the moved originals -- pipeline completed correctly
+- Crossed off handoff list: "Run process.py on EPUBs in 02-converted/"
+
+**Vault sync confirmed up to date** (main branch, all prior dev work merged)
+
+### What Needs Human Review
+
+1. Perplexity MCP requires explicit `project: "ai-memory"` in queries -- may need a way to make this default
+2. `02-converted/` is dead weight (26 dirs, ~30MB) -- safe to clean out?
+3. Manus and Genspark still unconfigured (streamable HTTP direct, trivial setup)
+
+### What to Do Next
+
+1. **Manus MCP** -- Settings > Integrations > Custom MCP, paste endpoint URL
+2. **Genspark MCP** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
+3. **Aurora model verification** -- check if still on kimi-k2.5 primary on Netcup
+4. **Netcup cron hardening** -- replace `git pull` with stash+pull
+5. **Mac git push hook** -- instant vault sync on file save
+6. **Clean `02-converted/`** -- if confirmed no longer needed
+
+---
+
+## 2026-04-23 -- MCP Connections Research, Aurora Diagnosis, Vault Sync Fix
+
+### What Was Accomplished
+
+**Aurora MCP diagnosis (KI-006):**
+- OpenClaw `bundle-mcp` cannot connect to basic-memory -- both HTTP direct and stdio/mcp-remote fail
+- HTTP: returns 404 (OpenClaw tries SSE handshake, basic-memory uses streamable-http)
+- stdio/mcp-remote: "Connection closed" error
+- Workaround established: Aurora uses `mcporter call basic-memory.<tool>` skill
+- AGENTS.md on Netcup updated with explicit mcporter instructions and priority rules
+
+**Aurora search fix (ADHD books):**
+- Root cause: Netcup vault was 43 commits behind main (5-min cron failing silently due to local uncommitted changes)
+- Also: basic-memory index stale after large pull
+- Fix: `git stash && git pull origin main` + `basic-memory reindex --project AI-Memory`
+
+**Gemini CLI connected to vault:**
+- Configured `~/.gemini/settings.json` with basic-memory MCP endpoint via `httpUrl` (streamable-http)
+- Gemini CLI now has native read/write to knowledge base
+- Gemini Web has no MCP client -- CLI is the correct bridge (same model, native MCP)
+
+**Shared memory pool research (Perplexity/Manus/Genspark/ChatGPT):**
+- Perplexity: Pro plan supports custom MCP. Desktop > Settings > Connectors > Advanced. Remote servers need `mcp-remote` bridge (stdio transport)
+- Manus: All plans support streamable HTTP direct. Settings > Integrations > Custom MCP
+- Genspark: All plans support streamable HTTP direct. AI Browser > wrench icon > Add New MCP Server
+- ChatGPT: Plus/Pro gets read-only MCP. Business/Enterprise gets full read+write. Settings > Apps > Developer Mode
+- NotebookLM: No MCP client. `notebooklm-mcp` bridge from Claude Code is one-way only
+
+**Vault housekeeping:**
+- `.smart-env/` added to `.gitignore` (Smart Connections plugin cache)
+- 4 commits pushed to origin/main (book batch sources + wiki stubs)
+- `Memory/tool-configs.md` fully updated with all MCP connection statuses
+- All dev branch changes merged to main via Mac terminal
+
+### What Needs Human Review
+
+1. Perplexity/Manus/Genspark MCP setup requires manual UI configuration in each tool's settings
+2. ChatGPT MCP limited to read-only on Plus/Pro plan -- decide if that's worth connecting
+3. Aurora may still be running on minimax-m2.5 instead of kimi-k2.5 primary -- verify on Netcup
+
+### Deferred Topics
+
+1. Netcup cron hardening -- replace simple `git pull` with stash+pull to prevent silent failures
+2. process.py --move-done cleanup for `02-converted/` after processing
+3. Visual element preservation strategy (charts/images lost in conversion)
+4. Review UX -- custom interface with status buttons
+5. Git push hook on Mac for instant sync to Netcup
+
+### What to Do Next
+
+1. Run `process.py` on EPUBs in `02-converted/` (set `OLLAMA_API_KEY` first)
+2. Configure Perplexity/Manus/Genspark MCP connections (manual UI setup)
+3. Verify Aurora is running on kimi-k2.5 primary model
+4. Harden Netcup cron pull script
+5. Consider ChatGPT MCP connection (read-only on Plus/Pro)
+
+---
+
 ## 2026-04-22 -- Phase 5: Pipeline Hardened, LaunchAgent Live
 
 ### What Was Accomplished

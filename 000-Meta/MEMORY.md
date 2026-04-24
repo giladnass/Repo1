@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-22 -- Claude Code, Phase 5 complete*
+*Last updated: 2026-04-24 -- Claude Code, session: Perplexity MCP connected + EPUB status verified*
 
 ---
 
@@ -16,8 +16,9 @@ permalink: ai-memory/000-meta/memory
 
 - **Owner:** Gilad (Senior Product Marketing Manager, Kfar Saba, Israel)
 - **Primary interface:** Obsidian on Mac, synced via iCloud + GitHub (`giladnass/Repo1`)
-- **AI tools with vault access (confirmed):** Claude.ai, Claude Code, Aurora via OpenClaw
-- **AI tools pending connection:** NotebookLM (no MCP, manual export only), Gemini (non-starter on web), Perplexity/ChatGPT/Manus/Genspark (unresearched)
+- **AI tools with vault access (confirmed):** Claude.ai, Claude Code, Aurora via OpenClaw, Gemini CLI, Perplexity (mcp-remote bridge)
+- **AI tools ready to configure:** Manus (streamable HTTP direct), Genspark (streamable HTTP direct)
+- **AI tools limited/blocked:** NotebookLM (no MCP client, one-way bridge only), ChatGPT (Plus/Pro read-only), Gemini Web (no MCP client)
 - **Full connection status:** [[Memory/tool-configs]]
 - **Full tool inventory:** [[Memory/tool-configs]]
 - **Communication rule:** No em dashes in any AI output
@@ -42,7 +43,8 @@ permalink: ai-memory/000-meta/memory
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
 - Workspace brain files: global, shared across all channels
 - USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
-- basic-memory MCP connected via `mcp-remote` stdio bridge (OpenClaw bug workaround for #65590/#66940)
+- basic-memory access via `mcporter` skill workaround (native MCP broken -- KI-006: streamable-http bug #65590/#66940)
+- AGENTS.md updated with explicit mcporter instructions for Aurora
 - BOOTSTRAP.md deleted -- no more re-introduction on new sessions
 - SOUL.md updated: no process narration, outcome-only responses
 - compaction.reserveTokensFloor set to 20000
@@ -86,7 +88,7 @@ See [[000-Meta/known-issues]] for documented issues.
 - **KI-001/KI-004 RESOLVED** (2026-04-22): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.5` (200k ctx).
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
-- **KI-006 ACTIVE**: OpenClaw MCP streamable-http bug (issues #65590/#66940) -- workaround in place via mcp-remote
+- **KI-006 ACTIVE**: OpenClaw MCP streamable-http bug (issues #65590/#66940) -- workaround: mcporter skill for basic-memory calls
 
 ## Pipeline Status (as of 2026-04-22)
 
@@ -125,7 +127,9 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Run process.py** on the EPUBs in `02-converted/` -- needs `OLLAMA_API_KEY` set, then: `python3 ".../Scripts/process.py" --source-type epub`
-2. **Shared memory check** -- verify basic-memory MCP is accessible and in sync across all AI tools (Claude, Aurora, Gemini)
-3. **Aurora memory enrichment** -- ask Aurora to do a deeper read of the vault and expand her MEMORY.md
-4. **Multi-agent Discord** -- future: additional agents per domain with channel-specific access
+1. **Manus MCP setup** -- Settings > Integrations > Custom MCP, paste endpoint URL (streamable HTTP direct)
+2. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
+3. **Aurora model check** -- verify kimi-k2.5 primary on Netcup (may have drifted to minimax)
+4. **Netcup cron hardening** -- replace `git pull` with stash+pull to prevent silent failures
+5. **Mac git push hook** -- instant vault sync to Netcup on file save
+6. **Clean `02-converted/`** -- 26 dirs of dead staging data, originals already in 03-done/

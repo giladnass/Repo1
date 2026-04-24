@@ -10,6 +10,33 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-24 -- Perplexity MCP Connected, EPUB Status Verified
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Installed `mcp-remote` globally on Mac (via `npm i -g mcp-remote`)
+- Connected Perplexity Desktop (Mac) to basic-memory MCP via mcp-remote stdio bridge
+- Verified EPUB processing already complete -- all 26 items in `02-converted/` have corresponding entries in Sources/ and Wiki/
+- Updated `Memory/tool-configs.md`: Perplexity status to "Connected"
+- Updated handoff, MEMORY, and log files
+
+### Key Finding
+
+Perplexity MCP queries need explicit `project: "ai-memory"` parameter -- the remote basic-memory server has it as default_project but Perplexity/mcp-remote doesn't auto-resolve it. User must specify project name in prompt.
+
+### Pending
+
+- Manus and Genspark MCP setup (trivial -- just URL)
+- Aurora model verification (may have drifted from kimi-k2.5)
+- Netcup cron hardening
+- Mac git push hook
+- Clean `02-converted/` staging directory
+
+---
+
 ## 2026-04-22 -- Phase 5: Pipeline Hardened + LaunchAgent Live
 
 **Tool:** Claude Code
