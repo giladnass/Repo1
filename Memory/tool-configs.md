@@ -20,12 +20,12 @@ The vault (this repo) is the shared memory. basic-memory MCP is the access layer
 | **Claude.ai web** | Connected | Remote MCP via URL | Configured in claude.ai MCP settings |
 | **Claude mobile** | Connected | Remote MCP via URL | Same remote endpoint |
 | **Claude Code** | Connected | Local vault + remote MCP | Works on dev branch `claude/caveman-lite-vrjM3` |
-| **Aurora (OpenClaw)** | Connected | `mcporter` skill workaround | Native MCP broken (KI-006: streamable-http bug). Aurora calls `mcporter call basic-memory.<tool>` instead. AGENTS.md updated with instructions. |
+| **Aurora (OpenClaw)** | Connected | Native MCP + `mcporter` fallback | v2026.4.24 surfaces tools natively. mcporter still documented in AGENTS.md as fallback. |
 | **Gemini CLI** | Connected | Remote HTTP (Streamable HTTP) | Configured in `~/.gemini/settings.json` with `httpUrl`. Same model as Gemini Web, with native MCP. |
 | **Perplexity** | Connected | stdio via `mcp-remote` bridge | Mac Desktop app. Settings > Connectors > Advanced. `mcp-remote` at `/Users/giladnass/.nvm/versions/node/v24.14.1/bin/mcp-remote`. |
-| **Manus** | Ready to configure | Streamable HTTP (direct) | All plans. Settings > Integrations > Custom MCP > Add Server. HTTPS URL + auth headers. |
-| **Genspark** | Ready to configure | Streamable HTTP (direct) | All plans. AI Browser > wrench icon > Add New MCP Server. HTTPS URL + request headers. |
-| **ChatGPT** | Limited | Streamable HTTP (Apps/Developer Mode) | Plus/Pro: read-only. Business/Enterprise: full read+write. Settings > Apps > Create. |
+| **Manus** | Connected | Streamable HTTP (direct) | Settings > Integrations > Custom MCP. Tested: Read and Write verified. |
+| **Genspark** | Blocked | Streamable HTTP (direct) | UI bug: text input field in "Add New MCP" screen is non-functional across browsers. Deferred for later research. |
+| **ChatGPT** | Limited | Streamable HTTP (Apps/Developer Mode) | Plus/Pro: read-only. Business/Enterprise: full read+write. Settings > Apps > Create. Low priority. |
 | **NotebookLM** | Not connected | No MCP client | Use `notebooklm-mcp` bridge from Claude Code (one-way: Claude queries NotebookLM). No bidirectional path. |
 | **Gemini Web** | Not connected | No MCP client in web UI | No extension model. Use Gemini CLI instead (same model, has MCP). |
 
