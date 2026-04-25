@@ -95,10 +95,10 @@ basic-memory.write_note title:"Title" content:"content"
 - [x] OpenClaw deployed on Netcup
 - [x] Telegram channel working
 - [x] Ollama installed and tuned; OOM issue resolved
-- [ ] **Fix U1:** Aurora falling back to Gemini (brain file bloat diagnosis)
-- [ ] **Fix U2:** OpenClaw version bug blocking MCP tool surfacing — monitor for patch
-- [ ] OpenClaw ↔ basic-memory integration (blocked by U2)
-- [ ] Discord migration + multi-agent architecture (see `roadmap-openclaw-discord-migration` in vault)
+- [x] **Fix U1:** Aurora falling back to Gemini — resolved via cloud model switch + brain file trim
+- [x] **Fix U2:** OpenClaw version bug blocking MCP tool surfacing — resolved via v2026.4.24 update
+- [x] OpenClaw ↔ basic-memory integration (MCP read/write verified)
+- [x] Discord migration (active, groupPolicy=allowlist)
 - [ ] Open WebUI formally adopted as primary chat UI (currently deployed, port 3000→8080, not primary)
 
 ### P1-Specific Obstacles Solved
@@ -116,7 +116,7 @@ basic-memory.write_note title:"Title" content:"content"
 A single, always-on MCP endpoint that every AI tool in Gilad's stack — Claude Desktop, Claude.ai web, Claude mobile, Claude Code, OpenClaw, Perplexity, ChatGPT, Gemini, and others — can connect to simultaneously. Any tool can read from it and write to it. Cross-tool persistent context becomes possible: a decision made in Claude.ai is visible to OpenClaw; a note written by Claude Code is queryable by Perplexity.
 
 ### Current Status
-Core infrastructure live. Claude Desktop, Claude.ai web, and Claude mobile are connected and working. All other tools either pending trivial config or blocked by the OpenClaw version bug.
+Core infrastructure live. Claude Desktop, Claude.ai web, Claude mobile, Claude Code, Aurora (OpenClaw), Gemini CLI, and Perplexity are connected and working. Manus connected and tested. Genspark blocked by UI bug. ChatGPT limited to read-only on Plus/Pro.
 
 ### The MCP Endpoint
 ```
