@@ -1,2 +1,16 @@
-.claude/
+# Obsidian noise
+.obsidian/
 .smart-env/
+.trash/
+
+# Claude Code
+.claude/
+
+# macOS
+.DS_Store
+
+# Ingestion pipeline (not part of vault)
+Scripts/
+
+# Lock files
+*.lock
