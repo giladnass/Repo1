@@ -152,3 +152,4 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 | Perplexity | Deep research. Pro plan supports custom MCP connectors (unconfigured) |
 | Aurora (OpenClaw) | Always-on agent on Netcup via Telegram and Discord. Vault access via mcporter skill workaround |
 
+<!-- sync test -->
