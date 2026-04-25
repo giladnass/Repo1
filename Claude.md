@@ -187,7 +187,7 @@ Two Google Docs: an **Inbox** doc and a **Context** doc. A bridge script reads t
 A living, self-compounding, LLM-powered knowledge base. Everything Gilad reads, watches, or researches gets ingested, converted to structured Markdown, tagged, summarized, cross-linked, and made queryable — by any AI tool, at any time, from any device. Inspired by Andrey Karpathy's LLM Wiki concept. The end state is a fully automated ingestion pipeline: drop a PDF, paste a URL, record a voice note → it lands in the vault, processed and linked, without manual work.
 
 ### Current Status
-The vault and its access layer (P2) are live. P3 itself — the intelligence and automation layer on top — has not started. The vault is currently populated manually.
+The vault and its access layer (P2) are live. The ingestion automation layer is operational since April 21-24. Conversion pipeline (ingest.py, process.py, watch.sh, transcribe.py, lint.py, session_end.py, linkding_export.py) is processing files. Vault is no longer manually populated — sources drop into `01-source/` and are auto-converted, processed, and committed.
 
 ### The Vault
 
