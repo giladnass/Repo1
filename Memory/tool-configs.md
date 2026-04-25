@@ -135,8 +135,9 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 | Anthropic | Claude (all versions) | claude.ai, Claude Code |
 | Google | Gemini 2.5 Pro | Gemini CLI (connected to vault via MCP) |
 | OpenRouter | `moonshotai/kimi-k2.5` | OpenClaw primary (200k ctx) |
-| Ollama Cloud | `minimax-m2.5:cloud` | OpenClaw fallback 1 (Pro subscription, user: giladn) |
-| OpenRouter | `google/gemini-2.0-flash-001` | OpenClaw fallback 2 |
+| Groq | `llama-3.1-8b-instant` | OpenClaw fallback 1 (14,400 req/day) |
+| OpenRouter | `google/gemini-2.5-flash-lite` | OpenClaw fallback 2 |
+| Ollama Cloud | `minimax-m2.5:cloud` | Available; not in active fallback chain |
 | Ollama Cloud | `qwen3.5:cloud` | process.py triage model |
 | Ollama Cloud | `glm-5:cloud` | process.py summarization model |
 
@@ -148,7 +149,8 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 |---|---|
 | NotebookLM | Synthesis layer for multi-source research (bridge via `notebooklm-mcp` from Claude Code) |
 | Gemini CLI | Connected to vault via MCP. Same model as Gemini Web, with native read/write to knowledge base |
-| Genspark, Manus | Deep research; findings brought to Claude for execution. Both support custom MCP servers (unconfigured) |
+| Genspark | Deep research; findings brought to Claude for execution. Supports custom MCP servers but UI bug blocks configuration |
+| Manus | Deep research; findings brought to Claude for execution. MCP connected and tested |
 | Perplexity | Deep research. Pro plan supports custom MCP connectors (unconfigured) |
 | Aurora (OpenClaw) | Always-on agent on Netcup via Telegram and Discord. Vault access via mcporter skill workaround |
 
