@@ -10,7 +10,7 @@ permalink: ai-memory/memory/tool-configs
 
 ## Shared Memory Pool: Connection Status
 
-*Last updated: 2026-04-23*
+*Last updated: 2026-04-25*
 
 The vault (this repo) is the shared memory. basic-memory MCP is the access layer. Tools that connect to the MCP endpoint read and write to the same vault.
 
