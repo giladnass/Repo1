@@ -1,12 +1,18 @@
 ---
-title: "ADHD Clinical Reference Guide"
+title: ADHD Clinical Reference Guide
 type: wiki
-tags: [adhd, clinical-guidelines, diagnostic-scales, epidemiology]
+tags:
+- adhd
+- clinical-guidelines
+- diagnostic-scales
+- epidemiology
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/ADHD-APG_Full_Booklet_WEB-DL_Secured_2021-11-09]]"]
+sources:
+- '[[Sources/ADHD-APG_Full_Booklet_WEB-DL_Secured_2021-11-09]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/adhd-clinical-reference-guide
 ---
 
 # ADHD Clinical Reference Guide

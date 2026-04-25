@@ -1,14 +1,26 @@
 ---
-title: "ADHD Executive Function Strategies"
+title: ADHD Executive Function Strategies
 type: source
 source-type: pdf
-tags: [adhd, executive-functions, focus-strategies, organization-skills, self-management, cognitive-techniques, adult-adhd, source-type/pdf, status/processed]
+tags:
+- adhd
+- executive-functions
+- focus-strategies
+- organization-skills
+- self-management
+- cognitive-techniques
+- adult-adhd
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Executive-Functions-for-Adults-With-ADHD-Practical-Strategies-for-Enhancing-Focus-Organization-And-Self-Management-nCbMMZ8t_S-e5ZNe97bjc
 routing: full
-processed-to: ["[[Wiki/adult-adhd-concentration-and-organization-workbook]]", "[[Wiki/visual-data-preservation]]"]
+processed-to:
+- '[[Wiki/adult-adhd-concentration-and-organization-workbook]]'
+- '[[Wiki/visual-data-preservation]]'
+permalink: ai-memory/sources/executive-functions-for-adults-with-adhd-practical-strategies-for-enhancing-focus-organization-and-self-management-n-cb-mmz8t-s-e5-zne97bjc
 ---
 
 # ADHD Executive Function Strategies

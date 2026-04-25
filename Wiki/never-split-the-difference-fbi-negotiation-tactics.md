@@ -1,12 +1,19 @@
 ---
-title: "Never Split the Difference FBI Negotiation Tactics"
+title: Never Split the Difference FBI Negotiation Tactics
 type: wiki
-tags: [negotiation, fbi, psychology, communication]
+tags:
+- negotiation
+- fbi
+- psychology
+- communication
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/Never Split the Difference_ Negotiating As If Your Life -- Voss, Chris & Raz, Tahl -- 2016]]"]
+sources:
+- '[[Sources/Never Split the Difference_ Negotiating As If Your Life -- Voss, Chris
+  & Raz, Tahl -- 2016]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/never-split-the-difference-fbi-negotiation-tactics
 ---
 
 # Never Split the Difference FBI Negotiation Tactics

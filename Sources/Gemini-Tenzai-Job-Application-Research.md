@@ -1,14 +1,23 @@
 ---
-title: "Tenzai Cybersecurity Startup Strategic Job Application Research"
+title: Tenzai Cybersecurity Startup Strategic Job Application Research
 type: source
 source-type: pdf
-tags: [tenzai, cybersecurity, agentic-ai, job-application, market-analysis, product-marketing, source-type/pdf, status/processed]
+tags:
+- tenzai
+- cybersecurity
+- agentic-ai
+- job-application
+- market-analysis
+- product-marketing
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Gemini-Tenzai-Job-Application-Research
 routing: full
 processed-to: []
+permalink: ai-memory/sources/gemini-tenzai-job-application-research
 ---
 
 # Tenzai Cybersecurity Startup Strategic Job Application Research

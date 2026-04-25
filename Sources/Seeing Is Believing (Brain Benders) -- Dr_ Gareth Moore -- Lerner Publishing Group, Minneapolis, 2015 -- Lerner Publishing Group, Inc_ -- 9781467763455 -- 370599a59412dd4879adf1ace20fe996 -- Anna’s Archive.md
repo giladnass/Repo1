@@ -1,14 +1,25 @@
 ---
-title: "Seeing Is Believing"
+title: Seeing Is Believing
 type: source
 source-type: pdf
-tags: [optical-illusions, visual-perception, brain-training, cognitive-tricks, visual-puzzles, source-type/pdf, status/processed]
+tags:
+- optical-illusions
+- visual-perception
+- brain-training
+- cognitive-tricks
+- visual-puzzles
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
-origin: Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996 -- Anna’s Archive
+origin: Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing
+  Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996
+  -- Anna’s Archive
 routing: full
-processed-to: ["[[Wiki/visual-data-preservation]]"]
+processed-to:
+- '[[Wiki/visual-data-preservation]]'
+permalink: ai-memory/sources/seeing-is-believing-brain-benders-dr-gareth-moore-lerner-publishing-group-minneapolis-2015-lerner-publishing-group-inc-9781467763455-370599a59412dd4879adf1ace20fe996-annas-archive
 ---
 
 # Seeing Is Believing

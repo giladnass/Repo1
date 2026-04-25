@@ -1,12 +1,16 @@
 ---
-title: "AI Memory System — Overview"
+title: AI Memory System — Overview
 type: wiki
-tags: [meta, system, ai-memory]
+tags:
+- meta
+- system
+- ai-memory
 created: 2026-04-20
 updated: 2026-04-20
 sources: []
 status: active
 confidence: high
+permalink: ai-memory/wiki/ai-memory-system-overview
 ---
 
 ## Summary

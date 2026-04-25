@@ -1,12 +1,19 @@
 ---
-title: "The Imposter Cure Understanding And Overcoming Fraud"
+title: The Imposter Cure Understanding And Overcoming Fraud
 type: wiki
-tags: [imposter-syndrome, self-help, psychology, confidence]
+tags:
+- imposter-syndrome
+- self-help
+- psychology
+- confidence
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/The imposter cure _ how to stop feeling like a fraud and -- Dr_ Jessamy Hibberd -- 2019]]"]
+sources:
+- '[[Sources/The imposter cure _ how to stop feeling like a fraud and -- Dr_ Jessamy
+  Hibberd -- 2019]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/the-imposter-cure-understanding-and-overcoming-fraud
 ---
 
 # The Imposter Cure Understanding And Overcoming Fraud

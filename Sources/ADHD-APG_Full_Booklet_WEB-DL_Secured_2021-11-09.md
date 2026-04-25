@@ -1,14 +1,25 @@
 ---
-title: "ADHD Clinical Reference Guide"
+title: ADHD Clinical Reference Guide
 type: source
 source-type: pdf
-tags: [adhd, clinical-guidelines, diagnostic-scales, epidemiology, pathophysiology, clinical-trials, biostatistics, source-type/pdf, status/processed]
+tags:
+- adhd
+- clinical-guidelines
+- diagnostic-scales
+- epidemiology
+- pathophysiology
+- clinical-trials
+- biostatistics
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: ADHD-APG_Full_Booklet_WEB-DL_Secured_2021-11-09
 routing: full
-processed-to: ["[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/adhd-apg-full-booklet-web-dl-secured-2021-11-09
 ---
 
 # ADHD Clinical Reference Guide

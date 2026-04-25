@@ -1,12 +1,18 @@
 ---
-title: "Tenzai Cybersecurity Startup Strategic Job Application Research"
+title: Tenzai Cybersecurity Startup Strategic Job Application Research
 type: wiki
-tags: [tenzai, cybersecurity, agentic-ai, job-application]
+tags:
+- tenzai
+- cybersecurity
+- agentic-ai
+- job-application
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Gemini-Tenzai-Job-Application-Research]]"]
+sources:
+- '[[Sources/Gemini-Tenzai-Job-Application-Research]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/tenzai-cybersecurity-startup-strategic-job-application-research
 ---
 
 # Tenzai Cybersecurity Startup Strategic Job Application Research

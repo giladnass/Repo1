@@ -1,12 +1,18 @@
 ---
-title: "Ingestion Pipeline"
+title: Ingestion Pipeline
 type: wiki
-tags: [ingestion, pipeline, automation, ai-memory]
+tags:
+- ingestion
+- pipeline
+- automation
+- ai-memory
 created: 2026-04-20
 updated: 2026-04-20
-sources: ["[[Sources/wiki-session-knowledge-ingestion-pipeline]]"]
+sources:
+- '[[Sources/wiki-session-knowledge-ingestion-pipeline]]'
 status: active
 confidence: high
+permalink: ai-memory/wiki/ingestion-pipeline
 ---
 
 ## Summary

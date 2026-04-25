@@ -1,14 +1,23 @@
 ---
-title: "Critical Thinking Activities For The AI Age"
+title: Critical Thinking Activities For The AI Age
 type: source
 source-type: url
-tags: [artificial-intelligence, critical-thinking, education, pedagogy, ai-literacy, teaching-strategies, source-type/url, status/processed]
+tags:
+- artificial-intelligence
+- critical-thinking
+- education
+- pedagogy
+- ai-literacy
+- teaching-strategies
+- source-type/url
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
 origin: critical-thinking-activities-for-the-age-of-AI
 routing: full
 processed-to: []
+permalink: ai-memory/sources/critical-thinking-activities-for-the-age-of-ai
 ---
 
 # Critical Thinking Activities For The AI Age

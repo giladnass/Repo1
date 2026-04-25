@@ -1,12 +1,19 @@
 ---
-title: "AI Strategy and Digital Operating Models"
+title: AI Strategy and Digital Operating Models
 type: wiki
-tags: [artificial-intelligence, business-strategy, digital-transformation, operating-models]
+tags:
+- artificial-intelligence
+- business-strategy
+- digital-transformation
+- operating-models
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/Competing in the Age of AI _ Strategy and Leadership When -- Marco Iansiti; Karim R_ Lakhani -- 2020]]"]
+sources:
+- '[[Sources/Competing in the Age of AI _ Strategy and Leadership When -- Marco Iansiti;
+  Karim R_ Lakhani -- 2020]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/ai-strategy-and-digital-operating-models
 ---
 
 # AI Strategy and Digital Operating Models

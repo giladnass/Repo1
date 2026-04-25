@@ -1,12 +1,18 @@
 ---
-title: "Obsidian-Claude Integration Cheat Sheet"
+title: Obsidian-Claude Integration Cheat Sheet
 type: wiki
-tags: [obsidian, claude, knowledge-management, workflow]
+tags:
+- obsidian
+- claude
+- knowledge-management
+- workflow
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Claude-and-Obsidian - BZ177-8aa9f8904f2ee66c]]"]
+sources:
+- '[[Sources/Claude-and-Obsidian - BZ177-8aa9f8904f2ee66c]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/obsidian-claude-integration-cheat-sheet
 ---
 
 # Obsidian-Claude Integration Cheat Sheet

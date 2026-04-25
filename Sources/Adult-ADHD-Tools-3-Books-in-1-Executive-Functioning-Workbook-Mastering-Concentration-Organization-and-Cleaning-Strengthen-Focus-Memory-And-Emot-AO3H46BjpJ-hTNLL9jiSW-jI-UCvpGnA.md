@@ -1,14 +1,25 @@
 ---
-title: "Adult ADHD Concentration and Organization Workbook"
+title: Adult ADHD Concentration and Organization Workbook
 type: source
 source-type: pdf
-tags: [adult-adhd, concentration-workbook, executive-functioning, organization-skills, mental-performance, overthinking, neurodiversity, focus-training, source-type/pdf, status/processed]
+tags:
+- adult-adhd
+- concentration-workbook
+- executive-functioning
+- organization-skills
+- mental-performance
+- overthinking
+- neurodiversity
+- focus-training
+- source-type/pdf
+- status/processed
 created: 2026-04-20
 ingested: 2026-04-20
 status: processed
 origin: Adult-ADHD-Tools-3-Books-in-1-Executive-Functioning-Workbook-Mastering-Concentration-Organization-and-Cleaning-Strengthen-Focus-Memory-And-Emot-AO3H46BjpJ-hTNLL9jiSW-jI-UCvpGnA
 routing: full
 processed-to: []
+permalink: ai-memory/sources/adult-adhd-tools-3-books-in-1-executive-functioning-workbook-mastering-concentration-organization-and-cleaning-strengthen-focus-memory-and-emot-ao3-h46-bjp-j-h-tnll9ji-sw-j-i-ucvp-gn-a
 ---
 
 # Adult ADHD Concentration and Organization Workbook

@@ -1,12 +1,19 @@
 ---
-title: "Ultralearning Strategy For Mastering Hard Skills"
+title: Ultralearning Strategy For Mastering Hard Skills
 type: wiki
-tags: [ultralearning, self-education, skill-acquisition, learning-strategies]
+tags:
+- ultralearning
+- self-education
+- skill-acquisition
+- learning-strategies
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/Ultralearning _ Master Hard Skills, Outsmart the -- Clear, James;Young, Scott H -- Illustrated, 2019]]"]
+sources:
+- '[[Sources/Ultralearning _ Master Hard Skills, Outsmart the -- Clear, James;Young,
+  Scott H -- Illustrated, 2019]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/ultralearning-strategy-for-mastering-hard-skills
 ---
 
 # Ultralearning Strategy For Mastering Hard Skills

@@ -1,14 +1,18 @@
 ---
-title: "Building A Second Brain_ A Proven Method To Organise Your    Tiago Forte    2022"
+title: Building A Second Brain_ A Proven Method To Organise Your    Tiago Forte    2022
 type: source
 source-type: epub
-tags: [source-type/epub, status/processed]
+tags:
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: Building a Second Brain_ A Proven Method to Organise Your -- Tiago Forte -- 2022
+origin: Building a Second Brain_ A Proven Method to Organise Your -- Tiago Forte --
+  2022
 routing: summary
 processed-to: []
+permalink: ai-memory/sources/building-a-second-brain-a-proven-method-to-organise-your-tiago-forte-2022
 ---
 
 # Building A Second Brain_ A Proven Method To Organise Your    Tiago Forte    2022

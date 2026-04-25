@@ -1,14 +1,26 @@
 ---
-title: "Tomorrowmind Framework for Workplace Resilience and Thriving"
+title: Tomorrowmind Framework for Workplace Resilience and Thriving
 type: source
 source-type: epub
-tags: [workplace-psychology, resilience, positive-psychology, evolutionary-psychology, future-of-work, creativity, prospection, mental-health, source-type/epub, status/processed]
+tags:
+- workplace-psychology
+- resilience
+- positive-psychology
+- evolutionary-psychology
+- future-of-work
+- creativity
+- prospection
+- mental-health
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: Tomorrowmind Thriving at Work with Resilience, Creativity, -- Gabriella Rosen Kellerman & Martin E_ P_ Seligman -- 2023
+origin: Tomorrowmind Thriving at Work with Resilience, Creativity, -- Gabriella Rosen
+  Kellerman & Martin E_ P_ Seligman -- 2023
 routing: full
 processed-to: []
+permalink: ai-memory/sources/tomorrowmind-thriving-at-work-with-resilience-creativity-gabriella-rosen-kellerman-martin-e-p-seligman-2023
 ---
 
 # Tomorrowmind Framework for Workplace Resilience and Thriving

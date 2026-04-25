@@ -1,14 +1,23 @@
 ---
-title: "Brain Rewards Future Scenarios During Imagination"
+title: Brain Rewards Future Scenarios During Imagination
 type: source
 source-type: url
-tags: [neuroscience, psychology, reward-system, future-planning, anxiety, cognitive-science, source-type/url, status/processed]
+tags:
+- neuroscience
+- psychology
+- reward-system
+- future-planning
+- anxiety
+- cognitive-science
+- source-type/url
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
 origin: bm2
 routing: full
 processed-to: []
+permalink: ai-memory/sources/bm2
 ---
 
 # Brain Rewards Future Scenarios During Imagination

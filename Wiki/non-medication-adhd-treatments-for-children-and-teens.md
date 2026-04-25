@@ -1,12 +1,18 @@
 ---
-title: "Non-Medication ADHD Treatments for Children and Teens"
+title: Non-Medication ADHD Treatments for Children and Teens
 type: wiki
-tags: [adhd-treatments, non-medication, child-mental-health, parent-resources]
+tags:
+- adhd-treatments
+- non-medication
+- child-mental-health
+- parent-resources
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by-DDPoK5Mxge-JefKTvO5ZP]]"]
+sources:
+- '[[Sources/ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by-DDPoK5Mxge-JefKTvO5ZP]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/non-medication-adhd-treatments-for-children-and-teens
 ---
 
 # Non-Medication ADHD Treatments for Children and Teens

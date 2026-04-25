@@ -1,12 +1,19 @@
 ---
-title: "Why Skills Trump Passion In Careers"
+title: Why Skills Trump Passion In Careers
 type: wiki
-tags: [career-advice, passion-hypothesis, skills-mastery, craftsman-mindset]
+tags:
+- career-advice
+- passion-hypothesis
+- skills-mastery
+- craftsman-mindset
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/So Good They Can't Ignore You _ Why Skills Trump Passion in -- Newport, Cal -- 2012]]"]
+sources:
+- '[[Sources/So Good They Can''t Ignore You _ Why Skills Trump Passion in -- Newport,
+  Cal -- 2012]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/why-skills-trump-passion-in-careers
 ---
 
 # Why Skills Trump Passion In Careers

@@ -1,12 +1,19 @@
 ---
-title: "Tomorrowmind Framework for Workplace Resilience and Thriving"
+title: Tomorrowmind Framework for Workplace Resilience and Thriving
 type: wiki
-tags: [workplace-psychology, resilience, positive-psychology, evolutionary-psychology]
+tags:
+- workplace-psychology
+- resilience
+- positive-psychology
+- evolutionary-psychology
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/Tomorrowmind Thriving at Work with Resilience, Creativity, -- Gabriella Rosen Kellerman & Martin E_ P_ Seligman -- 2023]]"]
+sources:
+- '[[Sources/Tomorrowmind Thriving at Work with Resilience, Creativity, -- Gabriella
+  Rosen Kellerman & Martin E_ P_ Seligman -- 2023]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/tomorrowmind-framework-for-workplace-resilience-and-thriving
 ---
 
 # Tomorrowmind Framework for Workplace Resilience and Thriving

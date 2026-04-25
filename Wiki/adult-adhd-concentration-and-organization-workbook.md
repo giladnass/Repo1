@@ -1,12 +1,18 @@
 ---
-title: "Adult ADHD Concentration and Organization Workbook"
+title: Adult ADHD Concentration and Organization Workbook
 type: wiki
-tags: [adult-adhd, concentration-workbook, executive-functioning, organization-skills]
+tags:
+- adult-adhd
+- concentration-workbook
+- executive-functioning
+- organization-skills
 created: 2026-04-20
 updated: 2026-04-20
-sources: ["[[Sources/Adult-ADHD-Tools-3-Books-in-1-Executive-Functioning-Workbook-Mastering-Concentration-Organization-and-Cleaning-Strengthen-Focus-Memory-And-Emot-AO3H46BjpJ-hTNLL9jiSW-jI-UCvpGnA]]"]
+sources:
+- '[[Sources/Adult-ADHD-Tools-3-Books-in-1-Executive-Functioning-Workbook-Mastering-Concentration-Organization-and-Cleaning-Strengthen-Focus-Memory-And-Emot-AO3H46BjpJ-hTNLL9jiSW-jI-UCvpGnA]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/adult-adhd-concentration-and-organization-workbook
 ---
 
 # Adult ADHD Concentration and Organization Workbook

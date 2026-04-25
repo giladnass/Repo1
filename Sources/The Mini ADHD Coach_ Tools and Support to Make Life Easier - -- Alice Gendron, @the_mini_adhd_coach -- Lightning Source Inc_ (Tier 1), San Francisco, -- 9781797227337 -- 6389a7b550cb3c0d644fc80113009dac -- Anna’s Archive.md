@@ -1,14 +1,25 @@
 ---
-title: "Mini ADHD Coach Tools"
+title: Mini ADHD Coach Tools
 type: source
 source-type: pdf
-tags: [adhd, neurodiversity, mental-health, diagnosis, self-help, source-type/pdf, status/processed]
+tags:
+- adhd
+- neurodiversity
+- mental-health
+- diagnosis
+- self-help
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
-origin: The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice Gendron, @the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1), San Francisco, -- 9781797227337 -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive
+origin: The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice Gendron,
+  @the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1), San Francisco, -- 9781797227337
+  -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive
 routing: full
-processed-to: ["[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/the-mini-adhd-coach-tools-and-support-to-make-life-easier-alice-gendron-the-mini-adhd-coach-lightning-source-inc-tier-1-san-francisco-9781797227337-6389a7b550cb3c0d644fc80113009dac-annas-archive
 ---
 
 # Mini ADHD Coach Tools
