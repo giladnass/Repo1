@@ -213,7 +213,7 @@ AI-Memory/
 ```
 Schema is defined in `000-Meta/CLAUDE.md`. All files: YAML frontmatter, `[[wikilinks]]`, tags.
 
-### Ingestion Pipeline (Not Started)
+### Ingestion Pipeline (Operational)
 
 **Core architectural decision:** All source material is pre-converted to Markdown before ingestion. Raw binary formats (PDF, DOCX, MP4, etc.) are never fed directly to basic-memory. MD is inspectable, correctable, portable, and Git-versionable.
 
@@ -221,20 +221,22 @@ Schema is defined in `000-Meta/CLAUDE.md`. All files: YAML frontmatter, `[[wikil
 - Lightweight conversions (PDF, Office docs, EPUB) → run on Mac
 - Heavy compute (audio transcription, video frame/slide extraction) → run on Netcup overnight
 
-**Planned tools (none installed yet):**
-| Tool | Purpose | Run On |
+**Tools installed and operational:**
+| Tool | Purpose | Run On | Status |
+|---|---|---|---|
+| `pymupdf4llm` | PDF → Markdown | Mac | Operational (D-009) |
+| `pandoc` | DOCX / PPTX / EPUB → Markdown | Mac | Operational |
+| `faster-whisper` | Audio/video transcription | Netcup | Operational |
+| `linkding` | Self-hosted bookmark manager | Netcup | Operational |
+| Claude API (batch) | Content triage, tagging, summarization | Cloud | Operational |
+
+**Suspended / to evaluate:**
+| Tool | Status | Reason |
 |---|---|---|
-| `marker` | PDF → Markdown (ML-based, complex layouts) | Mac |
-| `pymupdf4llm` | PDF → Markdown (fast, simple PDFs) | Mac |
-| `nougat` (Meta) | Academic PDFs with equations → LaTeX-preserved MD | Mac |
-| `pandoc` | DOCX / PPTX / EPUB → Markdown | Mac |
-| `faster-whisper` | Audio/video transcription (4–8x faster than Whisper) | Netcup |
-| `docling` (IBM) | Unified document conversion incl. chart understanding | To evaluate |
-| `ffmpeg` | Video frame/audio extraction | Netcup |
-| `DePlot` / `ChartOCR` | Chart image → structured data table | To evaluate |
-| `ArchiveBox` / Firecrawl | Web page capture and archival | To evaluate |
-| `linkding` | Self-hosted bookmark manager as capture point | To evaluate |
-| Claude API (batch) | Content triage, tagging, summarization | Cloud |
+| `marker` | Suspended (KI-005) | Apple Silicon MPS bug |
+| `docling` (IBM) | To evaluate | Potential replacement for marker |
+| `ArchiveBox` / Firecrawl | To evaluate | Web page archival |
+| `DePlot` / `ChartOCR` | To evaluate | Chart extraction |
 
 ### P3 Roadmap
 - [x] Vault created with full folder structure and schema
