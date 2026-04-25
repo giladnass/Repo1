@@ -6,6 +6,46 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-25 -- U1/U2 Resolved, Docs Synced, Model Switched to kimi-k2.5
+
+### What Was Accomplished
+
+**Fixed Aurora model fallback (U1) and MCP surfacing (U2):**
+- OpenClaw primary switched from `minimax-m2.5:cloud` to `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
+- OpenClaw gateway restarted (PID 1345643); sessions.json cleared
+- Verified config: primary = kimi-k2.5, fallback 1 = groq/llama-3.1-8b-instant, fallback 2 = gemini-2.5-flash-lite
+- All blockers resolved in v2026.4.24
+
+**Synced all stale documentation to current reality:**
+- CLAUDE.md: P1 operational, P3 operational, sync mechanism updated, model config updated
+- MEMORY.md: Aurora model, reserveTokensFloor, KI-001/KI-004 resolved, KI-006 partially resolved
+- tool-configs.md: Manus connected, Genspark blocked, model table updated
+- known-issues.md: OpenClaw version bumped to 2026.4.24
+
+**Mac vault sync hardening:**
+- `vault-sync.sh` now runs `git pull origin main --rebase` before push
+- LaunchAgent reloaded and verified
+- 02-converted/ cleaned (bm1, bm2 deleted — already in Sources/ and Wiki/)
+
+### What Needs Human Review
+
+- Aurora conversation test on Discord to confirm kimi-k2.5 primary is live and fast
+- ReserveTokensFloor is 512 (docs updated to reflect actual); not a constraint with 200k ctx
+
+### Deferred Topics
+
+- Genspark MCP: UI bug persists, deferred for later research
+- Visual element preservation strategy
+- Google Drive webhook auto-ingest
+
+### What to Do Next
+
+1. **Aurora Discord test** — send a message, confirm ~3s response on kimi-k2.5
+2. **Google Drive webhook auto-ingest** — largest remaining unbuilt P3 feature
+3. **Visual element preservation** — charts/images lost during conversion; design strategy
+
+---
+
 ## 2026-04-25 -- Netcup Cron Hardened
 
 ### What Was Accomplished
