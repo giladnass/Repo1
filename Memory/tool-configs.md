@@ -151,3 +151,4 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 | Genspark, Manus | Deep research; findings brought to Claude for execution. Both support custom MCP servers (unconfigured) |
 | Perplexity | Deep research. Pro plan supports custom MCP connectors (unconfigured) |
 | Aurora (OpenClaw) | Always-on agent on Netcup via Telegram and Discord. Vault access via mcporter skill workaround |
+
