@@ -5,7 +5,7 @@ permalink: ai-memory/claude
 ---
 
 # Claude Code Master Context: Gilad's AI Stack
-*Last updated: 2026-04-20.*
+*Last updated: 2026-04-25.*
 *Read this in full before making any changes. Some infrastructure is live and operational. Breaking it has real consequences.*
 
 ---
@@ -332,4 +332,4 @@ These apply across all three projects. Violations cause immediate or cascading b
 
 ---
 
-*Last updated: 2026-04-20.*
+*Last updated: 2026-04-25.*
