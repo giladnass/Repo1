@@ -10,6 +10,35 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-25 -- U1/U2 Resolved, Model Switch, Docs Synced
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Switched OpenClaw primary model from `minimax-m2.5:cloud` to `moonshotai/kimi-k2.5` via OpenRouter
+- Added kimi-k2.5 to OpenRouter provider models in openclaw.json
+- Restarted OpenClaw gateway (PID 1345643), cleared sessions.json
+- Updated CLAUDE.md, MEMORY.md, tool-configs.md, known-issues.md to reflect current system reality
+- Marked U1/U2 resolved, P3 operational, Manus connected, Genspark blocked
+- Hardened Mac vault-sync.sh with pull-before-push; reloaded LaunchAgent
+- Deleted stale bm1/bm2 from 02-converted/ (already in Sources/ and Wiki/)
+
+### Key Findings
+
+- OpenClaw v2026.4.24 surfaces MCP tools natively; mcporter fallback still documented but no longer required
+- 02-converted/ was down to 2 dirs (bm1, bm2), not 26 as documented — dead weight already gone
+- Vault sync LaunchAgent auto-committed doc edits within seconds of each edit
+
+### Pending
+
+- Aurora Discord test to confirm kimi-k2.5 primary
+- Google Drive webhook auto-ingest (largest remaining P3 gap)
+- Visual element preservation strategy
+
+---
+
 ## 2026-04-25 -- Netcup Cron Hardened
 
 **Tool:** Claude Code
