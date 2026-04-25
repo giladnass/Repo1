@@ -241,16 +241,16 @@ Schema is defined in `000-Meta/CLAUDE.md`. All files: YAML frontmatter, `[[wikil
 ### P3 Roadmap
 - [x] Vault created with full folder structure and schema
 - [x] GitHub repo created; Git sync between Mac and Netcup operational
-- [ ] Install and test ingestion conversion tools (per format)
-- [ ] File watcher on Mac (`fswatch` + conversion script)
-- [ ] Routing logic: full ingest vs. summary-only vs. index-only
+- [x] Install and test ingestion conversion tools (pymupdf4llm, pandoc, faster-whisper)
+- [x] File watcher on Mac (`fswatch` via `watch.sh` LaunchAgent)
+- [x] Routing logic: full ingest vs. summary-only vs. index-only (process.py triage step)
 - [ ] Google Drive webhook → auto-ingest new files
-- [ ] Install `faster-whisper` on Netcup; scheduled audio/video queue
-- [ ] Claude API batch processing for content triage and tagging
-- [ ] Claude conversation capture: end-of-session Claude Code write-to-vault routine (U6)
-- [ ] Seed vault from existing NotebookLM notebooks and research outputs
-- [ ] Define "contribution contract": entry format that works across all connected tools
-- [ ] Git push hook on Mac for instant sync on file save
+- [x] Install `faster-whisper` on Netcup; scheduled audio/video queue
+- [x] Claude API batch processing for content triage and tagging (process.py)
+- [x] Claude conversation capture: end-of-session Claude Code write-to-vault routine (session_end.py)
+- [x] Seed vault from existing NotebookLM notebooks and research outputs (PDF batch processed)
+- [x] Define "contribution contract": entry format that works across all connected tools (D-006 active)
+- [x] Git push hook on Mac for instant sync on file save (LaunchAgent operational)
 
 ### P3-Specific Unresolved Problem
 **Claude conversation capture (U6):** Claude.ai has no official export API, so planning sessions are currently lost unless manually copied. The recommended approach: Claude Code sessions are the primary vehicle for knowledge-building work (Claude Code has full filesystem access and can write directly to the vault). A systematic end-of-session save routine needs to be designed.
