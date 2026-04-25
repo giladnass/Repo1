@@ -92,7 +92,7 @@ The CPU fallback (`--disable_multiprocessing`) was attempted but was too slow to
 ## KI-006 -- OpenClaw MCP Streamable-HTTP Missing Accept Header
 
 **Status:** Active, workaround in place
-**System:** OpenClaw 2026.4.21 / bundle-mcp
+**System:** OpenClaw 2026.4.24 / bundle-mcp
 
 **Symptom:** MCP servers using streamable-http transport fail to connect. With `"type":"http"` the client uses SSE and gets 400/401. With `"type":"streamable-http"` or `"transport":"streamable-http"` the server is silently skipped.
 
