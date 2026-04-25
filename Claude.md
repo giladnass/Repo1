@@ -199,7 +199,10 @@ The vault and its access layer (P2) are live. The ingestion automation layer is 
 | Netcup (server clone, Git-synced) | `/home/openclaw/AI-Memory` |
 | GitHub (sync hub) | `https://github.com/giladnass/Repo1` |
 
-**Sync mechanism:** 5-minute cron job on Netcup pulls from GitHub. Mac changes must be committed and pushed to GitHub to propagate to the server. There is currently no push hook on the Mac — sync is pull-only from the server side.
+**Sync mechanism:**
+- Mac: LaunchAgent `com.giladnass.ai-memory-sync` polls every 10s, commits, pulls (rebase), and pushes
+- Netcup: 5-minute cron job (`openclaw` user) pulls from GitHub with stash+pull+pop hardening
+- Both directions covered; Mac push is instant, Netcup pull is near-real-time
 
 **Vault structure (do not alter):**
 ```
@@ -298,11 +301,14 @@ Daily memory files (`/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`) a
 ### U4: Gemini Google Docs Bridge [P2]
 Architecture designed; zero code written. Two Google Docs (Inbox + Context). Bridge script reads vault → populates Context doc → monitors Inbox doc for Gemini outputs → ingests back to vault.
 
-### U5: Ingestion Pipeline [P3]
-The entire P3 automation layer is unstarted. The vault is manually fed. No tools installed, no watchers, no routing. Largest single body of remaining work.
+### U5: Ingestion Pipeline — Refinements [P3]
+Core pipeline operational. Remaining gaps:
+- Google Drive webhook auto-ingest not built
+- `02-converted/` cleanup after process.py runs (partially done — only 2 dirs remain as of 2026-04-25)
+- Visual element preservation strategy not designed
 
 ### U6: Claude Conversation Capture [P3]
-Claude.ai has no export API. Valuable planning sessions are lost unless manually saved. Claude Code sessions writing directly to the vault is the working hypothesis for a solution.
+Partially solved via `session_end.py`. Claude.ai still has no export API. Claude Code sessions can write directly to vault. A systematic end-of-session save routine exists but is not automated.
 
 ---
 
