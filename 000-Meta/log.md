@@ -10,6 +10,35 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-25 -- Netcup Cron Hardened
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Diagnosed root cause of Netcup sync failures: root cron job running `git pull` over SSH, but root had no GitHub host key in `known_hosts` -- produced endless "Host key verification failed" errors
+- Moved cron from root to `openclaw` user with `export HOME=/home/openclaw`
+- Added github.com host key to `/home/openclaw/.ssh/known_hosts`
+- Rewrote `vault-sync.sh` with `set -euo pipefail`, stash+pull+pop pattern, and post-pull commit/push
+- Cleared stale `/tmp/vault-sync.log` (was full of SSH errors)
+- End-to-end verified: script runs as openclaw, exit 0, repo clean, up to date with `origin/main`
+- User confirmed Manus MCP configured manually; waiting for Relay bot update
+
+### Key Findings
+
+- Root cron with `git@github.com` remote requires the SSH key + known_hosts to exist under the user running the cron job. Root had neither.
+- `set -euo pipefail` catches unbound variables and pipeline failures silently.
+
+### Pending
+
+- Aurora model checkup (verify kimi-k2.5 primary)
+- Clean `02-converted/` dead weight
+- Genspark MCP setup
+- Manus MCP status check from Relay
+
+---
+
 ## 2026-04-24 -- watch.sh Fix + Vault Sync + Pipeline Verification
 
 **Tool:** Claude Code
