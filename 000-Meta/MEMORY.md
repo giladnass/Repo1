@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-25 -- Claude Code, session: Netcup cron hardened (stash+pull, moved to openclaw user)*
+*Last updated: 2026-04-25 -- Claude Code, session: U1/U2 resolved, OpenClaw v2026.4.24, primary switched to kimi-k2.5, docs synced*
 
 ---
 
