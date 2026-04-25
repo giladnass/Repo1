@@ -47,12 +47,13 @@ sudo -u openclaw bash -c 'export PATH=/home/openclaw/.npm-global/bin:$PATH && op
 
 **Critical config rule:** Never edit `openclaw.json` directly. Always use `openclaw config set`. Exception: `mcporter.json` must be edited directly (see below).
 
-**Model config (do not change):**
-- `models.mode=replace` — auto-discovery disabled. This is non-negotiable; enabling it causes OOM crashes.
-- Primary: `ollama/qwen2.5:1.5b` — `contextWindow: 2048`, `maxTokens: 512`
+**Model config:**
+- `models.mode=replace` — auto-discovery disabled. Non-negotiable.
+- Primary: `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
 - Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day)
-- Fallback 2: `openrouter/google/gemini-2.0-flash-001` (paid)
-- OpenClaw enforces a 16k token minimum context window internally. Setting `contextWindow: 2048` in OpenClaw config while keeping `OLLAMA_NUM_CTX=16384` in Ollama is intentional and correct — they serve different purposes.
+- Fallback 2: `openrouter/google/gemini-2.5-flash-lite`
+- Ollama Cloud models configured but not in active fallback chain: `minimax-m2.5:cloud`, `qwen3.5:cloud`, `glm-5:cloud`
+- Local Ollama models on Netcup retained for future use: `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
 
 **Ollama config (do not change):**
 ```ini
