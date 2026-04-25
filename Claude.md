@@ -292,17 +292,6 @@ Desktop Claude client on Mac. `/schedule` for scheduled tasks. Only runs when Ma
 
 ## Active Unresolved Problems
 
-### U1: Aurora Falls Back to Gemini [P1]
-**Suspected cause**: Brain files in `/home/openclaw/.openclaw/agents/main/agent/` exceed the 2048-token context budget, leaving zero tokens for the user message → timeout → fallback.
-```bash
-sudo -u openclaw bash -c 'wc -w /home/openclaw/.openclaw/agents/main/agent/*.md'
-```
-If total exceeds ~1500 words: trim brain files. Move non-session-critical instructions to on-demand retrieval.
-
-### U2: OpenClaw MCP Tool Surfacing — Version Bug [P1, blocks P2]
-In OpenClaw versions 2026.4.8 and 2026.4.9, `mcporter` does not surface MCP tools to the agent layer and ignores API key headers. This blocks both Google Workspace (Composio) and basic-memory (P2) integration from OpenClaw.
-Monitor: `https://github.com/openclaw/openclaw/releases`. No workaround; do not attempt to fix until a patched version is available.
-
 ### U3: Aurora Memory Writes Unconfirmed [P1]
 Daily memory files (`/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`) are the intended mechanism for cross-session context. Unconfirmed whether Aurora is actively writing or reading them. Check for recent files; if absent, add explicit write instructions to `AGENTS.md`.
 
