@@ -1,12 +1,18 @@
 ---
-title: "Cognitive Therapy for Adult ADHD"
+title: Cognitive Therapy for Adult ADHD
 type: wiki
-tags: [adult-adhd, cognitive-behavioral-therapy, executive-function, self-regulation]
+tags:
+- adult-adhd
+- cognitive-behavioral-therapy
+- executive-function
+- self-regulation
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Rethinking-Adult-ADHD-J-Russell-Ramsay-z_BRBA_2Wh-W9CCemuqyx]]"]
+sources:
+- '[[Sources/Rethinking-Adult-ADHD-J-Russell-Ramsay-z_BRBA_2Wh-W9CCemuqyx]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/cognitive-therapy-for-adult-adhd
 ---
 
 # Cognitive Therapy for Adult ADHD

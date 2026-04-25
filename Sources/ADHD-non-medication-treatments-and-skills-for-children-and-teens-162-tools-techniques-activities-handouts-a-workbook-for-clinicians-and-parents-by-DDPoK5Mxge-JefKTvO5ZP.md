@@ -1,14 +1,26 @@
 ---
-title: "Non-Medication ADHD Treatments for Children and Teens"
+title: Non-Medication ADHD Treatments for Children and Teens
 type: source
 source-type: pdf
-tags: [adhd-treatments, non-medication, child-mental-health, parent-resources, neurofeedback, mindfulness, executive-function, behavioral-skills, source-type/pdf, status/processed]
+tags:
+- adhd-treatments
+- non-medication
+- child-mental-health
+- parent-resources
+- neurofeedback
+- mindfulness
+- executive-function
+- behavioral-skills
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by-DDPoK5Mxge-JefKTvO5ZP
 routing: full
-processed-to: ["[[Wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/adhd-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by-ddpo-k5-mxge-jef-ktv-o5-zp
 ---
 
 # Non-Medication ADHD Treatments for Children and Teens

@@ -1,10 +1,15 @@
 ---
-title: "Knowledge Base Build Plan"
+title: Knowledge Base Build Plan
 type: working-context
-tags: [meta, project, planning, ai-memory]
+tags:
+- meta
+- project
+- planning
+- ai-memory
 created: 2026-04-20
 updated: 2026-04-20
 status: active
+permalink: ai-memory/working-context/knowledge-base-build-plan
 ---
 
 ## Mission

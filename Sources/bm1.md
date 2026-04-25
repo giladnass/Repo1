@@ -1,14 +1,17 @@
 ---
-title: "Bm1"
+title: Bm1
 type: source
 source-type: url
-tags: [source-type/url, status/processed]
+tags:
+- source-type/url
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
 origin: bm1
 routing: summary
 processed-to: []
+permalink: ai-memory/sources/bm1
 ---
 
 # Bm1

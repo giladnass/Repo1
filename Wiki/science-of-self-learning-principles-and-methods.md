@@ -1,12 +1,19 @@
 ---
-title: "Science of Self-Learning Principles and Methods"
+title: Science of Self-Learning Principles and Methods
 type: wiki
-tags: [self-learning, education, study-methods, sq3r]
+tags:
+- self-learning
+- education
+- study-methods
+- sq3r
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/The Science of Self-Learning_ How to Teach Yourself -- Peter Hollins -- 2025]]"]
+sources:
+- '[[Sources/The Science of Self-Learning_ How to Teach Yourself -- Peter Hollins
+  -- 2025]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/science-of-self-learning-principles-and-methods
 ---
 
 # Science of Self-Learning Principles and Methods

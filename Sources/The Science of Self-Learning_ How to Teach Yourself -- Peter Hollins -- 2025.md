@@ -1,14 +1,25 @@
 ---
-title: "Science of Self-Learning Principles and Methods"
+title: Science of Self-Learning Principles and Methods
 type: source
 source-type: epub
-tags: [self-learning, education, study-methods, sq3r, motivation, note-taking, autodidact, personal-development, source-type/epub, status/processed]
+tags:
+- self-learning
+- education
+- study-methods
+- sq3r
+- motivation
+- note-taking
+- autodidact
+- personal-development
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
 origin: The Science of Self-Learning_ How to Teach Yourself -- Peter Hollins -- 2025
 routing: full
 processed-to: []
+permalink: ai-memory/sources/the-science-of-self-learning-how-to-teach-yourself-peter-hollins-2025
 ---
 
 # Science of Self-Learning Principles and Methods

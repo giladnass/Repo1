@@ -1,14 +1,17 @@
 ---
-title: "Cbt And Psychosocial Treatment For Adhd"
+title: Cbt And Psychosocial Treatment For Adhd
 type: source
 source-type: pdf
-tags: [source-type/pdf, status/processed]
+tags:
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: CBT And Psychosocial Treatment For ADHD
 routing: summary
 processed-to: []
+permalink: ai-memory/sources/cbt-and-psychosocial-treatment-for-adhd
 ---
 
 # Cbt And Psychosocial Treatment For Adhd

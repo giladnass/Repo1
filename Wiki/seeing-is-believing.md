@@ -1,12 +1,20 @@
 ---
-title: "Seeing Is Believing"
+title: Seeing Is Believing
 type: wiki
-tags: [optical-illusions, visual-perception, brain-training, cognitive-tricks]
+tags:
+- optical-illusions
+- visual-perception
+- brain-training
+- cognitive-tricks
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996 -- Anna’s Archive]]"]
+sources:
+- '[[Sources/Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing
+  Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996
+  -- Anna’s Archive]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/seeing-is-believing
 ---
 
 # Seeing Is Believing

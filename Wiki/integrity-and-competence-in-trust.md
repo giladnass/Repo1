@@ -1,12 +1,18 @@
 ---
-title: "Integrity and Competence in Trust"
+title: Integrity and Competence in Trust
 type: wiki
-tags: [trust, integrity, competence, social-cognition]
+tags:
+- trust
+- integrity
+- competence
+- social-cognition
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/01 Disc 02 Truth About Trust]]"]
+sources:
+- '[[Sources/01 Disc 02 Truth About Trust]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/integrity-and-competence-in-trust
 ---
 
 # Integrity and Competence in Trust

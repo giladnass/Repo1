@@ -1,12 +1,17 @@
 ---
-title: "Netcup Server"
+title: Netcup Server
 type: wiki
-tags: [netcup, infrastructure, server, ollama]
+tags:
+- netcup
+- infrastructure
+- server
+- ollama
 created: 2026-04-20
 updated: 2026-04-20
 sources: []
 status: active
 confidence: high
+permalink: ai-memory/wiki/netcup-server
 ---
 
 ## Summary

@@ -1,12 +1,18 @@
 ---
-title: "Critical Thinking Activities For The AI Age"
+title: Critical Thinking Activities For The AI Age
 type: wiki
-tags: [artificial-intelligence, critical-thinking, education, pedagogy]
+tags:
+- artificial-intelligence
+- critical-thinking
+- education
+- pedagogy
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/critical-thinking-activities-for-the-age-of-AI]]"]
+sources:
+- '[[Sources/critical-thinking-activities-for-the-age-of-AI]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/critical-thinking-activities-for-the-ai-age
 ---
 
 # Critical Thinking Activities For The AI Age

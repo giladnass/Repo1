@@ -1,12 +1,18 @@
 ---
-title: "Adult ADHD Workbook Beyond Basics"
+title: Adult ADHD Workbook Beyond Basics
 type: wiki
-tags: [adhd, adult-adhd, neurodiversity, self-care]
+tags:
+- adhd
+- adult-adhd
+- neurodiversity
+- self-care
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Adult-ADHD-Workbook-Beyond-Basics-IfH4b608-s-BjsBD8X_oC]]"]
+sources:
+- '[[Sources/Adult-ADHD-Workbook-Beyond-Basics-IfH4b608-s-BjsBD8X_oC]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/adult-adhd-workbook-beyond-basics
 ---
 
 # Adult ADHD Workbook Beyond Basics

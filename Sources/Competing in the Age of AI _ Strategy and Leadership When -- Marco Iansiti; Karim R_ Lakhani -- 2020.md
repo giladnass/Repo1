@@ -1,14 +1,26 @@
 ---
-title: "AI Strategy and Digital Operating Models"
+title: AI Strategy and Digital Operating Models
 type: source
 source-type: epub
-tags: [artificial-intelligence, business-strategy, digital-transformation, operating-models, leadership, organizational-change, technology-strategy, case-studies, source-type/epub, status/processed]
+tags:
+- artificial-intelligence
+- business-strategy
+- digital-transformation
+- operating-models
+- leadership
+- organizational-change
+- technology-strategy
+- case-studies
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: Competing in the Age of AI _ Strategy and Leadership When -- Marco Iansiti; Karim R_ Lakhani -- 2020
+origin: Competing in the Age of AI _ Strategy and Leadership When -- Marco Iansiti;
+  Karim R_ Lakhani -- 2020
 routing: full
 processed-to: []
+permalink: ai-memory/sources/competing-in-the-age-of-ai-strategy-and-leadership-when-marco-iansiti-karim-r-lakhani-2020
 ---
 
 # AI Strategy and Digital Operating Models

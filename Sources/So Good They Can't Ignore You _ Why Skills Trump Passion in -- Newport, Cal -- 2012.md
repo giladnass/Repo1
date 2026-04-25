@@ -1,14 +1,26 @@
 ---
-title: "Why Skills Trump Passion In Careers"
+title: Why Skills Trump Passion In Careers
 type: source
 source-type: epub
-tags: [career-advice, passion-hypothesis, skills-mastery, craftsman-mindset, workplace-satisfaction, professional-development, cal-newport, self-determination-theory, source-type/epub, status/processed]
+tags:
+- career-advice
+- passion-hypothesis
+- skills-mastery
+- craftsman-mindset
+- workplace-satisfaction
+- professional-development
+- cal-newport
+- self-determination-theory
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: So Good They Can't Ignore You _ Why Skills Trump Passion in -- Newport, Cal -- 2012
+origin: So Good They Can't Ignore You _ Why Skills Trump Passion in -- Newport, Cal
+  -- 2012
 routing: full
 processed-to: []
+permalink: ai-memory/sources/so-good-they-cant-ignore-you-why-skills-trump-passion-in-newport-cal-2012
 ---
 
 # Why Skills Trump Passion In Careers

@@ -1,14 +1,25 @@
 ---
-title: "The Imposter Cure Understanding And Overcoming Fraud"
+title: The Imposter Cure Understanding And Overcoming Fraud
 type: source
 source-type: epub
-tags: [imposter-syndrome, self-help, psychology, confidence, mental-health, self-doubt, perfectionism, source-type/epub, status/processed]
+tags:
+- imposter-syndrome
+- self-help
+- psychology
+- confidence
+- mental-health
+- self-doubt
+- perfectionism
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: The imposter cure _ how to stop feeling like a fraud and -- Dr_ Jessamy Hibberd -- 2019
+origin: The imposter cure _ how to stop feeling like a fraud and -- Dr_ Jessamy Hibberd
+  -- 2019
 routing: full
 processed-to: []
+permalink: ai-memory/sources/the-imposter-cure-how-to-stop-feeling-like-a-fraud-and-dr-jessamy-hibberd-2019
 ---
 
 # The Imposter Cure Understanding And Overcoming Fraud

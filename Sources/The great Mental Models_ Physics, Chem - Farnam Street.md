@@ -1,14 +1,24 @@
 ---
-title: "Mental Models Physics and Chemistry"
+title: Mental Models Physics and Chemistry
 type: source
 source-type: pdf
-tags: [mental-models, physics, decision-making, thinking, interdisciplinary, science, source-type/pdf, status/processed]
+tags:
+- mental-models
+- physics
+- decision-making
+- thinking
+- interdisciplinary
+- science
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: The great Mental Models_ Physics, Chem - Farnam Street
 routing: full
-processed-to: ["[[Wiki/ingestion-pipeline]]"]
+processed-to:
+- '[[Wiki/ingestion-pipeline]]'
+permalink: ai-memory/sources/the-great-mental-models-physics-chem-farnam-street
 ---
 
 # Mental Models Physics and Chemistry

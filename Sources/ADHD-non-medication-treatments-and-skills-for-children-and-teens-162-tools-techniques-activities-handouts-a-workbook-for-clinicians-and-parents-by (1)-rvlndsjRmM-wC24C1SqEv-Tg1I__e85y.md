@@ -1,14 +1,29 @@
 ---
-title: "Non-Medication ADHD Treatments for Children"
+title: Non-Medication ADHD Treatments for Children
 type: source
 source-type: pdf
-tags: [adhd-treatment, non-medication, child-psychology, parent-skills, mindfulness, neurofeedback, nutrition, sleep, source-type/pdf, status/processed]
+tags:
+- adhd-treatment
+- non-medication
+- child-psychology
+- parent-skills
+- mindfulness
+- neurofeedback
+- nutrition
+- sleep
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
-origin: ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by (1)-rvlndsjRmM-wC24C1SqEv-Tg1I__e85y
+origin: ADHD-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by
+  (1)-rvlndsjRmM-wC24C1SqEv-Tg1I__e85y
 routing: full
-processed-to: ["[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]", "[[Wiki/wiki/ai-memory-system-overview]]", "[[Wiki/wiki/visual-data-preservation]]"]
+processed-to:
+- '[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]'
+- '[[Wiki/wiki/ai-memory-system-overview]]'
+- '[[Wiki/wiki/visual-data-preservation]]'
+permalink: ai-memory/sources/adhd-non-medication-treatments-and-skills-for-children-and-teens-162-tools-techniques-activities-handouts-a-workbook-for-clinicians-and-parents-by-1-rvlndsj-rm-m-w-c24-c1-sq-ev-tg1-i-e85y
 ---
 
 # Non-Medication ADHD Treatments for Children

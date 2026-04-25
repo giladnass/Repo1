@@ -1,14 +1,24 @@
 ---
-title: "The Ultimate ADHD Career Guide"
+title: The Ultimate ADHD Career Guide
 type: source
 source-type: pdf
-tags: [adhd-career, neurodivergent-work, career-planning, workplace-adaptation, executive-function, motivation-strategies, source-type/pdf, status/processed]
+tags:
+- adhd-career
+- neurodivergent-work
+- career-planning
+- workplace-adaptation
+- executive-function
+- motivation-strategies
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: The Ultimate ADHD Career Guide
 routing: full
-processed-to: ["[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/the-ultimate-adhd-career-guide
 ---
 
 # The Ultimate ADHD Career Guide

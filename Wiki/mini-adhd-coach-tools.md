@@ -1,12 +1,20 @@
 ---
-title: "Mini ADHD Coach Tools"
+title: Mini ADHD Coach Tools
 type: wiki
-tags: [adhd, neurodiversity, mental-health, diagnosis]
+tags:
+- adhd
+- neurodiversity
+- mental-health
+- diagnosis
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice Gendron, @the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1), San Francisco, -- 9781797227337 -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive]]"]
+sources:
+- '[[Sources/The Mini ADHD Coach_ Tools and Support to Make Life Easier - -- Alice
+  Gendron, @the_mini_adhd_coach -- Lightning Source Inc_ (Tier 1), San Francisco,
+  -- 9781797227337 -- 6389a7b550cb3c0d644fc80113009dac -- Anna’s Archive]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/mini-adhd-coach-tools
 ---
 
 # Mini ADHD Coach Tools

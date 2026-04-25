@@ -1,12 +1,18 @@
 ---
-title: "Brain Rewards Future Scenarios During Imagination"
+title: Brain Rewards Future Scenarios During Imagination
 type: wiki
-tags: [neuroscience, psychology, reward-system, future-planning]
+tags:
+- neuroscience
+- psychology
+- reward-system
+- future-planning
 created: 2026-04-22
 updated: 2026-04-22
-sources: ["[[Sources/bm2]]"]
+sources:
+- '[[Sources/bm2]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/brain-rewards-future-scenarios-during-imagination
 ---
 
 # Brain Rewards Future Scenarios During Imagination

@@ -1,12 +1,18 @@
 ---
-title: "The Ultimate ADHD Career Guide"
+title: The Ultimate ADHD Career Guide
 type: wiki
-tags: [adhd-career, neurodivergent-work, career-planning, workplace-adaptation]
+tags:
+- adhd-career
+- neurodivergent-work
+- career-planning
+- workplace-adaptation
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/The Ultimate ADHD Career Guide]]"]
+sources:
+- '[[Sources/The Ultimate ADHD Career Guide]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/the-ultimate-adhd-career-guide
 ---
 
 # The Ultimate ADHD Career Guide

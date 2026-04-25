@@ -1,14 +1,26 @@
 ---
-title: "Ultralearning Strategy For Mastering Hard Skills"
+title: Ultralearning Strategy For Mastering Hard Skills
 type: source
 source-type: epub
-tags: [ultralearning, self-education, skill-acquisition, learning-strategies, productivity, professional-development, cognitive-science, autodidact, source-type/epub, status/processed]
+tags:
+- ultralearning
+- self-education
+- skill-acquisition
+- learning-strategies
+- productivity
+- professional-development
+- cognitive-science
+- autodidact
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: Ultralearning _ Master Hard Skills, Outsmart the -- Clear, James;Young, Scott H -- Illustrated, 2019
+origin: Ultralearning _ Master Hard Skills, Outsmart the -- Clear, James;Young, Scott
+  H -- Illustrated, 2019
 routing: full
 processed-to: []
+permalink: ai-memory/sources/ultralearning-master-hard-skills-outsmart-the-clear-james-young-scott-h-illustrated-2019
 ---
 
 # Ultralearning Strategy For Mastering Hard Skills

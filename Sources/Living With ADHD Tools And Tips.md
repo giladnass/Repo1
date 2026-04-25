@@ -1,14 +1,24 @@
 ---
-title: "ADHD Daily Life Tools and Tips"
+title: ADHD Daily Life Tools and Tips
 type: source
 source-type: pdf
-tags: [adhd-management, daily-routine-strategies, time-management, productivity-tools, mental-health-resources, executive-function, source-type/pdf, status/processed]
+tags:
+- adhd-management
+- daily-routine-strategies
+- time-management
+- productivity-tools
+- mental-health-resources
+- executive-function
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Living With ADHD Tools And Tips
 routing: full
-processed-to: ["[[Wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/living-with-adhd-tools-and-tips
 ---
 
 # ADHD Daily Life Tools and Tips

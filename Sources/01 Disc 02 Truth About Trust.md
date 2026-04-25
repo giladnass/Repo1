@@ -1,14 +1,23 @@
 ---
-title: "Integrity and Competence in Trust"
+title: Integrity and Competence in Trust
 type: source
 source-type: pdf
-tags: [trust, integrity, competence, social-cognition, unconscious, decision-making, source-type/pdf, status/processed]
+tags:
+- trust
+- integrity
+- competence
+- social-cognition
+- unconscious
+- decision-making
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: 01 Disc 02 Truth About Trust
 routing: full
 processed-to: []
+permalink: ai-memory/sources/01-disc-02-truth-about-trust
 ---
 
 # Integrity and Competence in Trust

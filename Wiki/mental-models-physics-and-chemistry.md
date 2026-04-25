@@ -1,12 +1,18 @@
 ---
-title: "Mental Models Physics and Chemistry"
+title: Mental Models Physics and Chemistry
 type: wiki
-tags: [mental-models, physics, decision-making, thinking]
+tags:
+- mental-models
+- physics
+- decision-making
+- thinking
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/The great Mental Models_ Physics, Chem - Farnam Street]]"]
+sources:
+- '[[Sources/The great Mental Models_ Physics, Chem - Farnam Street]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/mental-models-physics-and-chemistry
 ---
 
 # Mental Models Physics and Chemistry

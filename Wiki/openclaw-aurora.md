@@ -1,12 +1,18 @@
 ---
-title: "OpenClaw / Aurora"
+title: OpenClaw / Aurora
 type: wiki
-tags: [openclaw, aurora, netcup, agent, infrastructure]
+tags:
+- openclaw
+- aurora
+- netcup
+- agent
+- infrastructure
 created: 2026-04-20
 updated: 2026-04-20
 sources: []
 status: active
 confidence: high
+permalink: ai-memory/wiki/openclaw-aurora
 ---
 
 ## Summary

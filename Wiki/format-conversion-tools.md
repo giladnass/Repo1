@@ -1,12 +1,18 @@
 ---
-title: "Format Conversion Tools"
+title: Format Conversion Tools
 type: wiki
-tags: [ingestion, tools, conversion, ai-memory]
+tags:
+- ingestion
+- tools
+- conversion
+- ai-memory
 created: 2026-04-20
 updated: 2026-04-20
-sources: ["[[Sources/wiki-session-knowledge-ingestion-pipeline]]"]
+sources:
+- '[[Sources/wiki-session-knowledge-ingestion-pipeline]]'
 status: active
 confidence: high
+permalink: ai-memory/wiki/format-conversion-tools
 ---
 
 ## Summary

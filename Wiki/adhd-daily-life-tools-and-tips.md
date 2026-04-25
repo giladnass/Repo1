@@ -1,12 +1,18 @@
 ---
-title: "ADHD Daily Life Tools and Tips"
+title: ADHD Daily Life Tools and Tips
 type: wiki
-tags: [adhd-management, daily-routine-strategies, time-management, productivity-tools]
+tags:
+- adhd-management
+- daily-routine-strategies
+- time-management
+- productivity-tools
 created: 2026-04-21
 updated: 2026-04-21
-sources: ["[[Sources/Living With ADHD Tools And Tips]]"]
+sources:
+- '[[Sources/Living With ADHD Tools And Tips]]'
 status: draft
 confidence: low
+permalink: ai-memory/wiki/adhd-daily-life-tools-and-tips
 ---
 
 # ADHD Daily Life Tools and Tips

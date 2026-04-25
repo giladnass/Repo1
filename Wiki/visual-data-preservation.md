@@ -1,12 +1,19 @@
 ---
-title: "Visual Data Preservation"
+title: Visual Data Preservation
 type: wiki
-tags: [ingestion, visual, llm, tools, ai-memory]
+tags:
+- ingestion
+- visual
+- llm
+- tools
+- ai-memory
 created: 2026-04-20
 updated: 2026-04-20
-sources: ["[[Sources/wiki-session-knowledge-ingestion-pipeline]]"]
+sources:
+- '[[Sources/wiki-session-knowledge-ingestion-pipeline]]'
 status: active
 confidence: medium
+permalink: ai-memory/wiki/visual-data-preservation
 ---
 
 ## Summary

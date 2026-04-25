@@ -1,14 +1,27 @@
 ---
-title: "Adult ADHD Workbook Beyond Basics"
+title: Adult ADHD Workbook Beyond Basics
 type: source
 source-type: pdf
-tags: [adhd, adult-adhd, neurodiversity, self-care, productivity, time-management, emotional-regulation, workbooks, source-type/pdf, status/processed]
+tags:
+- adhd
+- adult-adhd
+- neurodiversity
+- self-care
+- productivity
+- time-management
+- emotional-regulation
+- workbooks
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Adult-ADHD-Workbook-Beyond-Basics-IfH4b608-s-BjsBD8X_oC
 routing: full
-processed-to: ["[[Wiki/adult-adhd-concentration-and-organization-workbook]]", "[[Wiki/ai-memory-system-overview]]"]
+processed-to:
+- '[[Wiki/adult-adhd-concentration-and-organization-workbook]]'
+- '[[Wiki/ai-memory-system-overview]]'
+permalink: ai-memory/sources/adult-adhd-workbook-beyond-basics-if-h4b608-s-bjs-bd8-x-o-c
 ---
 
 # Adult ADHD Workbook Beyond Basics

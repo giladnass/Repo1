@@ -1,14 +1,26 @@
 ---
-title: "Never Split the Difference FBI Negotiation Tactics"
+title: Never Split the Difference FBI Negotiation Tactics
 type: source
 source-type: epub
-tags: [negotiation, fbi, psychology, communication, conflict-resolution, tactical-empathy, active-listening, behavioral-economics, source-type/epub, status/processed]
+tags:
+- negotiation
+- fbi
+- psychology
+- communication
+- conflict-resolution
+- tactical-empathy
+- active-listening
+- behavioral-economics
+- source-type/epub
+- status/processed
 created: 2026-04-22
 ingested: 2026-04-22
 status: processed
-origin: Never Split the Difference_ Negotiating As If Your Life -- Voss, Chris & Raz, Tahl -- 2016
+origin: Never Split the Difference_ Negotiating As If Your Life -- Voss, Chris & Raz,
+  Tahl -- 2016
 routing: full
 processed-to: []
+permalink: ai-memory/sources/never-split-the-difference-negotiating-as-if-your-life-voss-chris-raz-tahl-2016
 ---
 
 # Never Split the Difference FBI Negotiation Tactics

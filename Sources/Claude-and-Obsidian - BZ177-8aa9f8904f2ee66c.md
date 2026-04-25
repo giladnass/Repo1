@@ -1,14 +1,27 @@
 ---
-title: "Obsidian-Claude Integration Cheat Sheet"
+title: Obsidian-Claude Integration Cheat Sheet
 type: source
 source-type: pdf
-tags: [obsidian, claude, knowledge-management, workflow, context-management, prompt-engineering, folder-structure, source-type/pdf, status/processed]
+tags:
+- obsidian
+- claude
+- knowledge-management
+- workflow
+- context-management
+- prompt-engineering
+- folder-structure
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Claude-and-Obsidian - BZ177-8aa9f8904f2ee66c
 routing: full
-processed-to: ["[[Wiki/ai-memory-system-overview]]", "[[Wiki/ingestion-pipeline]]", "[[Wiki/visual-data-preservation]]"]
+processed-to:
+- '[[Wiki/ai-memory-system-overview]]'
+- '[[Wiki/ingestion-pipeline]]'
+- '[[Wiki/visual-data-preservation]]'
+permalink: ai-memory/sources/claude-and-obsidian-bz177-8aa9f8904f2ee66c
 ---
 
 # Obsidian-Claude Integration Cheat Sheet

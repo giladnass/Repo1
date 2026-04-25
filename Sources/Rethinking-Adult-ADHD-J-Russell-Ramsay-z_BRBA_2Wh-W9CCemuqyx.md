@@ -1,14 +1,24 @@
 ---
-title: "Cognitive Therapy for Adult ADHD"
+title: Cognitive Therapy for Adult ADHD
 type: source
 source-type: pdf
-tags: [adult-adhd, cognitive-behavioral-therapy, executive-function, self-regulation, procrastination, motivation, source-type/pdf, status/processed]
+tags:
+- adult-adhd
+- cognitive-behavioral-therapy
+- executive-function
+- self-regulation
+- procrastination
+- motivation
+- source-type/pdf
+- status/processed
 created: 2026-04-21
 ingested: 2026-04-21
 status: processed
 origin: Rethinking-Adult-ADHD-J-Russell-Ramsay-z_BRBA_2Wh-W9CCemuqyx
 routing: full
-processed-to: ["[[Wiki/adult-adhd-concentration-and-organization-workbook]]"]
+processed-to:
+- '[[Wiki/adult-adhd-concentration-and-organization-workbook]]'
+permalink: ai-memory/sources/rethinking-adult-adhd-j-russell-ramsay-z-brba-2-wh-w9-ccemuqyx
 ---
 
 # Cognitive Therapy for Adult ADHD
