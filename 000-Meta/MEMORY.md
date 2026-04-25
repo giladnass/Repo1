@@ -127,9 +127,8 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Manus MCP setup** -- Settings > Integrations > Custom MCP, paste endpoint URL (streamable HTTP direct)
-2. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
-3. **Aurora model check** -- verify kimi-k2.5 primary on Netcup (may have drifted to minimax)
-4. **Netcup cron hardening** -- replace `git pull` with stash+pull to prevent silent failures
+1. **Aurora model check** -- verify kimi-k2.5 primary on Netcup (may have drifted to minimax)
+2. **Clean `02-converted/`** -- 26 dirs of dead staging data, originals already in 03-done/
+3. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
+4. **Manus MCP status** -- check Relay bot update when available
 5. **Mac git push hook** -- instant vault sync to Netcup on file save
-6. **Clean `02-converted/`** -- 26 dirs of dead staging data, originals already in 03-done/
