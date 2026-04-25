@@ -32,9 +32,10 @@ P2 and P3 share the same vault and MCP infrastructure. P1 will eventually consum
 Aurora is a self-hosted AI assistant running on the Netcup server. It handles Gilad's requests via Telegram, Discord, and a web dashboard. The P1 goal is a fully operational, stable, correctly-routed agent that uses the right model at the right tier, can invoke tools (including memory and Google Workspace), and doesn't crash or fall back silently.
 
 ### Current Status
-Partially operational. Aurora is deployed and reachable, but has two active blockers:
-- Consistently falling back to Gemini (tier 3) instead of using the local `qwen2.5:1.5b` model (see U1)
-- MCP tool surfacing broken in current OpenClaw version, which means mcporter-based tool calls (including memory access) are non-functional (see U2)
+Operational. Both active blockers resolved in April 2026-04-25 session:
+- U1 resolved: Trimmed brain files (DREAMS.md archived), disabled dreaming plugin, switched primary to cloud models
+- U2 resolved: Updated to OpenClaw v2026.4.24, MCP tools now surfacing natively. Aurora can read/write basic-memory.
+Aurora is reachable via Discord and Telegram, responds in ~3 seconds on primary model.
 
 ### Key Components
 
