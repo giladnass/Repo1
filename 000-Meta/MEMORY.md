@@ -128,8 +128,8 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Aurora model check** -- verify kimi-k2.5 primary on Netcup (may have drifted to minimax)
-2. **Clean `02-converted/`** -- 26 dirs of dead staging data, originals already in 03-done/
-3. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
-4. **Manus MCP status** -- check Relay bot update when available
-5. **Mac git push hook** -- instant vault sync to Netcup on file save
+1. ~~**Aurora model check** -- done: switched to kimi-k2.5 primary~~
+2. ~~**Clean `02-converted/`** -- done: only .DS_Store remains~~
+3. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen (research later)
+4. ~~**Manus MCP status** -- done: connected and tested~~
+5. ~~**Mac git push hook** -- done: LaunchAgent operational with pull-before-push~~
