@@ -86,10 +86,10 @@ Quick ref:
 
 See [[000-Meta/known-issues]] for documented issues.
 
-- **KI-001/KI-004 RESOLVED** (2026-04-22): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.5` (200k ctx).
+- **KI-001/KI-004 RESOLVED** (2026-04-25): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.5` (200k ctx) and trimming brain files.
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
-- **KI-006 ACTIVE**: OpenClaw MCP streamable-http bug (issues #65590/#66940) -- workaround: mcporter skill for basic-memory calls
+- **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
 
 ## Pipeline Status (as of 2026-04-22)
 
