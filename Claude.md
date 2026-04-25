@@ -130,10 +130,12 @@ This URL is the API key. Treat it as a credential. Authentication is path-based 
 | Claude Desktop (Mac) | Local stdio MCP | ✅ Working |
 | Claude.ai web | Remote MCP via URL | ✅ Working |
 | Claude mobile app | Remote MCP via URL | ✅ Working |
-| Claude Code | Local vault + remote MCP | 🔲 Not yet connected |
-| OpenClaw | mcporter → basic-memory | ⚠️ Blocked by U2 (version bug) |
-| Perplexity / Manus / Genspark | Remote MCP via URL | 🔲 Pending — trivial, just URL config |
-| ChatGPT | Remote MCP via URL | 🔲 Pending |
+| Claude Code | Local vault + remote MCP | Connected |
+| OpenClaw | Native MCP + mcporter fallback | Connected |
+| Perplexity | mcp-remote stdio bridge | Connected |
+| Manus | Streamable HTTP direct | Connected |
+| Genspark | Streamable HTTP direct | 🚫 Blocked by UI bug |
+| ChatGPT | Streamable HTTP (read-only on Plus/Pro) | Limited |
 | Gemini | Google Docs bridge | ❌ Architecture designed; not built |
 
 ### The basic-memory MCP Server
@@ -158,12 +160,13 @@ basic-memory mcp --transport streamable-http --host 0.0.0.0 --port 8765 --projec
 - [x] basic-memory installed on Mac and Netcup
 - [x] nginx + Cloudflare SSL; remote MCP live at memory.giladn.com
 - [x] Claude Desktop, Claude.ai web/mobile connected
-- [ ] Connect Claude Code (local + remote)
-- [ ] Connect Perplexity, Manus, Genspark (trivial — URL config only)
-- [ ] Connect ChatGPT
-- [ ] Fix OpenClaw ↔ basic-memory (blocked by P1/U2)
+- [x] Connect Claude Code (local + remote)
+- [x] Connect Perplexity, Manus (MCP config complete)
+- [ ] Connect Genspark (blocked by UI bug)
+- [ ] Connect ChatGPT (read-only on Plus/Pro — low priority)
+- [x] Fix OpenClaw ↔ basic-memory (resolved in v2026.4.24)
 - [ ] Build Gemini Google Docs bridge (architecture exists; no code written)
-- [ ] Git push hook on Mac for instant sync (currently 5-min cron on Netcup side only)
+- [x] Git push hook on Mac for instant sync (LaunchAgent com.giladnass.ai-memory-sync operational)
 
 ### P2-Specific Obstacles Solved
 **basic-memory CLI syntax (B1):** Positional arg only; kebab-case project name in config.
