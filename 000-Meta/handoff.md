@@ -6,6 +6,45 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-25 -- Netcup Cron Hardened
+
+### What Was Accomplished
+
+**Hardened Netcup vault sync cron:**
+- Root cause: `*/5 * * * *` cron running as root with `git@github.com` remote, but root had no GitHub SSH key / known_hosts entry for github.com
+- Solution: moved cron from root to `openclaw` user; added `export HOME=/home/openclaw` so SSH finds keys and config
+- Added github.com host key to `/home/openclaw/.ssh/known_hosts`
+- Rewrote `/home/openclaw/Scripts/vault-sync.sh`:
+  - `set -euo pipefail` for strict error handling
+  - `git stash push --include-untracked` before `git pull origin main`
+  - `git stash pop` after pull (warns but continues if merge conflict on pop)
+  - Commit/push any new local changes after pull
+- Cleared stale `/tmp/vault-sync.log` (was full of "Host key verification failed" entries)
+- End-to-end verified: script runs as openclaw, exit 0, repo clean, up to date with `origin/main`
+
+**Manus MCP:**
+- User configured manually; waiting for Relay (Every bot) to confirm connection update
+
+### What Needs Human Review
+
+- `vault-sync.sh` stash behavior: if pop fails (merge conflict), stash remains and script logs warning. Monitor first few cron runs.
+- Manus MCP confirmation from Relay
+
+### Deferred Topics
+
+- Aurora model checkup (verify kimi-k2.5 primary on Netcup)
+- Clean `02-converted/` dead weight (26 dirs, ~30MB)
+- Genspark MCP setup
+
+### What to Do Next
+
+1. **Aurora model checkup** — verify still on `moonshotai/kimi-k2.5` primary on Netcup
+2. **Clean `02-converted/`** — 26 dirs of dead staging data, originals already in `03-done/`
+3. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
+4. **Manus MCP status** -- check Relay bot update when available
+
+---
+
 ## 2026-04-24 -- watch.sh Fixed, Vault Synced, Pipeline Verified
 
 ### What Was Accomplished
