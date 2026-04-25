@@ -35,21 +35,22 @@ permalink: ai-memory/000-meta/memory
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
 
-### Aurora / OpenClaw (as of 2026-04-22)
+### Aurora / OpenClaw (as of 2026-04-25)
 
 - Primary model: `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
-- Fallback 1: `ollama/minimax-m2.5:cloud` (Ollama Cloud, user: giladn)
-- Fallback 2: `openrouter/google/gemini-2.0-flash-001`
+- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day)
+- Fallback 2: `openrouter/google/gemini-2.5-flash-lite`
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
 - Workspace brain files: global, shared across all channels
 - USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
-- basic-memory access via `mcporter` skill workaround (native MCP broken -- KI-006: streamable-http bug #65590/#66940)
+- basic-memory access: native MCP working in v2026.4.24; mcporter fallback still documented
 - AGENTS.md updated with explicit mcporter instructions for Aurora
 - BOOTSTRAP.md deleted -- no more re-introduction on new sessions
 - SOUL.md updated: no process narration, outcome-only responses
-- compaction.reserveTokensFloor set to 20000
+- compaction.reserveTokensFloor: 512 (not a constraint with 200k ctx model)
 - Aurora rebuilt her workspace MEMORY.md from vault content
 - SSH key auth fixed on Mac (`netcup_key` added to keychain)
+- OpenClaw version: 2026.4.24
 
 ## Active Projects
 
