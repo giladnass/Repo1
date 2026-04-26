@@ -31,6 +31,7 @@ permalink: ai-memory/000-meta/memory
 - **Phase 1 complete** -- MCP verified, tool inventory documented, infrastructure documented
 - **Phase 2 complete** -- conversion pipeline written and operational (ingest.py, process.py, watch.sh, session_end.py, linkding_export.py); PDFs processed, linkding export run, faster-whisper deployed on Netcup
 - **Phase 3 complete** -- Aurora operational on Discord + Telegram, KI-001/KI-004 resolved
+- **Phase 3a complete** -- DECISION: Discord/Telegram remain primary interfaces; Open WebUI explicitly NOT adopted as primary (runs on 3000→8080 as optional SSH-tunnel access only)
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active

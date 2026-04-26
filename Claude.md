@@ -99,7 +99,7 @@ basic-memory.write_note title:"Title" content:"content"
 - [x] **Fix U2:** OpenClaw version bug blocking MCP tool surfacing — resolved via v2026.4.24 update
 - [x] OpenClaw ↔ basic-memory integration (MCP read/write verified)
 - [x] Discord migration (active, groupPolicy=allowlist)
-- [ ] Open WebUI formally adopted as primary chat UI (currently deployed, port 3000→8080, not primary)
+- [x] ~~Open WebUI formally adopted as primary chat UI~~ — DECISION: Discord/Telegram remain primary interfaces. Open WebUI runs on port 3000→8080 as optional SSH-tunnel access only.
 
 ### P1-Specific Obstacles Solved
 **OOM Crashes (A1):** `models.mode=replace` + hardcoded context windows + large model removal. See model config above.
