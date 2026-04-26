@@ -236,6 +236,7 @@
   },
   "active": "4e94a1898a6a3ca0",
   "lastOpenFiles": [
+    "Scripts/session_capture.py",
     "Scripts/gemini_bridge.py",
     "Working-Context/Session-Handoff-2026-04-26.md",
     "Claude.md",
@@ -269,7 +270,6 @@
     "Wiki/Tools",
     "Wiki/Projects",
     "Wiki",
-    "Templates",
     "CLAUDE.md",
     "Test.md"
   ]
