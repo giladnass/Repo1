@@ -34,6 +34,8 @@ permalink: ai-memory/000-meta/memory
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
+- **U4 gemini_bridge.py written** -- requires OAuth setup before activation
+- **U6 session_capture.py written** -- ready for testing
 
 ### Aurora / OpenClaw (as of 2026-04-25)
 
@@ -91,7 +93,7 @@ See [[000-Meta/known-issues]] for documented issues.
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
 - **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
 
-## Pipeline Status (as of 2026-04-22)
+## Pipeline Status (as of 2026-04-26)
 
 | Script | Status | Notes |
 |---|---|---|
@@ -130,11 +132,9 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. ~~**Aurora model check** -- done: switched to kimi-k2.5 primary~~
-2. ~~**Clean `02-converted/`** -- done: only .DS_Store remains~~
-3. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen (research later)
-4. ~~**Manus MCP status** -- done: connected and tested~~
-5. ~~**Mac git push hook** -- done: LaunchAgent operational with pull-before-push~~
-6. ~~**U4 Gemini bridge** -- done: gemini_bridge.py written, needs OAuth setup~~
-7. ~~**U6 session capture** -- done: session_capture.py written, auto-extracts from JSONL~~
-8. **Run session_capture.py on this session** -- test the automation
+1. **Test session_capture.py on this session** -- run the script to validate end-to-end automation
+2. **Set up OAuth for gemini_bridge.py** -- create Google Cloud OAuth client, run `--auth` mode
+3. **Aurora Discord test** -- send message, confirm ~3s response on kimi-k2.5
+4. **U3 Aurora daily memory writes** -- implement automated memory persistence
+5. **U5 Drive webhook + visual preservation** -- design strategy for chart/image retention
+6. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen

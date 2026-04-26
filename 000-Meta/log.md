@@ -383,3 +383,27 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - Set up automated LINT validation for vault files
 - Run full linkding bookmark batch through pipeline
 - Install and test faster-whisper on Netcup for transcription
+
+---
+
+## 2026-04-26 -- U4 Bridge Built U6 Capture Created
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- Created Scripts/gemini_bridge.py (U4) for bidirectional sync between vault and Google Docs
+- Created Scripts/session_capture.py (U6) for capturing Claude Code sessions from JSONL
+- Reviewed execution status across OpenClaw/Aurora, Shared Memory Pool, and Knowledge Repository
+- Updated MEMORY.md pipeline table with new scripts
+- Git auto-committed by LaunchAgent, clean status confirmed
+
+### Key Findings
+- gemini_bridge.py requires OAuth client setup before activation
+- session_capture.py integrates with session_end.py for automated handoff updates
+- U3 (Aurora daily memory writes) and U5 (Drive webhook, visual preservation) remain unresolved
+
+### Pending
+- Test session_capture.py on current session
+- Activate Gemini bridge with OAuth credentials
+- Aurora Discord test to confirm kimi-k2.5 primary model response
