@@ -40,7 +40,7 @@ permalink: ai-memory/000-meta/memory
 
 ### Aurora / OpenClaw (as of 2026-04-25)
 
-- Primary model: `moonshotai/kimi-k2.5` via OpenRouter (200k ctx)
+- Primary model: `moonshotai/kimi-k2.6` via OpenRouter (200k ctx)
 - Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day)
 - Fallback 2: `openrouter/google/gemini-2.5-flash-lite`
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
@@ -89,7 +89,7 @@ Quick ref:
 
 See [[000-Meta/known-issues]] for documented issues.
 
-- **KI-001/KI-004 RESOLVED** (2026-04-25): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.5` (200k ctx) and trimming brain files.
+- **KI-001/KI-004 RESOLVED** (2026-04-25): Aurora no longer falls back to Gemini. Fixed by switching primary model to `moonshotai/kimi-k2.6` (200k ctx) and trimming brain files.
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
 - **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
