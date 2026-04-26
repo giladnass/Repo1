@@ -78,7 +78,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "adhd",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -99,8 +99,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -235,7 +234,7 @@
       "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "d1c79068df3f2963",
+  "active": "4e94a1898a6a3ca0",
   "lastOpenFiles": [
     "Claude.md",
     "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
