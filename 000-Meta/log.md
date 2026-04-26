@@ -474,3 +474,28 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - Fix Aurora model routing (user decision needed on approach)
 - U5 Drive webhook + visual preservation strategy
 - Genspark MCP setup (UI bug blocks text input)
+
+---
+
+## 2026-04-27 -- Aurora Model Fixed, U4 U6 Completed
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- U4 gemini_bridge.py completed: OAuth working, Context + Inbox Google Docs created, push/pull verified
+- U6 session_capture.py completed: end-to-end validation, auto-capture working
+- U3 Aurora memory writes fixed: created memory/ directory, wrote seed file, AGENTS.md updated
+- Aurora model regression resolved: switched primary to kimi-k2.6, gateway restarted
+- Open WebUI explicitly removed from roadmap as primary UI
+
+### Key Findings
+- kimi-k2.5 returns 'Unknown model' from OpenRouter, not a config issue
+- Memory write failures were due to missing directory, not permissions
+- Visual preservation parked per user request
+
+### Pending
+- U5 Drive webhook auto-ingest design
+- Genspark MCP setup (blocked by UI bug)
+- Converted-file lifecycle decision
+- UX dashboard conceptualization

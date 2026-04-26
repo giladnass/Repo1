@@ -6,6 +6,30 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-27 -- Aurora Model Fixed, U4 U6 Completed
+
+### What Was Accomplished
+- U4 gemini_bridge.py operational: OAuth authenticated, Context + Inbox Google Docs created, bidirectional sync working
+- U6 session_capture.py operational: extracts Claude Code session JSONL, summarizes, commits to vault
+- U3 Aurora memory writes fixed: created /home/openclaw/.openclaw/workspace/memory/, wrote seed file, updated AGENTS.md with daily persistence rules
+- Aurora model regression resolved: switched primary model to kimi-k2.6 (working), retired broken kimi-k2.5
+- Open WebUI removed from roadmap as primary chat UI
+
+### What to Do Next
+1. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
+2. **Genspark MCP setup** -- still blocked by UI bug in Add New MCP screen
+3. **Converted-file lifecycle** -- decide save/delete flow for 02-converted/ files
+4. **Monitor Aurora memory writes** -- confirm daily persistence working for 3 days
+
+### What to Read First Next Session
+Per CLAUDE.md session start protocol:
+1. `000-Meta/MEMORY.md`
+2. `000-Meta/index.md`
+3. `000-Meta/handoff.md`
+4. `Working-Context/knowledge-base-build-plan.md`
+
+---
+
 ## 2026-04-27 -- Aurora Model Regression Discovered
 
 ### What Was Accomplished

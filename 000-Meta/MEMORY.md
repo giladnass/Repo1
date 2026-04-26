@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-27 -- Claude Code, session: Aurora model regression discovered*
+*Last updated: 2026-04-27 -- Claude Code, session: Aurora model fixed, U4 U6 completed*
 
 ---
 
@@ -38,13 +38,13 @@ permalink: ai-memory/000-meta/memory
 - **U3 Aurora memory writes** -- FIXED: `memory/` directory created, seed file written, AGENTS.md updated with explicit daily persistence rules
 - **U4 gemini_bridge.py operational** -- OAuth working, token cached, Context + Inbox Google Docs created, push/pull verified
 - **U6 session_capture.py operational** -- end-to-end validation complete, auto-capture working
-- **Aurora model regression discovered** -- `kimi-k2.5` returns "Unknown model", Groq fallback rate-limited, falls back to Gemini Flash Lite with ~20s response times
+- **Aurora model regression resolved** -- switched from broken `kimi-k2.5` to working `kimi-k2.6`
 
 ### Aurora / OpenClaw (as of 2026-04-27)
 
-- Primary model: `moonshotai/kimi-k2.5` via OpenRouter -- **REGRESSION: returns "Unknown model" error**
-- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day) -- **rate-limited**: 6000 TPM vs ~47K needed
-- Fallback 2: `openrouter/google/gemini-2.5-flash-lite` -- current active, ~20s response times
+- Primary model: `moonshotai/kimi-k2.6` via OpenRouter -- **WORKING** (200k ctx)
+- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day) -- rate-limited: 6000 TPM vs ~47K needed
+- Fallback 2: `openrouter/google/gemini-2.5-flash-lite` -- fallback only
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
 - Workspace brain files: global, shared across all channels
 - USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
@@ -96,7 +96,7 @@ See [[000-Meta/known-issues]] for documented issues.
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
 - **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
-- **KI-007 Aurora model regression** (2026-04-27): Primary `kimi-k2.5` returns "Unknown model", Groq fallback rate-limited, resulting in slow Gemini Flash Lite responses (~20s). Fix options: switch to `kimi-k2.6`, debug OpenRouter key, or replace Groq fallback.
+- **KI-007 RESOLVED** (2026-04-27): Aurora model fixed -- switched from broken `kimi-k2.5` to working `kimi-k2.6`.
 
 ## Pipeline Status (as of 2026-04-27)
 
@@ -137,7 +137,7 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. ~~**Fix Aurora model routing**~~ -- done: switched primary to `kimi-k2.6`
-2. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
-3. ~~**Visual element preservation**~~ -- parked (user decision)
-4. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
+1. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
+2. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
+3. **Monitor Aurora memory writes** -- confirm daily persistence working (3-day observation period)
+4. **Converted-file lifecycle** -- decide save/delete flow for 02-converted/ files
