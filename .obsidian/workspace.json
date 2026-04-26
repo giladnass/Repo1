@@ -236,6 +236,7 @@
   },
   "active": "4e94a1898a6a3ca0",
   "lastOpenFiles": [
+    "Working-Context/cross-tool-memory-sync-architecture.md",
     "Scripts/__pycache__/gemini_bridge.cpython-312.pyc",
     "Scripts/__pycache__/session_capture.cpython-312.pyc",
     "Scripts/__pycache__",
@@ -269,7 +270,6 @@
     "Wiki/sources",
     "Wiki/entities",
     "Wiki/concepts",
-    "Wiki/Topics",
     "CLAUDE.md",
     "Test.md"
   ]
