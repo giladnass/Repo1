@@ -137,6 +137,7 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Fix Aurora model routing** -- choose approach: A) switch primary to `kimi-k2.6`, B) debug OpenRouter key, or C) replace Groq fallback with higher-throughput model
-2. **U5 Drive webhook + visual preservation** -- design strategy for auto-ingest and chart/image retention
-3. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
+1. ~~**Fix Aurora model routing**~~ -- done: switched primary to `kimi-k2.6`
+2. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
+3. ~~**Visual element preservation**~~ -- parked (user decision)
+4. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
