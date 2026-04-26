@@ -103,6 +103,7 @@ See [[000-Meta/known-issues]] for documented issues.
 | `Scripts/linkding_export.py` | Operational | Full run completed |
 | `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
 | `Scripts/gemini_bridge.py` | Ready | OAuth setup required; creates Context + Inbox Google Docs |
+| `Scripts/session_capture.py` | Ready | Auto-extracts session JSONL, summarizes, feeds session_end.py |
 
 ### Staging Folder Structure (Mac)
 
