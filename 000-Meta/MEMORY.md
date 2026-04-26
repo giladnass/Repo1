@@ -135,3 +135,6 @@ See [[000-Meta/known-issues]] for documented issues.
 3. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen (research later)
 4. ~~**Manus MCP status** -- done: connected and tested~~
 5. ~~**Mac git push hook** -- done: LaunchAgent operational with pull-before-push~~
+6. ~~**U4 Gemini bridge** -- done: gemini_bridge.py written, needs OAuth setup~~
+7. ~~**U6 session capture** -- done: session_capture.py written, auto-extracts from JSONL~~
+8. **Run session_capture.py on this session** -- test the automation
