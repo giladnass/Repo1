@@ -407,3 +407,26 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - Test session_capture.py on current session
 - Activate Gemini bridge with OAuth credentials
 - Aurora Discord test to confirm kimi-k2.5 primary model response
+
+---
+
+## 2026-04-26 -- U6 Capture Tested, U4 OAuth Blocked
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- U6 session_capture.py created and tested end-to-end
+- Validated: JSONL extraction, glm-5:cloud summarization, handoff/log/MEMORY updates, git commit
+- U4 gemini_bridge.py created with full CLI modes (--auth, --push, --pull, --sync, --watch)
+- All changes committed to repository
+
+### Key Findings
+- session_capture.py automation works correctly with glm-5:cloud summarization
+- Gemini bridge OAuth blocked: Google Drive API not enabled in Google Cloud console
+- Drive API is separate from Docs API (Docs already enabled)
+
+### Pending
+- Enable Google Drive API for U4 gemini_bridge.py OAuth
+- U3 Aurora daily memory writes implementation
+- U5 Google Drive webhook auto-ingest design

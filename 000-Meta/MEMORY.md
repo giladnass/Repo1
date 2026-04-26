@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-26 -- Claude Code, session: U4 bridge built, U6 pending*
+*Last updated: 2026-04-26 -- Claude Code, session: U6 validated, U4 OAuth blocked*
 
 ---
 
@@ -34,8 +34,8 @@ permalink: ai-memory/000-meta/memory
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
-- **U4 gemini_bridge.py written** -- requires OAuth setup before activation
-- **U6 session_capture.py written** -- ready for testing
+- **U4 gemini_bridge.py written** -- OAuth blocked (Google Drive API not enabled)
+- **U6 session_capture.py tested** -- end-to-end validation complete, operational
 
 ### Aurora / OpenClaw (as of 2026-04-25)
 
@@ -104,8 +104,8 @@ See [[000-Meta/known-issues]] for documented issues.
 | `Scripts/session_end.py` | Operational | Automated session logging |
 | `Scripts/linkding_export.py` | Operational | Full run completed |
 | `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
-| `Scripts/gemini_bridge.py` | Ready | OAuth setup required; creates Context + Inbox Google Docs |
-| `Scripts/session_capture.py` | Ready | Auto-extracts session JSONL, summarizes, feeds session_end.py |
+| `Scripts/gemini_bridge.py` | Blocked | OAuth setup blocked: Google Drive API not enabled |
+| `Scripts/session_capture.py` | Operational | Tested end-to-end, updates handoff/log/MEMORY |
 
 ### Staging Folder Structure (Mac)
 
@@ -132,8 +132,8 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Test session_capture.py on this session** -- run the script to validate end-to-end automation
-2. **Set up OAuth for gemini_bridge.py** -- create Google Cloud OAuth client, run `--auth` mode
+1. **Enable Google Drive API** for gemini_bridge.py at console.cloud.google.com
+2. **Retry gemini_bridge.py --auth** after API enabled (~1 min wait)
 3. **Aurora Discord test** -- send message, confirm ~3s response on kimi-k2.5
 4. **U3 Aurora daily memory writes** -- implement automated memory persistence
 5. **U5 Drive webhook + visual preservation** -- design strategy for chart/image retention
