@@ -299,7 +299,7 @@ Desktop Claude client on Mac. `/schedule` for scheduled tasks. Only runs when Ma
 Daily memory files (`/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`) are the intended mechanism for cross-session context. Root cause: `memory/` directory did not exist. Fixed by creating directory, writing seed `2026-04-26.md`, and adding explicit daily persistence rules to `AGENTS.md`.
 
 ### U4: Gemini Google Docs Bridge [P2]
-Architecture designed; zero code written. Two Google Docs (Inbox + Context). Bridge script reads vault → populates Context doc → monitors Inbox doc for Gemini outputs → ingests back to vault.
+Script `gemini_bridge.py` written and activated. OAuth configured; Context + Inbox docs created. Push/pull verified. Needs Drive API enabled in Google Cloud project.
 
 ### U5: Ingestion Pipeline — Refinements [P3]
 Core pipeline operational. Remaining gaps:
