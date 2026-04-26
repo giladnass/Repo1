@@ -102,6 +102,7 @@ See [[000-Meta/known-issues]] for documented issues.
 | `Scripts/session_end.py` | Operational | Automated session logging |
 | `Scripts/linkding_export.py` | Operational | Full run completed |
 | `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
+| `Scripts/gemini_bridge.py` | Ready | OAuth setup required; creates Context + Inbox Google Docs |
 
 ### Staging Folder Structure (Mac)
 
