@@ -130,7 +130,7 @@ See [[000-Meta/known-issues]] for documented issues.
 ## Deferred Design Topics (discuss in future sessions)
 
 1. **Converted-file lifecycle** -- some MD files in `02-converted/` need to be preserved as-is (transcripts, reports); need save/delete decision flow
-2. **Visual element preservation** -- charts and images in source docs are lost during conversion; need a strategy to preserve and link visuals to their summaries
+2. ~~**Visual element preservation**~~ -- PARKED (2026-04-27): User will manually exclude visual-heavy sources from ingestion until a strategy is designed. No code changes needed now.
 3. **Review UX** -- custom interface with status buttons (draft -> active), pipeline status display; Amber app noted as possible editor component; Obsidian plugin as alternative
 4. **UX dashboard** -- button-based interface for the full pipeline (convert, summarize, review, commit) with process queue display
 5. **process.py --move-done** -- add cleanup for `02-converted/` after successful processing (mirrors ingest.py behavior)
