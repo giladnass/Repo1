@@ -34,6 +34,7 @@ permalink: ai-memory/000-meta/memory
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
+- **U3 Aurora memory writes fixed** -- memory/ directory created, seed file written, AGENTS.md updated with explicit daily persistence rules
 - **U4 gemini_bridge.py active** -- Context + Inbox Google Docs created, OAuth working, push/pull verified
 - **U6 session_capture.py operational** -- end-to-end validation complete, auto-capture working
 
