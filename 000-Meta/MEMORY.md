@@ -135,5 +135,5 @@ See [[000-Meta/known-issues]] for documented issues.
 
 1. **U3 Aurora daily memory writes** -- verify or implement automated memory persistence
 2. **U5 Drive webhook + visual preservation** -- design strategy for auto-ingest and chart/image retention
-3. **Aurora Discord test** -- send message, confirm ~3s response on kimi-k2.5
+3. ~~**Aurora Discord test** -- done: switched to kimi-k2.6 after k2.5 returned model_not_found~~
 4. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
