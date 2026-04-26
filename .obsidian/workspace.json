@@ -236,6 +236,8 @@
   },
   "active": "4e94a1898a6a3ca0",
   "lastOpenFiles": [
+    "Scripts/__pycache__/session_capture.cpython-312.pyc",
+    "Scripts/__pycache__",
     "Scripts/session_capture.py",
     "Scripts/gemini_bridge.py",
     "Working-Context/Session-Handoff-2026-04-26.md",
@@ -268,8 +270,6 @@
     "Wiki/concepts",
     "Wiki/Topics",
     "Wiki/Tools",
-    "Wiki/Projects",
-    "Wiki",
     "CLAUDE.md",
     "Test.md"
   ]
