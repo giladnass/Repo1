@@ -430,3 +430,24 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 - Enable Google Drive API for U4 gemini_bridge.py OAuth
 - U3 Aurora daily memory writes implementation
 - U5 Google Drive webhook auto-ingest design
+
+---
+
+## 2026-04-26 -- U4 Gemini Bridge OAuth Success, U6 Session Capture Live
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- U4 (Gemini Google Docs Bridge) fully operational: OAuth activated, token cached, Context and Inbox Google Docs created and tested
+- U6 (Claude Session Capture) operational: session_capture.py extracts JSONL, summarizes via glm-5:cloud, feeds session_end.py
+- Fixed empty doc clear bug in gemini_bridge.py
+- Enabled Google Drive API (was separate from Docs API)
+
+### Key Findings
+- Google Drive API must be enabled separately from Docs API for gemini_bridge.py OAuth
+- Session capture end-to-end flow works: JSONL extraction -> Ollama summarization -> session_end.py -> vault updates
+
+### Pending
+- U3: Aurora daily memory writes (unconfirmed status)
+- U5: Drive webhook auto-ingest + visual element preservation (not built)

@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-26 -- Claude Code, session: U6 validated, U4 OAuth blocked*
+*Last updated: 2026-04-26 -- Claude Code, session: U4 and U6 scripts operational*
 
 ---
 
@@ -34,8 +34,8 @@ permalink: ai-memory/000-meta/memory
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
-- **U3 Aurora memory writes fixed** -- memory/ directory created, seed file written, AGENTS.md updated with explicit daily persistence rules
-- **U4 gemini_bridge.py active** -- Context + Inbox Google Docs created, OAuth working, push/pull verified
+- **U3 Aurora memory writes** -- memory/ directory created, seed file written, AGENTS.md updated with explicit daily persistence rules (status: unconfirmed)
+- **U4 gemini_bridge.py operational** -- OAuth working, token cached, Context + Inbox Google Docs created, push/pull verified
 - **U6 session_capture.py operational** -- end-to-end validation complete, auto-capture working
 
 ### Aurora / OpenClaw (as of 2026-04-25)
@@ -105,7 +105,7 @@ See [[000-Meta/known-issues]] for documented issues.
 | `Scripts/session_end.py` | Operational | Automated session logging |
 | `Scripts/linkding_export.py` | Operational | Full run completed |
 | `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
-| `Scripts/gemini_bridge.py` | Blocked | OAuth setup blocked: Google Drive API not enabled |
+| `Scripts/gemini_bridge.py` | Operational | OAuth working, Context + Inbox Google Docs created |
 | `Scripts/session_capture.py` | Operational | Tested end-to-end, updates handoff/log/MEMORY |
 
 ### Staging Folder Structure (Mac)
@@ -133,9 +133,7 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **Enable Google Drive API** for gemini_bridge.py at console.cloud.google.com
-2. **Retry gemini_bridge.py --auth** after API enabled (~1 min wait)
+1. **U3 Aurora daily memory writes** -- verify or implement automated memory persistence
+2. **U5 Drive webhook + visual preservation** -- design strategy for auto-ingest and chart/image retention
 3. **Aurora Discord test** -- send message, confirm ~3s response on kimi-k2.5
-4. **U3 Aurora daily memory writes** -- implement automated memory persistence
-5. **U5 Drive webhook + visual preservation** -- design strategy for chart/image retention
-6. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
+4. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
