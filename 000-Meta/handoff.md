@@ -6,6 +6,27 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-27 -- Aurora Model Regression Discovered
+
+### What Was Accomplished
+- U3 Aurora memory writes fixed: created `/home/openclaw/.openclaw/workspace/memory/` directory, wrote seed file `2026-04-26.md`, updated AGENTS.md with explicit daily persistence rules
+- U4 gemini_bridge.py verified operational: OAuth working, Context + Inbox Google Docs functional
+- U6 session_capture.py verified operational: end-to-end tested, auto-capture working
+
+### What to Do Next
+1. **Fix Aurora model routing** -- choose approach: A) switch primary to `kimi-k2.6`, B) debug OpenRouter key, or C) replace Groq fallback with higher-throughput model
+2. **U5 Drive webhook + visual preservation** -- design strategy for auto-ingest and chart/image retention
+3. **Genspark MCP setup** -- deferred pending UI bug fix in Add New MCP screen
+
+### What to Read First Next Session
+Per CLAUDE.md session start protocol:
+1. `000-Meta/MEMORY.md`
+2. `000-Meta/index.md`
+3. `000-Meta/handoff.md`
+4. `Working-Context/knowledge-base-build-plan.md`
+
+---
+
 ## 2026-04-26 -- U4 Gemini Bridge OAuth Success, U6 Session Capture Live
 
 ### What Was Accomplished

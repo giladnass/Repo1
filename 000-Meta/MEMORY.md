@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-26 -- Claude Code, session: U4 and U6 scripts operational*
+*Last updated: 2026-04-27 -- Claude Code, session: Aurora model regression discovered*
 
 ---
 
@@ -34,20 +34,22 @@ permalink: ai-memory/000-meta/memory
 - **Phase 4 complete** -- Aurora connected to basic-memory MCP, memory rebuilt, SSH key auth fixed, watch.sh LaunchAgent installed
 - **Phase 5 complete** -- lint.py created and clean (0 errors), D-003 frontmatter gaps fixed, index.md updated with all wiki pages, file lifecycle finalized (01-source -> 03-done), LaunchAgent confirmed running, vault path confirmed
 - D-006 (MCP data contract) finalized: Active
-- **U3 Aurora memory writes** -- memory/ directory created, seed file written, AGENTS.md updated with explicit daily persistence rules (status: unconfirmed)
+- **U3 Aurora memory writes** -- FIXED: `memory/` directory created, seed file written, AGENTS.md updated with explicit daily persistence rules
 - **U4 gemini_bridge.py operational** -- OAuth working, token cached, Context + Inbox Google Docs created, push/pull verified
 - **U6 session_capture.py operational** -- end-to-end validation complete, auto-capture working
+- **Aurora model regression discovered** -- `kimi-k2.5` returns "Unknown model", Groq fallback rate-limited, falls back to Gemini Flash Lite with ~20s response times
 
-### Aurora / OpenClaw (as of 2026-04-25)
+### Aurora / OpenClaw (as of 2026-04-27)
 
-- Primary model: `moonshotai/kimi-k2.6` via OpenRouter (200k ctx)
-- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day)
-- Fallback 2: `openrouter/google/gemini-2.5-flash-lite`
+- Primary model: `moonshotai/kimi-k2.5` via OpenRouter -- **REGRESSION: returns "Unknown model" error**
+- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day) -- **rate-limited**: 6000 TPM vs ~47K needed
+- Fallback 2: `openrouter/google/gemini-2.5-flash-lite` -- current active, ~20s response times
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
 - Workspace brain files: global, shared across all channels
 - USER.md: correct Hebrew name spelling (גילעד), bilingual response rules
 - basic-memory access: native MCP working in v2026.4.24; mcporter fallback still documented
 - AGENTS.md updated with explicit mcporter instructions for Aurora
+- AGENTS.md updated with daily persistence rules (memory directory created)
 - BOOTSTRAP.md deleted -- no more re-introduction on new sessions
 - SOUL.md updated: no process narration, outcome-only responses
 - compaction.reserveTokensFloor: 512 (not a constraint with 200k ctx model)
@@ -93,8 +95,9 @@ See [[000-Meta/known-issues]] for documented issues.
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
 - **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
+- **KI-007 Aurora model regression** (2026-04-27): Primary `kimi-k2.5` returns "Unknown model", Groq fallback rate-limited, resulting in slow Gemini Flash Lite responses (~20s). Fix options: switch to `kimi-k2.6`, debug OpenRouter key, or replace Groq fallback.
 
-## Pipeline Status (as of 2026-04-26)
+## Pipeline Status (as of 2026-04-27)
 
 | Script | Status | Notes |
 |---|---|---|
@@ -133,7 +136,6 @@ See [[000-Meta/known-issues]] for documented issues.
 
 ## What the Next Session Should Do
 
-1. **U3 Aurora daily memory writes** -- verify or implement automated memory persistence
+1. **Fix Aurora model routing** -- choose approach: A) switch primary to `kimi-k2.6`, B) debug OpenRouter key, or C) replace Groq fallback with higher-throughput model
 2. **U5 Drive webhook + visual preservation** -- design strategy for auto-ingest and chart/image retention
-3. ~~**Aurora Discord test** -- done: switched to kimi-k2.6 after k2.5 returned model_not_found~~
-4. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen
+3. **Genspark MCP setup** -- deferred: UI bug blocks text input in Add New MCP screen

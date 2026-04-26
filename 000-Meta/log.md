@@ -451,3 +451,26 @@ Decisions made: D-001 (convert to MD first), D-007 (processing location strategy
 ### Pending
 - U3: Aurora daily memory writes (unconfirmed status)
 - U5: Drive webhook auto-ingest + visual element preservation (not built)
+
+---
+
+## 2026-04-27 -- Aurora Model Regression Discovered
+
+**Tool:** Claude Code
+**Branch:** claude/caveman-lite-vrjM3
+
+### Accomplished
+- U3 Aurora memory writes fixed: created `memory/` directory, wrote seed file, updated AGENTS.md with daily persistence rules
+- U4 gemini_bridge.py verified operational with OAuth token cache
+- U6 session_capture.py verified operational end-to-end
+
+### Key Findings
+- Aurora primary model `moonshotai/kimi-k2.5` returns "Unknown model" error on OpenRouter
+- Groq fallback rate-limited (6000 TPM vs ~47K needed for brain files)
+- Current behavior: falls back to Gemini Flash Lite with ~20s response times instead of expected ~3s
+- Options to fix: A) switch to kimi-k2.6, B) debug OpenRouter key, C) replace Groq fallback
+
+### Pending
+- Fix Aurora model routing (user decision needed on approach)
+- U5 Drive webhook + visual preservation strategy
+- Genspark MCP setup (UI bug blocks text input)
