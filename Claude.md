@@ -295,8 +295,8 @@ Desktop Claude client on Mac. `/schedule` for scheduled tasks. Only runs when Ma
 
 ## Active Unresolved Problems
 
-### U3: Aurora Memory Writes Unconfirmed [P1]
-Daily memory files (`/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`) are the intended mechanism for cross-session context. Unconfirmed whether Aurora is actively writing or reading them. Check for recent files; if absent, add explicit write instructions to `AGENTS.md`.
+### U3: Aurora Memory Writes Fixed [P1]
+Daily memory files (`/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`) are the intended mechanism for cross-session context. Root cause: `memory/` directory did not exist. Fixed by creating directory, writing seed `2026-04-26.md`, and adding explicit daily persistence rules to `AGENTS.md`.
 
 ### U4: Gemini Google Docs Bridge [P2]
 Architecture designed; zero code written. Two Google Docs (Inbox + Context). Bridge script reads vault → populates Context doc → monitors Inbox doc for Gemini outputs → ingests back to vault.
