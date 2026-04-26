@@ -236,6 +236,7 @@
   },
   "active": "4e94a1898a6a3ca0",
   "lastOpenFiles": [
+    "Scripts/__pycache__/gemini_bridge.cpython-312.pyc",
     "Scripts/__pycache__/session_capture.cpython-312.pyc",
     "Scripts/__pycache__",
     "Scripts/session_capture.py",
@@ -269,7 +270,6 @@
     "Wiki/entities",
     "Wiki/concepts",
     "Wiki/Topics",
-    "Wiki/Tools",
     "CLAUDE.md",
     "Test.md"
   ]
