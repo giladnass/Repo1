@@ -49,10 +49,10 @@ sudo -u openclaw bash -c 'export PATH=/home/openclaw/.npm-global/bin:$PATH && op
 
 **Model config:**
 - `models.mode=replace` — auto-discovery disabled. Non-negotiable.
-- Primary: `openrouter/moonshotai/kimi-k2.6` via OpenRouter (200k ctx)
+- Primary: `openrouter/google/gemini-2.5-flash-lite` via OpenRouter — fast, reliable, large context
+- Fallback: `openrouter/moonshotai/kimi-k2.6` (200k ctx) — intermittent timeout on large context (>60K tokens), kept as fallback
   - **Must include `openrouter/` prefix.** Bare `moonshotai/kimi-k2.6` fails because OpenClaw cannot resolve provider `moonshotai` (not configured). See KI-007.
-- Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day)
-- Fallback 2: `openrouter/google/gemini-2.5-flash-lite`
+- ~~Fallback 1: `groq/llama-3.1-8b-instant`~~ — REMOVED: rate-limited (6000 TPM), fails on all large-context requests
 - Ollama Cloud models configured but not in active fallback chain: `minimax-m2.5:cloud`, `qwen3.5:cloud`, `glm-5:cloud`
 - Local Ollama models on Netcup retained for future use: `qwen2.5:1.5b`, `deepseek-r1:1.5b`, `llama3.2:latest`
 
