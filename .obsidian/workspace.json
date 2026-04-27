@@ -236,6 +236,7 @@
   },
   "active": "31b6d1b755f81b22",
   "lastOpenFiles": [
+    "Scripts/sync_orchestrator.py",
     "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
     "Working-Context/cross-tool-memory-sync-architecture.md",
     "Scripts/__pycache__/gemini_bridge.cpython-312.pyc",
@@ -270,7 +271,6 @@
     "Wiki/sources",
     "Wiki/entities",
     "Wiki/concepts",
-    "CLAUDE.md",
-    "Test.md"
+    "CLAUDE.md"
   ]
 }
