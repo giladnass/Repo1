@@ -6,6 +6,52 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
+## 2026-04-28 -- Model Routing Fixed, Sync Orchestrator Live, TTS Parked
+
+### What Was Accomplished
+- **Aurora primary model fixed** -- switched from `openrouter/moonshotai/kimi-k2.6` (timeouts on >60K tokens) to `openrouter/google/gemini-2.5-flash-lite` (reliable, large context)
+  - Kimi kept as fallback (works for small context)
+  - Groq fallback removed (6000 TPM limit, fails all large-context requests)
+  - Gateway restarted, confirmed in logs
+  - KI-007 fully resolved -- `openrouter/` prefix requirement documented everywhere
+- **Discord STT enabled and tested** -- Aurora correctly transcribed voice message, identified model config, replied via text
+  - Groq `whisper-large-v3-turbo` media-understanding provider handles preflight audio
+  - Telegram STT also enabled but user deprecating Telegram
+- **Aurora daily memory writes fixed** -- added OpenClaw cron job "Daily Memory Autosave" at `0 21 * * *` CEST
+  - Writes `/home/openclaw/.openclaw/workspace/memory/YYYY-MM-DD.md`
+  - Seed file `2026-04-27.md` created
+  - AGENTS.md updated with explicit daily persistence rules
+- **Cross-tool memory sync orchestrator operational** -- `sync_orchestrator.py` + LaunchAgent `com.giladnass.ai-memory-sync-orchestrator`
+  - 20-minute cadence, captures Claude Code JSONL + Aurora sessions via SSH
+  - Writes drafts to `Working-Context/Drafts/YYYY-MM-DD-HHMM-{tool}.md`
+  - Auto-cleans drafts older than 30 days
+  - Git commit + push + Netcup pull on changes
+  - State tracking via `~/.config/ai-memory-sync/state.json`
+- **U4 gemini_bridge.py verified** -- OAuth working, Context + Inbox Google Docs created, push/pull verified
+- **U6 session_capture.py verified** -- end-to-end tested, auto-capture working
+- **TTS research initiated then parked** -- user wants to self-research Deepgram, ElevenLabs, Google Cloud TTS before choosing provider. espeak-ng rejected (robotic)
+
+### What Needs Human Review
+- TTS provider research -- user will pick provider in future session
+- Monitor Aurora memory writes for 2 more days to confirm cron working
+- Netcup vault sync cron (5-min) -- monitor first few runs after recent changes
+
+### What to Do Next
+1. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
+2. **Monitor Aurora memory writes** -- confirm daily persistence (2 more days)
+3. **Converted-file lifecycle** -- decide save/delete flow for `02-converted/` files
+4. **Genspark MCP setup** -- still blocked by UI bug
+5. **TTS for Aurora** -- PARKED pending user research
+
+### What to Read First Next Session
+Per CLAUDE.md session start protocol:
+1. `000-Meta/MEMORY.md`
+2. `000-Meta/index.md`
+3. `000-Meta/handoff.md`
+4. `Working-Context/knowledge-base-build-plan.md`
+
+---
+
 ## 2026-04-27 -- Aurora Model Routing Fixed, Discord STT Enabled
 
 ### What Was Accomplished
@@ -174,7 +220,7 @@ Per CLAUDE.md session start protocol:
 **Mac vault sync hardening:**
 - `vault-sync.sh` now runs `git pull origin main --rebase` before push
 - LaunchAgent reloaded and verified
-- 02-converted/ cleaned (bm1, bm2 deleted — already in Sources/ and Wiki/)
+- 02-converted/ cleaned (bm1, bm2 deleted -- already in Sources/ and Wiki/)
 
 ### What Needs Human Review
 
@@ -189,9 +235,9 @@ Per CLAUDE.md session start protocol:
 
 ### What to Do Next
 
-1. **Aurora Discord test** — send a message, confirm ~3s response on kimi-k2.5
-2. **Google Drive webhook auto-ingest** — largest remaining unbuilt P3 feature
-3. **Visual element preservation** — charts/images lost during conversion; design strategy
+1. **Aurora Discord test** -- send a message, confirm ~3s response on kimi-k2.5
+2. **Google Drive webhook auto-ingest** -- largest remaining unbuilt P3 feature
+3. **Visual element preservation** -- charts/images lost during conversion; design strategy
 
 ---
 
@@ -227,8 +273,8 @@ Per CLAUDE.md session start protocol:
 
 ### What to Do Next
 
-1. **Aurora model checkup** — verify still on `moonshotai/kimi-k2.5` primary on Netcup
-2. **Clean `02-converted/`** — 26 dirs of dead staging data, originals already in `03-done/`
+1. **Aurora model checkup** -- verify still on `moonshotai/kimi-k2.5` primary on Netcup
+2. **Clean `02-converted/`** -- 26 dirs of dead staging data, originals already in `03-done/`
 3. **Genspark MCP setup** -- AI Browser > wrench icon > Add New MCP Server, paste endpoint URL
 4. **Manus MCP status** -- check Relay bot update when available
 
