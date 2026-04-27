@@ -10,6 +10,37 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-27 -- Aurora Model Routing Fixed, Discord STT Enabled
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Fixed Aurora primary model routing: `openrouter/moonshotai/kimi-k2.6` -> `openrouter/google/gemini-2.5-flash-lite`
+  - Kimi kept as fallback (intermittent timeout on large context)
+  - Removed broken `groq/llama-3.1-8b-instant` fallback (6000 TPM rate limit)
+  - Gateway restarted, config verified on Netcup
+- Enabled Discord STT: Groq plugin provides `whisper-large-v3-turbo` transcription
+  - Voice message tested successfully on Discord
+  - Aurora transcribed, identified model config, replied via text
+- Updated MEMORY.md, CLAUDE.md, known-issues.md to reflect model changes
+- Confirmed Telegram STT also enabled (user deprecating Telegram for Discord)
+
+### Key Findings
+
+- `kimi-k2.6` times out on >60K token contexts via OpenRouter (408/timeout errors)
+- Groq llama-3.1-8b-instant useless as fallback: 413 Request too large on all agentic contexts
+- Gemini 2.5 Flash Lite is fast and reliable as primary
+
+### Deferred
+
+- Genspark MCP (UI bug)
+- Visual element preservation strategy
+- Cross-tool memory sync architecture (draft exists, user requested approval before build)
+
+---
+
 ## 2026-04-25 -- U1/U2 Resolved, Model Switch, Docs Synced
 
 **Tool:** Claude Code
