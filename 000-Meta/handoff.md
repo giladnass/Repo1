@@ -9,17 +9,22 @@ permalink: ai-memory/000-meta/handoff
 ## 2026-04-27 -- Aurora Model Routing Fixed, Discord STT Enabled
 
 ### What Was Accomplished
-- U4 gemini_bridge.py operational: OAuth authenticated, Context + Inbox Google Docs created, bidirectional sync working
-- U6 session_capture.py operational: extracts Claude Code session JSONL, summarizes, commits to vault
-- U3 Aurora memory writes fixed: created /home/openclaw/.openclaw/workspace/memory/, wrote seed file, updated AGENTS.md with daily persistence rules
-- Aurora model regression resolved: switched primary model to kimi-k2.6 (working), retired broken kimi-k2.5
-- Open WebUI removed from roadmap as primary chat UI
+- **Aurora primary model fixed** -- switched from timeout-prone `openrouter/moonshotai/kimi-k2.6` to reliable `openrouter/google/gemini-2.5-flash-lite`
+  - Kimi kept as fallback (works for small context, times out on >60K tokens)
+  - Groq fallback removed (6000 TPM rate limit, fails all large-context requests)
+  - Gateway restarted, config verified
+- **Discord STT enabled and tested** -- Aurora correctly transcribed voice message, identified current model config, replied via text
+  - Same Groq `whisper-large-v3-turbo` media-understanding provider handles Discord preflight-audio
+  - Telegram STT also enabled but user deprecating Telegram in favor of Discord
+- **KI-007 resolved** -- `openrouter/` prefix requirement fully documented in known-issues.md and CLAUDE.md
+- **MEMORY.md and CLAUDE.md synced** -- model routing changes reflected in docs
 
 ### What to Do Next
 1. **U5 Drive webhook auto-ingest** -- design Google Drive -> vault auto-ingest pipeline
-2. **Genspark MCP setup** -- still blocked by UI bug in Add New MCP screen
+2. **Monitor Aurora memory writes** -- confirm daily persistence working (3-day observation)
 3. **Converted-file lifecycle** -- decide save/delete flow for 02-converted/ files
-4. **Monitor Aurora memory writes** -- confirm daily persistence working for 3 days
+4. **Cross-tool memory sync** -- draft architecture exists, awaiting user approval
+5. **Genspark MCP setup** -- still blocked by UI bug
 
 ### What to Read First Next Session
 Per CLAUDE.md session start protocol:
