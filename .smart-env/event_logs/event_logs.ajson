@@ -36,3 +36,5 @@
 "event_logs:blocks:cleaned": {"key":"blocks:cleaned","ct":23,"first_at":1775939401842,"last_at":1777271642539,"class_name":"EventLog"},
 "event_logs:embed_model:load_failed": {"key":"embed_model:load_failed","ct":14,"first_at":1776523744642,"last_at":1777271642525,"class_name":"EventLog","event_sources":{"process_embed_queue":14}},
 "event_logs:embedding:error": {"key":"embedding:error","ct":14,"first_at":1776523744642,"last_at":1777271642525,"class_name":"EventLog","event_sources":{"process_embed_queue":14},"muted":true},
+"event_logs:source:initial_scan_started": {"key":"source:initial_scan_started","ct":1,"first_at":1777273038573,"last_at":1777273038573,"class_name":"EventLog","event_sources":{"init_items":1}},
+"event_logs:source:initial_scan_completed": {"key":"source:initial_scan_completed","ct":1,"first_at":1777273038585,"last_at":1777273038585,"class_name":"EventLog","event_sources":{"init_items":1}},
