@@ -148,12 +148,12 @@ def run():
 
 ---
 
-## Open Questions (User to Decide)
+## Decisions (Locked)
 
-1. **Cadence:** Confirm 10 minutes, or prefer 5 / 20?
-2. **Idle threshold:** How many minutes of inactivity = "session ended"? (Suggest 20 min)
-3. **Draft retention:** Keep raw drafts permanently or delete after cold sync? (Suggest delete)
-4. **Manual override:** Should `/sync` command exist in tools for immediate trigger?
+1. **Cadence:** 20 minutes
+2. **Idle threshold:** 20 minutes of inactivity = session ended
+3. **Draft retention:** Keep raw drafts for 30 days in `Working-Context/Drafts/`. Named by timestamp (`YYYY-MM-DD-HHMM-{tool}.md`). Auto-delete after 30 days regardless of use.
+4. **Manual override:** Yes — `/sync` command triggers immediate sync
 
 ---
 
