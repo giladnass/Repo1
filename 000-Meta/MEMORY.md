@@ -136,6 +136,7 @@ See [[000-Meta/known-issues]] for documented issues.
 3. **Review UX** -- custom interface with status buttons (draft -> active), pipeline status display; Amber app noted as possible editor component; Obsidian plugin as alternative
 4. **UX dashboard** -- button-based interface for the full pipeline (convert, summarize, review, commit) with process queue display
 5. **process.py --move-done** -- add cleanup for `02-converted/` after successful processing (mirrors ingest.py behavior)
+6. **TTS for Aurora** -- PARKED (2026-04-28): User researching providers (Deepgram, ElevenLabs, Google Cloud TTS, others). No implementation until provider chosen.
 
 ## What the Next Session Should Do
 
