@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
+                "file": "000-Meta/known-issues.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?"
+              "title": "known-issues"
             }
           }
         ],
@@ -234,8 +234,9 @@
       "audio-recorder:Start/stop recording": false
     }
   },
-  "active": "4e94a1898a6a3ca0",
+  "active": "31b6d1b755f81b22",
   "lastOpenFiles": [
+    "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
     "Working-Context/cross-tool-memory-sync-architecture.md",
     "Scripts/__pycache__/gemini_bridge.cpython-312.pyc",
     "Scripts/__pycache__/session_capture.cpython-312.pyc",
@@ -244,7 +245,6 @@
     "Scripts/gemini_bridge.py",
     "Working-Context/Session-Handoff-2026-04-26.md",
     "Claude.md",
-    "Clippings/למה שיר אהוב משפר את הריכוז יותר משיר מרגיע?.md",
     "Clippings",
     "000-Meta/CLAUDE.md",
     "Working-Context/knowledge-base-build-plan.md",
