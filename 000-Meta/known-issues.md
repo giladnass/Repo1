@@ -105,3 +105,18 @@ The CPU fallback (`--disable_multiprocessing`) was attempted but was too slow to
 `mcp-remote` installed globally at `/home/openclaw/.npm-global/bin/mcp-remote`. Currently in use for basic-memory MCP connection.
 
 **Related:** [[Wiki/openclaw-aurora]]
+
+---
+
+## KI-007 -- Aurora Model Config Prefix Bug
+
+**Status:** Resolved (2026-04-27)
+**System:** OpenClaw / Aurora
+
+**Symptom:** Aurora repeatedly fails with `FailoverError: Unknown model: moonshotai/kimi-k2.6` (and previously k2.5). Fallback chain activates: Groq rate-limits, then falls through to `openrouter/google/gemini-2.5-flash-lite`.
+
+**Root cause:** OpenClaw model IDs must include the provider prefix when the provider is not a built-in/resolvable one. `moonshotai` is not a configured provider in `openclaw.json` -- only `openrouter`, `groq`, and `ollama` are. The model ID `moonshotai/kimi-k2.6` cannot be resolved. The correct ID is `openrouter/moonshotai/kimi-k2.6`, which routes through the OpenRouter provider.
+
+**Resolution:** Changed `agents.defaults.model.primary` from `moonshotai/kimi-k2.6` to `openrouter/moonshotai/kimi-k2.6` in `~/.openclaw/openclaw.json`. Gateway restarted. Log confirms `agent model: openrouter/moonshotai/kimi-k2.6` with no errors since.
+
+**Related:** KI-001, KI-004, [[Wiki/openclaw-aurora]]
