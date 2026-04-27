@@ -38,7 +38,7 @@ permalink: ai-memory/000-meta/memory
 - **U3 Aurora memory writes** -- FIXED: `memory/` directory created, seed file written, AGENTS.md updated with explicit daily persistence rules
 - **U4 gemini_bridge.py operational** -- OAuth working, token cached, Context + Inbox Google Docs created, push/pull verified
 - **U6 session_capture.py operational** -- end-to-end validation complete, auto-capture working
-- **Aurora model regression resolved** -- switched from broken `kimi-k2.5` to working `kimi-k2.6`
+- **Aurora model routing fixed** -- switched primary from timeout-prone `kimi-k2.6` to reliable `gemini-2.5-flash-lite`. Kimi kept as fallback. Groq fallback removed (rate-limited).
 
 ### Aurora / OpenClaw (as of 2026-04-27)
 
