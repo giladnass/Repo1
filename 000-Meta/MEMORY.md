@@ -96,7 +96,7 @@ See [[000-Meta/known-issues]] for documented issues.
 - KI-002/KI-003: Minor OpenClaw issues, see known-issues.md
 - KI-005: Marker suspended (Apple Silicon MPS bug) -- pymupdf4llm used instead
 - **KI-006 PARTIALLY RESOLVED** (2026-04-25): OpenClaw v2026.4.24 surfaces MCP tools natively. mcporter fallback still documented but no longer required for basic-memory access.
-- **KI-007 RESOLVED** (2026-04-27): Aurora model fixed -- switched from broken `kimi-k2.5` to working `kimi-k2.6`.
+- **KI-007 RESOLVED** (2026-04-27): Aurora model fixed -- `moonshotai/kimi-k2.5` and `moonshotai/kimi-k2.6` both fail because OpenClaw cannot resolve provider `moonshotai` (no such provider configured). Fix: prefix with `openrouter/` → `openrouter/moonshotai/kimi-k2.6`. Gateway restarted, confirmed in logs.
 
 ## Pipeline Status (as of 2026-04-27)
 
