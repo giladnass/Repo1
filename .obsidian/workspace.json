@@ -236,6 +236,7 @@
   },
   "active": "31b6d1b755f81b22",
   "lastOpenFiles": [
+    "Working-Context/Drafts/2026-04-27-2144-claude.md",
     "Working-Context/Drafts/2026-04-27-2142-claude.md",
     "Working-Context/Drafts",
     "Scripts/sync_orchestrator.py",
@@ -270,7 +271,6 @@
     "000-Meta/decisions.md",
     "CLAUDE.md.md",
     "Wiki/Entities",
-    "Wiki/sources",
-    "CLAUDE.md"
+    "Wiki/sources"
   ]
 }
