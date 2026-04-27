@@ -6,7 +6,7 @@ created: 2026-04-20
 permalink: ai-memory/000-meta/handoff
 ---
 
-## 2026-04-27 -- Aurora Model Fixed, U4 U6 Completed
+## 2026-04-27 -- Aurora Model Routing Fixed, Discord STT Enabled
 
 ### What Was Accomplished
 - U4 gemini_bridge.py operational: OAuth authenticated, Context + Inbox Google Docs created, bidirectional sync working
