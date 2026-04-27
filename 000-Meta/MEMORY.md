@@ -42,7 +42,8 @@ permalink: ai-memory/000-meta/memory
 
 ### Aurora / OpenClaw (as of 2026-04-27)
 
-- Primary model: `moonshotai/kimi-k2.6` via OpenRouter -- **WORKING** (200k ctx)
+- Primary model: `openrouter/moonshotai/kimi-k2.6` via OpenRouter -- **WORKING** (200k ctx)
+  - **CRITICAL:** Model ID must include `openrouter/` prefix. Bare `moonshotai/kimi-k2.6` fails with "Unknown model" because OpenClaw cannot resolve provider `moonshotai`.
 - Fallback 1: `groq/llama-3.1-8b-instant` (14,400 req/day) -- rate-limited: 6000 TPM vs ~47K needed
 - Fallback 2: `openrouter/google/gemini-2.5-flash-lite` -- fallback only
 - Channels: Discord (active, groupPolicy=allowlist) + Telegram (active)
