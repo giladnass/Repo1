@@ -112,6 +112,7 @@ See [[000-Meta/known-issues]] for documented issues.
 | `Scripts/transcribe.py` | Operational | faster-whisper on Netcup, deployed + tested |
 | `Scripts/gemini_bridge.py` | Operational | OAuth working, Context + Inbox Google Docs created |
 | `Scripts/session_capture.py` | Operational | Tested end-to-end, updates handoff/log/MEMORY |
+| `Scripts/sync_orchestrator.py` | Operational | LaunchAgent: `com.giladnass.ai-memory-sync-orchestrator`, 20min cadence, captures Claude + Aurora drafts |
 
 ### Staging Folder Structure (Mac)
 
