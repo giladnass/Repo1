@@ -8,7 +8,7 @@ permalink: ai-memory/000-meta/memory
 
 # Persistent Context
 
-*Last updated: 2026-04-27 -- Claude Code, session: Aurora model fixed, U4 U6 completed*
+*Last updated: 2026-04-27 -- Claude Code, session: Aurora model routing fixed, STT enabled*
 
 ---
 
