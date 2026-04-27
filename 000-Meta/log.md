@@ -10,6 +10,29 @@ permalink: ai-memory/000-meta/log
 
 ---
 
+## 2026-04-27 -- Cross-Tool Memory Sync Orchestrator Implemented
+
+**Tool:** Claude Code
+**Branch:** main
+
+### Accomplished
+
+- Built `Scripts/sync_orchestrator.py` — captures hot-sync drafts from Claude Code and Aurora every 20 minutes
+- LaunchAgent `com.giladnass.ai-memory-sync-orchestrator` loaded and running (PID 29020)
+- Drafts written to `Working-Context/Drafts/YYYY-MM-DD-HHMM-{tool}.md`
+- Auto-deletes drafts older than 30 days
+- Commits and pushes on change; triggers Netcup vault pull
+- Tested: captured 1609 turns on first run, 18 on second (state tracking works)
+- Architecture decisions locked: 20min cadence, 20min idle threshold, 30-day retention, `/sync` manual override
+
+### Files Changed
+
+- `Scripts/sync_orchestrator.py` (new)
+- `Working-Context/cross-tool-memory-sync-architecture.md` (updated)
+- `~/Library/LaunchAgents/com.giladnass.ai-memory-sync-orchestrator.plist` (new)
+
+---
+
 ## 2026-04-27 -- Aurora Model Routing Fixed, Discord STT Enabled
 
 **Tool:** Claude Code
