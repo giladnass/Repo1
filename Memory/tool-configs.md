@@ -10,7 +10,7 @@ permalink: ai-memory/memory/tool-configs
 
 ## Shared Memory Pool: Connection Status
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-28*
 
 The vault (this repo) is the shared memory. basic-memory MCP is the access layer. Tools that connect to the MCP endpoint read and write to the same vault.
 
@@ -28,6 +28,7 @@ The vault (this repo) is the shared memory. basic-memory MCP is the access layer
 | **ChatGPT** | Limited | Streamable HTTP (Apps/Developer Mode) | Plus/Pro: read-only. Business/Enterprise: full read+write. Settings > Apps > Create. Low priority. |
 | **NotebookLM** | Not connected | No MCP client | Use `notebooklm-mcp` bridge from Claude Code (one-way: Claude queries NotebookLM). No bidirectional path. |
 | **Gemini Web** | Not connected | No MCP client in web UI | No extension model. Use Gemini CLI instead (same model, has MCP). |
+| **Codex CLI** | Configuring | stdio via `mcp-remote` bridge | `npm install -g mcp-remote`. Config in `~/.codex/config.json`. Mac app setup in progress. |
 
 ### MCP Endpoint
 
