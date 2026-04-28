@@ -113,6 +113,40 @@ All tools below are connected via claude.ai MCP settings and available in Claude
 
 ---
 
+## Codex CLI MCP Configuration
+
+**Status:** Configuring (Mac app)
+**Method:** stdio via `mcp-remote` bridge (same pattern as Perplexity)
+
+**Install bridge:**
+```bash
+npm install -g mcp-remote
+```
+
+**Config file:** `~/.codex/config.json`
+
+```json
+{
+  "mcpServers": {
+    "basic-memory": {
+      "command": "mcp-remote",
+      "args": [
+        "https://memory.giladn.com/mcp/ebc69cbd338019004dfd1738a033ced1e22e21ff62a41b41ef0b8caf5d9fb3a5"
+      ]
+    }
+  }
+}
+```
+
+**Verify:**
+```bash
+codex --mcp-list
+```
+
+**Note:** Same `mcp-remote` binary as Perplexity. If already installed globally, reuse it.
+
+---
+
 ## Server-Side (Netcup)
 
 | Service | Type | Access |
