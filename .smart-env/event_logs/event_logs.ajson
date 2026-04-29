@@ -35,3 +35,4 @@
 "event_logs:blocks:cleaned": {"key":"blocks:cleaned","ct":27,"first_at":1775939401842,"last_at":1777399624391,"class_name":"EventLog"},
 "event_logs:embed_model:load_failed": {"key":"embed_model:load_failed","ct":16,"first_at":1776523744642,"last_at":1777399624366,"class_name":"EventLog","event_sources":{"process_embed_queue":16}},
 "event_logs:embedding:error": {"key":"embedding:error","ct":16,"first_at":1776523744642,"last_at":1777399624366,"class_name":"EventLog","event_sources":{"process_embed_queue":16},"muted":true},
+"event_logs:sources:created": {"key":"sources:created","ct":21,"first_at":1775946241132,"last_at":1777410533567,"class_name":"EventLog","event_sources":{"obsidian:vault.create":21}},
