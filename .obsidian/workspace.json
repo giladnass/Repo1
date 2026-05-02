@@ -223,10 +223,16 @@
   },
   "active": "d881f6ce1b97ea23",
   "lastOpenFiles": [
+    "TaskOS/Templates/task.md",
+    "TaskOS/Templates/project.md",
+    "TaskOS/Templates/person.md",
+    "TaskOS/Templates/area.md",
+    "TaskOS/Templates/daily.md",
+    "TaskOS/Templates",
     "TaskOS/Tasks/Waiting/awaiting-tom-review-of-pricing-slide__task_2026-04-25_100000_dd04.md",
-    "TaskOS/Tasks/Someday/draft-cold-outbound-playbook__task_2026-04-20_120000_ee05.md",
     "TaskOS/Tasks/Inbox/prepare-positioning-draft-for-fintech-client__task_2026-05-02_090500_bb02.md",
     "TaskOS/Tasks/Inbox/follow-up-with-dani-on-the-cybersecurity-deck__task_2026-05-02_090000_aa01.md",
+    "TaskOS/Tasks/Someday/draft-cold-outbound-playbook__task_2026-04-20_120000_ee05.md",
     "TaskOS/Tasks/Completed/sent-revised-gtm-narrative-to-maya__task_2026-04-29_180000_ff06.md",
     "TaskOS/Tasks/Active/sales-enablement-outline-for-project-atlas__task_2026-04-29_110000_gg07.md",
     "TaskOS/Tasks/Active/review-investor-narrative-before-sunday__task_2026-04-28_140000_cc03.md",
@@ -246,18 +252,12 @@
     "TaskOS/Daily/2026-05-02.md",
     "TaskOS/Daily",
     "TaskOS/Areas/Client Work.md",
-    "TaskOS/Areas",
     "Working-Context/Drafts/2026-05-02-1942-claude.md",
     "Working-Context/Drafts/2026-05-02-1822-claude.md",
     "Working-Context/Drafts/2026-05-02-1742-claude.md",
     "Working-Context/Drafts/2026-05-02-1722-claude.md",
     "Working-Context/Drafts/2026-05-02-1542-claude.md",
     "Working-Context/Drafts/2026-05-02-1522-claude.md",
-    "Working-Context/Drafts/2026-05-01-1353-claude.md",
-    "Working-Context/Drafts/2026-05-01-1012-claude.md",
-    "Working-Context/Drafts/2026-05-01-0952-claude.md",
-    "Working-Context/Drafts/2026-05-01-0932-claude.md",
-    "Working-Context/Drafts/2026-05-01-0912-claude.md",
-    "Working-Context/Drafts/2026-05-01-0852-claude.md"
+    "Working-Context/Drafts/2026-05-01-1353-claude.md"
   ]
 }
