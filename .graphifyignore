@@ -1,0 +1,37 @@
+# Version control & Obsidian internals
+.git/
+.obsidian/
+.claude/
+.smart-env/
+
+# Graphify output (do not scan itself)
+graphify-out/
+Graphs/
+
+# Templates, tool configs, ephemeral data
+Templates/
+Memory/
+
+# Meta infrastructure (session logs, handoffs, schema definitions)
+000-Meta/log.md
+000-Meta/handoff.md
+000-Meta/MEMORY.md
+000-Meta/CLAUDE.md
+000-Meta/index.md
+
+# Raw unprocessed content
+Inbox/
+Clippings/
+
+# Session captures and drafts (ephemeral)
+Working-Context/Drafts/
+Working-Context/Session-Logs/
+Working-Context/Claude-Code-Sessions/
+Working-Context/Codex-Sessions/
+
+# Large raw media (transcripts are already in Markdown under Sources/Transcripts/)
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.avi
