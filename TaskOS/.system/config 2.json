@@ -1,5 +1,0 @@
-{
-  "version": 1,
-  "schema": "taskos.v1",
-  "notes": "Generated/cache files only. Markdown files in TaskOS/Tasks, /Projects, /Areas, /People, /Daily are the source of truth. Anything in this folder is regeneratable."
-}
