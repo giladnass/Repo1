@@ -205,6 +205,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "task-os:Open TaskOS": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -222,6 +223,21 @@
   },
   "active": "d881f6ce1b97ea23",
   "lastOpenFiles": [
+    "TaskOS/Tasks 3/Someday",
+    "TaskOS/Tasks 3/Waiting",
+    "TaskOS/Tasks 3/Active",
+    "TaskOS/Tasks 3/Inbox",
+    "TaskOS/Tasks 3/Completed",
+    "TaskOS/Tasks 3",
+    "TaskOS/Projects 4/Fintech Positioning.md",
+    "TaskOS/Projects 4/Cybersecurity GTM.md",
+    "TaskOS/Projects 4",
+    "TaskOS/People 4/Tom.md",
+    "TaskOS/People 4/Maya.md",
+    "TaskOS/People 4/Dani.md",
+    "TaskOS/People 4",
+    "TaskOS/Daily 4/2026-05-02.md",
+    "TaskOS/Daily 4",
     "TaskOS/Templates/task.md",
     "TaskOS/Templates/project.md",
     "TaskOS/Templates/person.md",
@@ -241,22 +257,7 @@
     "TaskOS/People/Dani.md",
     "TaskOS/Daily/2026-05-02.md",
     "TaskOS/Areas/Client Work.md",
-    "Working-Context/Drafts/2026-05-02-1942-claude.md",
-    "Working-Context/Drafts/2026-05-02-1822-claude.md",
-    "Working-Context/Drafts/2026-05-02-1742-claude.md",
-    "Working-Context/Drafts/2026-05-02-1722-claude.md",
-    "Working-Context/Drafts/2026-05-02-1542-claude.md",
-    "Working-Context/Drafts/2026-05-02-1522-claude.md",
-    "Working-Context/Drafts/2026-05-01-1353-claude.md",
     "Graphs",
-    "TaskOS/Tasks/Completed",
-    "TaskOS/Tasks/Active",
-    "TaskOS/Tasks/Inbox",
-    "TaskOS/Tasks/Someday",
-    "TaskOS/Tasks/Waiting",
-    "TaskOS/Areas",
-    "TaskOS/Tasks",
-    "TaskOS/Daily",
-    "TaskOS/People"
+    "TaskOS/Tasks/Completed"
   ]
 }
