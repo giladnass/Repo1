@@ -205,7 +205,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "task-os:Open TaskOS": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
