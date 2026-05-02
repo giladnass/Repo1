@@ -14,3 +14,10 @@ Scripts/
 
 # Lock files
 *.lock
+
+# Graphify working output (never commit)
+graphify-out/
+Graphs/graphify-cache/
+Graphs/transcripts/
+Graphs/manifest.json
+Graphs/cost.json

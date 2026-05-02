@@ -44,6 +44,20 @@
               "icon": "lucide-file",
               "title": "CLAUDE"
             }
+          },
+          {
+            "id": "1f6b0b7bd2042c01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Claude.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Claude"
+            }
           }
         ]
       }
@@ -61,7 +75,7 @@
           "type": "file-explorer",
           "state": {
             "sortOrder": "alphabetical",
-            "autoReveal": false
+            "autoReveal": true
           },
           "icon": "lucide-folder-closed",
           "title": "Files"
@@ -207,25 +221,31 @@
   },
   "active": "ab886088ccd05f18",
   "lastOpenFiles": [
+    "Working-Context/cross-tool-memory-sync-architecture.md",
+    "Wiki/adhd-clinical-reference-guide.md",
+    "Templates/wiki-page.md",
+    "Templates/source-note.md",
+    "Templates/session-log.md",
+    "Sources/Seeing Is Believing (Brain Benders) -- Dr_ Gareth Moore -- Lerner Publishing Group, Minneapolis, 2015 -- Lerner Publishing Group, Inc_ -- 9781467763455 -- 370599a59412dd4879adf1ace20fe996 -- Anna’s Archive.md",
+    "Sources/bm2.md",
+    "Sources/Adult-ADHD-Tools-3-Books-in-1-Executive-Functioning-Workbook-Mastering-Concentration-Organization-and-Cleaning-Strengthen-Focus-Memory-And-Emot-AO3H46BjpJ-hTNLL9jiSW-jI-UCvpGnA.md",
+    "Sources/01 Disc 02 Truth About Trust.md",
+    "Memory/tool-configs.md",
+    "Memory/profile.md",
+    "Memory/preferences.md",
+    "000-Meta/MEMORY.md",
+    "000-Meta/log.md",
+    "000-Meta/decisions.md",
+    "000-Meta/CLAUDE.md",
+    "000-Meta/known-issues.md",
+    "000-Meta/handoff.md",
     "Working-Context/Drafts/2026-04-28-2056-claude.md",
     "Working-Context/Drafts/2026-04-28-1936-claude.md",
     "Working-Context/Drafts/2026-04-28-2016-claude.md",
     "Working-Context/Drafts/2026-04-28-2036-claude.md",
     "Working-Context/Drafts/2026-04-28-1956-claude.md",
     "Sources/ADHD-APG_Full_Booklet_WEB-DL_Secured_2021-11-09.md",
-    "Sources/01 Disc 02 Truth About Trust.md",
-    "000-Meta/MEMORY.md",
-    "000-Meta/log.md",
-    "000-Meta/known-issues.md",
     "000-Meta/index.md",
-    "000-Meta/handoff.md",
-    "000-Meta/decisions.md",
-    "000-Meta/CLAUDE.md",
-    "2026-04-12.md",
-    "Memory/tool-configs.md",
-    "Memory/profile.md",
-    "Memory/preferences.md",
-    "Sources/wiki-session-knowledge-ingestion-pipeline.md",
-    "Test.md"
+    "2026-04-12.md"
   ]
 }

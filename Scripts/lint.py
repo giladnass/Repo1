@@ -51,7 +51,7 @@ KEBAB_RE = re.compile(r"^(?:\d{4}-\d{2}-\d{2}-?)?[a-z0-9][a-z0-9\-]*\.md$")
 
 STALE_DAYS = 90
 
-SCAN_DIRS = {"Wiki", "Sources", "Memory", "Working-Context", "000-Meta"}
+SCAN_DIRS = {"Wiki", "Sources", "Memory", "Working-Context", "000-Meta", "Graphs"}
 EXCLUDE_FILES = {"CLAUDE.md"}
 # Sources/ filenames are auto-generated from original PDF/doc names and are immutable per D-002
 SKIP_NAMING_DIRS = {"Sources"}
@@ -141,6 +141,10 @@ def check_file(path: Path, vault_root: Path, issues: list[Issue]) -> dict | None
 
     if path.name in EXCLUDE_FILES:
         return None
+
+    # D-010 exemption: machine-generated Graphs/ files skip frontmatter/naming checks
+    if "Graphs" in path.parts:
+        return {}
 
     # --- File naming (D-005) ---
     in_skip_dir = any(part in SKIP_NAMING_DIRS for part in path.parts)

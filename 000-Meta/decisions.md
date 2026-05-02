@@ -161,3 +161,20 @@ See [[Memory/tool-configs]] for the full tool inventory.
 Use Claude API batch endpoint for non-urgent processing (tagging backlogs, summarizing large queues). Real-time interactive sessions use streaming.
 
 **Rationale:** Not every operation needs the best model. Routing decisions at ingest cost fractions of a cent each at Haiku pricing; doing them at Opus pricing would make large-scale ingestion economically unsustainable.
+
+---
+
+## D-010 — Graphify Graph Analysis Layer
+**Date:** 2026-05-02
+**Status:** Active
+
+Add `Graphs/` folder to the vault as a machine-generated artifact directory for the Graphify knowledge-graph pipeline.
+
+**Contents:** `graph.json`, `graph-explorer.html`, `graph-report.md`, and optional Obsidian-exported node/edge pages.
+**Rules:**
+- Files in `Graphs/` are machine-generated and EXEMPT from D-003 frontmatter requirements and D-005 naming conventions.
+- `Graphs/` files must never be manually edited. Edits are overwritten on the next graph build.
+- `Graphs/` is included in Git sync so Netcup can serve `graph.json` via MCP.
+- `graphify-out/` (the working directory cache) is Git-ignored.
+
+**Rationale:** Graphify produces artifacts that are valuable inside Obsidian (interactive explorer, report) but do not conform to authored-content schema. Exempting them preserves lint strictness for human-authored pages while allowing machine output to coexist.
